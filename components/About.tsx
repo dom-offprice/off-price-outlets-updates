@@ -12,7 +12,7 @@ const About: React.FC = () => {
               Quality Clothing For The Whole Family
             </h2>
             <p className="mt-6 text-xl text-gray-600">
-              We are wholesalers bringing you quality clothing for the whole family at amazing prices! Discover new arrivals every week and find your next favorite outfit without breaking the bank.
+              We are wholesalers bringing you clothing directly from brands and other trusted partners at incredible prices. Discover new arrivals every week and find your next favorite outfit without breaking the bank!
             </p>
           </div>
           <div className="mt-10 lg:mt-0 lg:col-span-6">

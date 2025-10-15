@@ -75,7 +75,7 @@ const VisitPage: React.FC<VisitPageProps> = ({ onNavigate }) => {
         <div className="text-center mb-12">
           <h1 className="text-4xl font-extrabold text-brand-dark sm:text-5xl mb-6">Visit Us</h1>
           <div className="w-24 h-1 bg-brand-red mx-auto mb-8"></div>
-          <p className="text-xl text-gray-600">Come see us in person for the best deals!</p>
+          <p className="text-xl text-gray-600">Come see us in person to see what the hype is all about!</p>
         </div>
 
         {/* Store Hours and Location Section */}
