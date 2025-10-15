@@ -72,10 +72,9 @@ const VisitPage: React.FC<VisitPageProps> = ({ onNavigate }) => {
 
       {/* Main Content */}
       <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-extrabold text-brand-dark sm:text-5xl mb-6">Visit Us</h1>
-          <div className="w-24 h-1 bg-brand-red mx-auto mb-8"></div>
-          <p className="text-xl text-gray-600">See what the hype is all about!</p>
+        <div className="text-center mb-6">
+          <h1 className="text-4xl font-extrabold text-brand-dark sm:text-5xl mb-4">Visit Us</h1>
+          <div className="w-24 h-1 bg-brand-red mx-auto mb-4"></div>
         </div>
 
         {/* Store Hours and Location Section */}
