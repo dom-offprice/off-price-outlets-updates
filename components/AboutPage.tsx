@@ -106,7 +106,7 @@ const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
           <div className="bg-white border-2 border-brand-red rounded-lg p-8 mb-8">
             <h3 className="text-2xl font-bold text-brand-dark mb-4">Growing Together</h3>
             <p className="text-lg text-gray-700 leading-relaxed">
-              With the success of our retail store and pop-up events, we're already looking to expand expand locations and host more event sales throughout the region. Whether you're a first-time shopper or a loyal regular, we're here to make sure you always leave with incredible deals and a great experience.
+              With the success of our retail store and pop-up events, we're already looking to expand into more locations and host more event sales throughout the region. Whether you're a first-time shopper or a loyal regular, we're here to make sure you always leave with incredible deals and a great experience.
             </p>
           </div>
 
