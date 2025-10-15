@@ -30,7 +30,7 @@ const VisitPage: React.FC<VisitPageProps> = ({ onNavigate }) => {
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="md:hidden absolute right-4 p-2 rounded-lg border border-gray-300 hover:border-brand-dark hover:bg-gray-50"
-              style={{ top: 'calc(50%)' }}
+              style={{ top: 'calc(50% - 8px)' }}
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 {isMobileMenuOpen ? (
