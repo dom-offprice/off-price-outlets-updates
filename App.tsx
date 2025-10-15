@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -11,6 +11,11 @@ import VisitPage from './components/VisitPage';
 
 const App: React.FC = () => {
   const [currentPage, setCurrentPage] = useState('home');
+
+  // Scroll to top when page changes
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [currentPage]);
 
   const renderPage = () => {
     if (currentPage === 'about') {

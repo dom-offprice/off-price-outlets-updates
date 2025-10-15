@@ -10,7 +10,7 @@ const StoreInfo: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-extrabold text-brand-dark sm:text-4xl">Come Visit Us</h2>
-          <p className="mt-4 text-xl text-gray-600">Find amazing deals in person!</p>
+          <p className="mt-4 text-xl text-gray-600">See what the hype is all about!</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-center">
           {/* Location Card */}
