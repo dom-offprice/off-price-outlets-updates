@@ -45,13 +45,13 @@ const VisitPage: React.FC<VisitPageProps> = ({ onNavigate }) => {
           {/* Mobile Navigation Menu */}
           {isMobileMenuOpen && (
             <div className="md:hidden bg-white border-t border-gray-200 shadow-lg">
-              <div className="px-4 py-4 space-y-2">
+              <div className="px-4 py-4 space-y-1">
                 <button
                   onClick={() => {
                     onNavigate?.('home');
                     setIsMobileMenuOpen(false);
                   }}
-                  className="w-full text-left px-4 py-3 text-lg font-medium text-gray-500 hover:text-brand-dark transition-colors border border-gray-300 rounded-lg hover:border-brand-dark hover:bg-gray-50"
+                  className="w-full text-left px-4 py-4 text-lg font-semibold text-brand-dark hover:text-brand-red transition-colors border-b border-gray-200 hover:border-brand-red"
                 >
                   Home
                 </button>
@@ -60,7 +60,7 @@ const VisitPage: React.FC<VisitPageProps> = ({ onNavigate }) => {
                     onNavigate?.('about');
                     setIsMobileMenuOpen(false);
                   }}
-                  className="w-full text-left px-4 py-3 text-lg font-medium text-gray-500 hover:text-brand-dark transition-colors border border-gray-300 rounded-lg hover:border-brand-dark hover:bg-gray-50"
+                  className="w-full text-left px-4 py-4 text-lg font-semibold text-brand-dark hover:text-brand-red transition-colors border-b border-gray-200 hover:border-brand-red"
                 >
                   About Us
                 </button>
