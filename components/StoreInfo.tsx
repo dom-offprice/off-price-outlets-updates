@@ -1,10 +1,14 @@
 
 import React from 'react';
-import { STORE_ADDRESS, GOOGLE_MAPS_URL, STORE_HOURS } from '../constants';
+import { STORE_ADDRESS, STORE_HOURS } from '../constants';
 import LocationIcon from './icons/LocationIcon';
 import ClockIcon from './icons/ClockIcon';
 
-const StoreInfo: React.FC = () => {
+interface StoreInfoProps {
+  onNavigate?: (page: string) => void;
+}
+
+const StoreInfo: React.FC<StoreInfoProps> = ({ onNavigate }) => {
   return (
     <section id="location" className="py-16 sm:py-24 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -18,16 +22,35 @@ const StoreInfo: React.FC = () => {
             <div className="flex justify-center items-center mx-auto bg-brand-red h-12 w-12 rounded-full">
               <LocationIcon className="h-6 w-6 text-white" />
             </div>
-            <h3 className="mt-6 text-xl font-bold text-brand-dark">Our Address</h3>
-            <p className="mt-2 text-lg text-gray-600">{STORE_ADDRESS}</p>
-            <a
-              href={GOOGLE_MAPS_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-6 inline-block text-brand-red font-semibold hover:underline"
-            >
-              Get Directions &rarr;
-            </a>
+            <h3 className="mt-6 text-xl font-bold text-brand-dark">Our Locations</h3>
+            <div className="mt-4 space-y-6">
+              <div>
+                <p className="text-lg text-gray-600 mb-2">{STORE_ADDRESS}</p>
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    onNavigate?.('visit');
+                  }}
+                  className="inline-block text-brand-red font-semibold hover:underline cursor-pointer bg-transparent border-none p-0"
+                >
+                  Get Directions &rarr;
+                </button>
+              </div>
+              <div>
+                <p className="text-lg text-gray-600 mb-2">410 Universal Drive N, North Haven, CT</p>
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    onNavigate?.('visit');
+                  }}
+                  className="inline-block text-brand-red font-semibold hover:underline cursor-pointer bg-transparent border-none p-0"
+                >
+                  Get Directions &rarr;
+                </button>
+              </div>
+            </div>
           </div>
 
           {/* Hours Card */}

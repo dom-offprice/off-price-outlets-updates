@@ -1,8 +1,12 @@
 
 import React from 'react';
-import { GOOGLE_MAPS_URL, IMAGE_GALLERY } from '../constants';
+import { IMAGE_GALLERY } from '../constants';
 
-const Hero: React.FC = () => {
+interface HeroProps {
+  onNavigate?: (page: string) => void;
+}
+
+const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
   return (
     <div className="relative bg-gray-900">
       <div className="absolute inset-0">
@@ -19,14 +23,12 @@ const Hero: React.FC = () => {
           </p>
         </div>
         <div className="mt-10 max-w-sm mx-auto sm:max-w-none sm:flex sm:justify-center">
-            <a
-              href="https://maps.app.goo.gl/qMgbiTfKSNEUVFs2A"
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              onClick={() => onNavigate?.('visit')}
               className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 border border-transparent text-base font-semibold rounded-md shadow-sm text-brand-dark bg-white hover:bg-gray-100 transition-transform transform hover:scale-105"
             >
               Get Directions
-            </a>
+            </button>
         </div>
       </div>
     </div>

@@ -91,7 +91,7 @@ const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
             <div className="bg-white border border-gray-200 rounded-lg p-6">
               <h3 className="text-xl font-bold text-brand-dark mb-4">Family-Owned</h3>
               <p className="text-gray-700 leading-relaxed">
-                As a family-owned and operated business, we take pride in creating a shopping experience that feels personal and welcoming. Our store is kept clean, organized, and easy to shop, with a friendly staff always ready to help you find the best deals.
+                As a family-owned and operated business, we take pride in creating a shopping experience that feels personal and welcoming. Our stores are kept clean, organized, and easy to shop, with a friendly staff always ready to help you find the best deals.
               </p>
             </div>
           </div>
@@ -106,7 +106,7 @@ const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
           <div className="bg-white border-2 border-brand-red rounded-lg p-8 mb-8">
             <h3 className="text-2xl font-bold text-brand-dark mb-4">Growing Together</h3>
             <p className="text-lg text-gray-700 leading-relaxed">
-              With the success of our retail store and pop-up events, we're already looking to expand into more locations and host more event sales throughout the region. Whether you're a first-time shopper or a loyal regular, we're here to make sure you always leave with incredible deals and a great experience.
+              With the success of our retail stores and pop-up events, we're always looking to expand into more locations and host more event sales throughout the region. Whether you're a first-time shopper or a loyal regular, we're here to make sure you always leave with incredible deals and a great experience.
             </p>
           </div>
 
@@ -138,9 +138,10 @@ const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
             </div>
             <div className="mt-8 md:mt-0 md:order-1">
               <h3 className="text-center text-xl font-bold text-white mb-2">Off Price Outlets</h3>
-              <p className="mt-4 text-center text-base text-gray-400">
-                972 North Colony Road, Wallingford, CT
-              </p>
+              <div className="mt-4 text-center text-base text-gray-400 space-y-1">
+                <p>972 North Colony Road, Wallingford, CT</p>
+                <p>410 Universal Drive N, North Haven, CT</p>
+              </div>
               <p className="mt-4 text-center text-base text-gray-400">
                 &copy; {new Date().getFullYear()} Off Price Outlets. All rights reserved.
               </p>

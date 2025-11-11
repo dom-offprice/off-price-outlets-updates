@@ -21,9 +21,10 @@ const Footer: React.FC = () => {
           </div>
           <div className="mt-8 md:mt-0 md:order-1">
             <h3 className="text-center text-xl font-bold text-white mb-2">Off Price Outlets</h3>
-            <p className="mt-4 text-center text-base text-gray-400">
-              {STORE_ADDRESS}
-            </p>
+            <div className="mt-4 text-center text-base text-gray-400 space-y-1">
+              <p>{STORE_ADDRESS}</p>
+              <p>410 Universal Drive N, North Haven, CT</p>
+            </div>
              <p className="mt-4 text-center text-base text-gray-400">
               &copy; {new Date().getFullYear()} Off Price Outlets. All rights reserved.
             </p>

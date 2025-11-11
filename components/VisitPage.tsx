@@ -108,20 +108,34 @@ const VisitPage: React.FC<VisitPageProps> = ({ onNavigate }) => {
               <div className="flex justify-center items-center bg-brand-red h-12 w-12 rounded-full mr-4">
                 <LocationIcon className="h-6 w-6 text-white" />
               </div>
-              <h2 className="text-2xl font-bold text-brand-dark">Our Location</h2>
+              <h2 className="text-2xl font-bold text-brand-dark">Our Locations</h2>
             </div>
             
-            <div className="text-center">
-              <p className="text-xl text-gray-700 mb-2">{STORE_ADDRESS}</p>
-              <p className="text-lg text-gray-600 mb-4 italic">Movie Theater Plaza, Across From The Former Big Lots Location</p>
-              <a
-                href="https://maps.app.goo.gl/qMgbiTfKSNEUVFs2A"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-brand-red hover:bg-red-700 transition-colors"
-              >
-                Get Directions
-              </a>
+            <div className="text-center space-y-6">
+              <div>
+                <p className="text-xl text-gray-700 mb-2">{STORE_ADDRESS}</p>
+                <p className="text-lg text-gray-600 mb-3 italic">Movie Theater Plaza, Across From The Former Big Lots Location</p>
+                <a
+                  href="https://maps.app.goo.gl/qMgbiTfKSNEUVFs2A"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-brand-red hover:bg-red-700 transition-colors"
+                >
+                  Get Directions
+                </a>
+              </div>
+              <div>
+                <p className="text-xl text-gray-700 mb-2">410 Universal Drive N, North Haven, CT</p>
+                <p className="text-lg text-gray-600 mb-3 italic">Next to 5 Below and Barnes & Noble</p>
+                <a
+                  href="https://www.google.com/maps/dir/?api=1&destination=410+Universal+Drive+N+%2302A+North+Haven+CT+06473"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-brand-red hover:bg-red-700 transition-colors"
+                >
+                  Get Directions
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -132,8 +146,8 @@ const VisitPage: React.FC<VisitPageProps> = ({ onNavigate }) => {
           {/* Interactive Map */}
           <div className="mt-8">
             <div className="bg-gray-100 rounded-lg p-4 mb-4">
-              <h3 className="text-lg font-semibold text-gray-800 mb-2">Interactive Map</h3>
-              <p className="text-gray-600">Explore the area around our store location</p>
+              <h3 className="text-lg font-semibold text-gray-800 mb-2">Interactive Map - Wallingford Location</h3>
+              <p className="text-gray-600">Explore the area around our Wallingford store location</p>
             </div>
             
             {/* Embedded Google Maps */}
@@ -177,6 +191,56 @@ const VisitPage: React.FC<VisitPageProps> = ({ onNavigate }) => {
                 Open in Apple Maps
               </a>
             </div>
+          </div>
+        </div>
+
+        {/* Interactive Map Section - North Haven Location */}
+        <div className="bg-white rounded-lg shadow-lg p-8 mb-12">
+          <div className="bg-gray-100 rounded-lg p-4 mb-4">
+            <h3 className="text-lg font-semibold text-gray-800 mb-2">Interactive Map - North Haven Location</h3>
+            <p className="text-gray-600">Explore the area around our North Haven store location</p>
+          </div>
+          
+          {/* Embedded Google Maps */}
+          <div className="relative w-full h-96 rounded-lg overflow-hidden shadow-lg">
+            <iframe
+              src="https://maps.google.com/maps?q=410+Universal+Dr+N+%2302A,+North+Haven,+CT+06473&t=&z=16&ie=UTF8&iwloc=&output=embed"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Off Price Outlets North Haven Location Map"
+              className="w-full h-full"
+            ></iframe>
+          </div>
+          
+          {/* Map Action Buttons */}
+          <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+            <a
+              href="https://www.google.com/maps/dir/?api=1&destination=410+Universal+Drive+N+%2302A+North+Haven+CT+06473"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+            >
+              <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+              </svg>
+              Get Directions
+            </a>
+            
+            <a
+              href="https://maps.apple.com/?daddr=410+Universal+Drive+N+%2302A+North+Haven+CT+06473"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center px-6 py-3 bg-gray-800 text-white rounded-lg hover:bg-gray-900 transition-colors"
+            >
+              <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+              </svg>
+              Open in Apple Maps
+            </a>
           </div>
         </div>
 
@@ -224,9 +288,10 @@ const VisitPage: React.FC<VisitPageProps> = ({ onNavigate }) => {
             </div>
             <div className="mt-8 md:mt-0 md:order-1">
               <h3 className="text-center text-xl font-bold text-white mb-2">Off Price Outlets</h3>
-              <p className="mt-4 text-center text-base text-gray-400">
-                972 North Colony Road, Wallingford, CT
-              </p>
+              <div className="mt-4 text-center text-base text-gray-400 space-y-1">
+                <p>972 North Colony Road, Wallingford, CT</p>
+                <p>410 Universal Drive N, North Haven, CT</p>
+              </div>
               <p className="mt-4 text-center text-base text-gray-400">
                 &copy; {new Date().getFullYear()} Off Price Outlets. All rights reserved.
               </p>

@@ -30,10 +30,10 @@ const App: React.FC = () => {
       <div className="bg-white text-brand-dark font-sans">
         <Header onNavigate={setCurrentPage} />
         <main>
-          <Hero />
+          <Hero onNavigate={setCurrentPage} />
           <About />
           <Gallery />
-          <StoreInfo />
+          <StoreInfo onNavigate={setCurrentPage} />
         </main>
         <Footer />
       </div>
