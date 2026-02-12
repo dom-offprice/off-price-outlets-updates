@@ -860,16 +860,16 @@ p {
         flex-direction: row;
     }
     
-    /* Mobile: extend hero so title + buttons visible, add padding below */
+    /* Mobile: extend hero so more image below Get Directions button */
     .hero {
-        height: 58vh;
-        min-height: 380px;
-        padding-bottom: 32px;
+        height: 65vh;
+        min-height: 420px;
+        padding-bottom: 56px;
     }
     
     .hero-content .container {
         padding-top: 16px;
-        padding-bottom: 16px;
+        padding-bottom: 24px;
     }
     
     .hero-title-box {
@@ -952,9 +952,9 @@ p {
     }
     
     .hero {
-        height: 54vh;
-        min-height: 340px;
-        padding-bottom: 28px;
+        height: 62vh;
+        min-height: 380px;
+        padding-bottom: 48px;
     }
     
     .hero-title-box {
