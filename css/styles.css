@@ -914,11 +914,15 @@ p {
     }
     
     section {
-        padding: 60px 0;
+        padding: 60px 0 100px;
     }
     
     .about {
         padding-top: 72px;
+    }
+    
+    body {
+        padding-bottom: 80px;
     }
 }
 
@@ -985,5 +989,13 @@ p {
     .about-focus {
         margin-top: 32px;
         padding: 24px;
+    }
+    
+    section {
+        padding-bottom: 120px;
+    }
+    
+    body {
+        padding-bottom: 100px;
     }
 }
