@@ -860,15 +860,16 @@ p {
         flex-direction: row;
     }
     
-    /* Mobile: trimmed hero, tight spacing, no extra top/bottom whitespace */
+    /* Mobile: extend hero so title + buttons visible, add padding below */
     .hero {
-        height: 44vh;
-        min-height: 300px;
+        height: 58vh;
+        min-height: 380px;
+        padding-bottom: 32px;
     }
     
     .hero-content .container {
-        padding-top: 12px;
-        padding-bottom: 12px;
+        padding-top: 16px;
+        padding-bottom: 16px;
     }
     
     .hero-title-box {
@@ -915,6 +916,10 @@ p {
     section {
         padding: 60px 0;
     }
+    
+    .about {
+        padding-top: 72px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -943,8 +948,9 @@ p {
     }
     
     .hero {
-        height: 42vh;
-        min-height: 280px;
+        height: 54vh;
+        min-height: 340px;
+        padding-bottom: 28px;
     }
     
     .hero-title-box {
