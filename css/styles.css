@@ -230,6 +230,138 @@ p {
     }
 }
 
+/* Desktop only: fill the page – wider container and scaled content */
+@media (min-width: 769px) {
+    .container {
+        max-width: 1600px;
+        padding: 0 48px;
+    }
+    
+    .about {
+        padding: 100px 0;
+    }
+    .about-content {
+        gap: 80px;
+        margin-bottom: 80px;
+    }
+    .about-text h2 {
+        font-size: 2.25rem;
+        margin-bottom: 28px;
+    }
+    .about-text p {
+        font-size: 19px;
+        line-height: 1.85;
+    }
+    .value-props {
+        gap: 48px;
+        margin-top: 80px;
+    }
+    .value-prop {
+        padding: 40px 36px;
+    }
+    .value-icon {
+        width: 72px;
+        height: 72px;
+        margin-bottom: 24px;
+    }
+    .value-prop h3 {
+        font-size: 24px;
+        margin-bottom: 14px;
+    }
+    .value-prop p {
+        font-size: 17px;
+    }
+    .about-focus {
+        margin-top: 60px;
+        padding: 40px 48px;
+    }
+    .about-focus h3 {
+        font-size: 26px;
+        margin-bottom: 18px;
+    }
+    .about-focus p {
+        font-size: 18px;
+        line-height: 1.8;
+    }
+    
+    .upcoming-sales {
+        padding: 100px 0;
+    }
+    .upcoming-sales h2 {
+        margin-bottom: 56px;
+    }
+    .sales-content {
+        gap: 72px;
+    }
+    .sale-info,
+    .social-cta {
+        padding: 48px;
+    }
+    .sale-info h3,
+    .social-cta h3 {
+        font-size: 30px;
+        margin-bottom: 24px;
+    }
+    .sale-date {
+        font-size: 26px;
+    }
+    .sale-hours {
+        font-size: 22px;
+    }
+    .sale-details,
+    .social-cta p {
+        font-size: 18px;
+    }
+    
+    .gallery {
+        padding: 100px 0;
+    }
+    .gallery h2 {
+        margin-bottom: 16px;
+    }
+    .gallery-subtitle {
+        font-size: 22px;
+        margin-bottom: 56px;
+    }
+    .gallery-grid {
+        gap: 32px;
+    }
+    .gallery-item:first-child {
+        height: 480px;
+    }
+    .gallery-item:not(:first-child) {
+        height: 360px;
+    }
+    
+    .testimonials {
+        padding: 100px 0;
+    }
+    .testimonials h2 {
+        margin-bottom: 56px;
+    }
+    .testimonial-card {
+        min-width: 340px;
+        max-width: 380px;
+        padding: 32px 32px 28px 40px;
+    }
+    .testimonial-text {
+        font-size: 18px;
+    }
+    
+    .location {
+        padding: 100px 0;
+    }
+    .location h2 {
+        margin-bottom: 56px;
+    }
+    .location-content {
+        gap: 72px;
+    }
+    .location-map iframe {
+        height: 500px;
+    }
+}
+
 /* Hero Section */
 .hero {
     position: relative;
