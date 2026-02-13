@@ -207,11 +207,11 @@ p {
     transition: var(--transition);
 }
 
-/* Desktop only: larger logo and nav text, compact header (padding stays 5px) */
+/* Desktop only: compact header – no vertical padding, moderate logo size */
 @media (min-width: 769px) {
     .header .container {
-        padding-top: 5px;
-        padding-bottom: 5px;
+        padding-top: 0;
+        padding-bottom: 0;
     }
     .header .logo,
     .header .logo-link {
@@ -220,7 +220,7 @@ p {
         line-height: 0;
     }
     .header .logo img {
-        height: 360px;
+        height: 140px;
         display: block;
         margin: 0;
         vertical-align: top;
