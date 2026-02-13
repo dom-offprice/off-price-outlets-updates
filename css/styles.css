@@ -207,23 +207,38 @@ p {
     transition: var(--transition);
 }
 
-/* Desktop only: compact header – no vertical padding, moderate logo size */
+/* Desktop only: compact header bar, logo fills height (big logo, small header) */
 @media (min-width: 769px) {
     .header .container {
         padding-top: 0;
         padding-bottom: 0;
     }
-    .header .logo,
+    .header-content {
+        min-height: 100px;
+        max-height: 100px;
+        align-items: center;
+    }
+    .header .logo {
+        height: 100%;
+        display: flex;
+        align-items: center;
+    }
     .header .logo-link {
+        height: 100%;
         margin: 0;
         padding: 0;
         line-height: 0;
+        display: flex;
+        align-items: center;
     }
     .header .logo img {
-        height: 250px;
+        height: 100%;
+        width: auto;
+        max-height: 100px;
         display: block;
         margin: 0;
         vertical-align: top;
+        object-fit: contain;
     }
     .nav-menu a {
         font-size: 18px;
