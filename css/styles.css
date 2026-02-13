@@ -200,6 +200,16 @@ p {
     transition: var(--transition);
 }
 
+/* Desktop only: larger logo and nav text (header bar unchanged) */
+@media (min-width: 769px) {
+    .header .logo img {
+        height: 300px;
+    }
+    .nav-menu a {
+        font-size: 18px;
+    }
+}
+
 /* Hero Section */
 .hero {
     position: relative;
