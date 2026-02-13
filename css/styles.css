@@ -815,6 +815,13 @@ p {
         grid-template-columns: 1fr;
     }
     
+    .sale-info,
+    .social-cta {
+        width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+    }
+    
     .location-map {
         margin-top: 0;
     }
