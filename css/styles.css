@@ -543,13 +543,34 @@ p {
 }
 
 .testimonials-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 32px;
-    align-items: stretch;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 24px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-bottom: 12px;
+    scroll-snap-type: x proximity;
+    -webkit-overflow-scrolling: touch;
+}
+
+.testimonials-grid::-webkit-scrollbar {
+    height: 8px;
+}
+
+.testimonials-grid::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.06);
+    border-radius: 4px;
+}
+
+.testimonials-grid::-webkit-scrollbar-thumb {
+    background: var(--primary-red);
+    border-radius: 4px;
 }
 
 .testimonial-card {
+    flex: 0 0 auto;
+    min-width: 320px;
+    max-width: 360px;
     display: flex;
     flex-direction: column;
     background-color: var(--white);
@@ -559,6 +580,7 @@ p {
     position: relative;
     border-left: 4px solid var(--primary-red);
     transition: box-shadow 0.2s ease, transform 0.2s ease;
+    scroll-snap-align: start;
 }
 
 .testimonial-card:hover {
@@ -792,10 +814,6 @@ p {
         gap: 24px;
     }
     
-    .testimonials-grid {
-        grid-template-columns: 1fr;
-    }
-    
     .footer-content {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -984,6 +1002,8 @@ p {
     .social-cta,
     .testimonial-card {
         padding: 24px;
+        min-width: 280px;
+        max-width: 300px;
     }
     
     .about-focus {
