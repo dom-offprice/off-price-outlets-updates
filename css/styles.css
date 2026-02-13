@@ -214,8 +214,8 @@ p {
         padding-bottom: 0;
     }
     .header-content {
-        min-height: 100px;
-        max-height: 100px;
+        min-height: 130px;
+        max-height: 130px;
         align-items: center;
     }
     .header .logo {
@@ -234,7 +234,7 @@ p {
     .header .logo img {
         height: 100%;
         width: auto;
-        max-height: 100px;
+        max-height: 130px;
         display: block;
         margin: 0;
         vertical-align: top;
