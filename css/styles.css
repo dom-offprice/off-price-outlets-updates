@@ -207,14 +207,23 @@ p {
     transition: var(--transition);
 }
 
-/* Desktop only: larger logo and nav text, compact header (minimal top/bottom space) */
+/* Desktop only: larger logo and nav text, compact header (padding stays 5px) */
 @media (min-width: 769px) {
     .header .container {
         padding-top: 5px;
         padding-bottom: 5px;
     }
+    .header .logo,
+    .header .logo-link {
+        margin: 0;
+        padding: 0;
+        line-height: 0;
+    }
     .header .logo img {
         height: 360px;
+        display: block;
+        margin: 0;
+        vertical-align: top;
     }
     .nav-menu a {
         font-size: 18px;
