@@ -957,7 +957,7 @@ p {
     }
     
     body {
-        padding-bottom: 80px;
+        padding-bottom: 0;
     }
 }
 
@@ -1036,6 +1036,6 @@ p {
     }
     
     body {
-        padding-bottom: 100px;
+        padding-bottom: 0;
     }
 }
