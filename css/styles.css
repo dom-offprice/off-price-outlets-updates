@@ -140,6 +140,11 @@ p {
     overflow: visible;
 }
 
+/* Logo hidden in header on all viewports (live site) */
+.header .logo {
+    display: none !important;
+}
+
 .header-content {
     display: flex;
     justify-content: space-between;
@@ -207,38 +212,17 @@ p {
     transition: var(--transition);
 }
 
-/* Desktop only: compact header bar, logo fills height (big logo, small header) */
+/* Desktop only: compact nav bar */
 @media (min-width: 769px) {
     .header .container {
         padding-top: 0;
         padding-bottom: 0;
     }
     .header-content {
-        min-height: 130px;
-        max-height: 130px;
+        min-height: 64px;
+        max-height: none;
         align-items: center;
-    }
-    .header .logo {
-        height: 100%;
-        display: flex;
-        align-items: center;
-    }
-    .header .logo-link {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-        line-height: 0;
-        display: flex;
-        align-items: center;
-    }
-    .header .logo img {
-        height: 100%;
-        width: auto;
-        max-height: 130px;
-        display: block;
-        margin: 0;
-        vertical-align: top;
-        object-fit: contain;
+        justify-content: flex-end;
     }
     .nav-menu a {
         font-size: 18px;
