@@ -140,11 +140,6 @@ p {
     overflow: visible;
 }
 
-/* Logo hidden in header on all viewports (live site) */
-.header .logo {
-    display: none !important;
-}
-
 .header-content {
     display: flex;
     justify-content: space-between;
@@ -212,8 +207,11 @@ p {
     transition: var(--transition);
 }
 
-/* Desktop only: compact nav bar */
+/* Desktop only: no logo in header, compact nav bar */
 @media (min-width: 769px) {
+    .header .logo {
+        display: none;
+    }
     .header .container {
         padding-top: 0;
         padding-bottom: 0;
