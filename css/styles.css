@@ -403,17 +403,19 @@ p {
 
 .hero-title-box {
     display: inline-block;
-    background: rgba(0, 0, 0, 0.45);
-    padding: 24px 32px;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 28px 40px;
     border-radius: 8px;
     margin-bottom: 24px;
     box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+    max-width: 90%;
 }
 
 .hero-title {
-    font-size: clamp(40px, 6vw, 72px);
+    font-size: clamp(28px, 4.5vw, 48px);
     font-weight: 900;
     margin: 0;
+    line-height: 1.25;
     color: var(--white);
     text-transform: uppercase;
     letter-spacing: 0.02em;
@@ -460,6 +462,7 @@ p {
         padding: 18px 40px;
         font-size: 18px;
         min-width: 280px;
+        max-width: 480px;
     }
 }
 
@@ -827,22 +830,16 @@ p {
 .next-sale-box {
     background-color: var(--primary-red);
     color: var(--white);
-    padding: 16px 24px;
+    padding: 20px 28px;
     border-radius: 8px;
     font-weight: 700;
-}
-
-.next-sale-label {
-    display: block;
-    font-size: 14px;
-    letter-spacing: 0.05em;
-    opacity: 0.95;
+    text-align: center;
 }
 
 .next-sale-date {
-    font-size: 22px;
+    font-size: 20px;
     display: block;
-    margin-top: 4px;
+    line-height: 1.4;
 }
 
 .hours p {
