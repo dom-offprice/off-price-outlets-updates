@@ -863,6 +863,12 @@ p {
     line-height: 1.4;
 }
 
+.next-sale-label {
+    display: block;
+    font-size: 18px;
+    margin-top: 4px;
+}
+
 .hours p {
     font-size: 16px;
     line-height: 1.8;
