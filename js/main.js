@@ -2,7 +2,7 @@
 
 // Social follow modal
 const socialModal = document.getElementById('social-modal');
-const openSocialModalBtn = document.getElementById('open-social-modal');
+const openSocialModalBtns = document.querySelectorAll('.open-social-modal-btn');
 const closeSocialModalBtn = document.getElementById('close-social-modal');
 const socialModalBackdrop = document.getElementById('social-modal-backdrop');
 
@@ -22,8 +22,10 @@ function closeSocialModal() {
     }
 }
 
-if (openSocialModalBtn) {
-    openSocialModalBtn.addEventListener('click', openSocialModal);
+if (openSocialModalBtns.length) {
+    openSocialModalBtns.forEach(function(btn) {
+        btn.addEventListener('click', openSocialModal);
+    });
 }
 if (closeSocialModalBtn) {
     closeSocialModalBtn.addEventListener('click', closeSocialModal);
