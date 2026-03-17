@@ -1,5 +1,43 @@
 // Off Price Outlets - Main JavaScript
 
+// Social follow modal
+const socialModal = document.getElementById('social-modal');
+const openSocialModalBtn = document.getElementById('open-social-modal');
+const closeSocialModalBtn = document.getElementById('close-social-modal');
+const socialModalBackdrop = document.getElementById('social-modal-backdrop');
+
+function openSocialModal() {
+    if (socialModal) {
+        socialModal.classList.add('is-open');
+        socialModal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+function closeSocialModal() {
+    if (socialModal) {
+        socialModal.classList.remove('is-open');
+        socialModal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+    }
+}
+
+if (openSocialModalBtn) {
+    openSocialModalBtn.addEventListener('click', openSocialModal);
+}
+if (closeSocialModalBtn) {
+    closeSocialModalBtn.addEventListener('click', closeSocialModal);
+}
+if (socialModalBackdrop) {
+    socialModalBackdrop.addEventListener('click', closeSocialModal);
+}
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && socialModal && socialModal.classList.contains('is-open')) {
+        closeSocialModal();
+    }
+});
+
 // Mobile Navigation Toggle
 const navToggle = document.querySelector('.nav-toggle');
 const navMenu = document.querySelector('.nav-menu');
