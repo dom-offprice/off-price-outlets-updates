@@ -461,7 +461,8 @@ p {
     justify-content: center;
 }
 
-.hero-address-box {
+.hero-address-box,
+.hero-red-box {
     background-color: var(--primary-red);
     color: var(--white);
     padding: 16px 32px;
@@ -480,11 +481,25 @@ p {
         min-width: 280px;
         max-width: 480px;
     }
-    .hero-address-box {
+    .hero-address-box,
+    .hero-red-box {
         padding: 18px 40px;
         font-size: 20px;
         max-width: 480px;
     }
+}
+
+.hero-directions-link {
+    margin-top: 12px;
+    font-size: 14px;
+    color: var(--white);
+    text-decoration: underline;
+    opacity: 0.9;
+}
+
+.hero-directions-link:hover {
+    color: var(--white);
+    opacity: 1;
 }
 
 /* About Section */
@@ -1137,7 +1152,8 @@ p {
         gap: 10px;
     }
     
-    .hero-address-box {
+    .hero-address-box,
+    .hero-red-box {
         padding: 12px 20px;
         font-size: 16px;
         max-width: 95%;
@@ -1224,7 +1240,8 @@ p {
         max-width: 95%;
     }
     
-    .hero-address-box {
+    .hero-address-box,
+    .hero-red-box {
         padding: 10px 16px;
         font-size: 15px;
         max-width: 95%;
