@@ -776,6 +776,59 @@ p {
     color: var(--primary-red);
 }
 
+a.sale-white-box.sale-address-cta {
+    text-decoration: none;
+    color: var(--gray-dark);
+    box-sizing: border-box;
+}
+
+a.sale-white-box.sale-address-cta:hover {
+    color: var(--gray-dark);
+    transform: translateY(-2px);
+}
+
+.sale-address-kicker {
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--primary-red);
+    margin-bottom: 10px;
+}
+
+a.sale-address-cta:hover .sale-address-kicker {
+    color: var(--primary-red-dark);
+}
+
+.sale-address-line {
+    display: block;
+    font-size: 1.15rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--black);
+    line-height: 1.35;
+}
+
+.sale-address-note {
+    display: block;
+    font-size: 0.95rem;
+    font-weight: 600;
+    font-style: italic;
+    color: var(--gray-medium);
+    margin-top: 6px;
+}
+
+.sale-address-hint {
+    display: block;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--gray-medium);
+    margin-top: 14px;
+    letter-spacing: 0.02em;
+    opacity: 0.85;
+}
+
 /* Social follow modal */
 .social-modal {
     position: fixed;

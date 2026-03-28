@@ -40,6 +40,18 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
+// Mid-page address: open Maps (default link) + copy full address on tap/click
+const saleAddressCta = document.getElementById('sale-address-cta');
+if (saleAddressCta) {
+    saleAddressCta.addEventListener('click', function () {
+        const text = saleAddressCta.getAttribute('data-address');
+        if (!text) return;
+        if (navigator.clipboard && window.isSecureContext) {
+            navigator.clipboard.writeText(text).catch(function () {});
+        }
+    });
+}
+
 // Mobile Navigation Toggle
 const navToggle = document.querySelector('.nav-toggle');
 const navMenu = document.querySelector('.nav-menu');
