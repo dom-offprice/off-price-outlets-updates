@@ -4,6 +4,7 @@
 const socialModal = document.getElementById('social-modal');
 const openSocialModalBtns = document.querySelectorAll('.open-social-modal-btn');
 const closeSocialModalBtn = document.getElementById('close-social-modal');
+const dismissSocialModalBtn = document.getElementById('social-modal-dismiss');
 const socialModalBackdrop = document.getElementById('social-modal-backdrop');
 
 function openSocialModal() {
@@ -24,11 +25,17 @@ function closeSocialModal() {
 
 if (openSocialModalBtns.length) {
     openSocialModalBtns.forEach(function(btn) {
-        btn.addEventListener('click', openSocialModal);
+        btn.addEventListener('click', function (e) {
+            e.preventDefault();
+            openSocialModal();
+        });
     });
 }
 if (closeSocialModalBtn) {
     closeSocialModalBtn.addEventListener('click', closeSocialModal);
+}
+if (dismissSocialModalBtn) {
+    dismissSocialModalBtn.addEventListener('click', closeSocialModal);
 }
 if (socialModalBackdrop) {
     socialModalBackdrop.addEventListener('click', closeSocialModal);
