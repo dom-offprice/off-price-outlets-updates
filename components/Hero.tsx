@@ -18,6 +18,9 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
           <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold tracking-tight text-white" style={{ WebkitFontSmoothing: 'antialiased', MozOsxFontSmoothing: 'grayscale', textRendering: 'optimizeLegibility' }}>
             Brand name clothing. Wholesale prices.
           </h1>
+          <p className="mt-6 text-lg sm:text-2xl font-semibold text-white/95">
+            Next sale: Saturday &amp; Sunday, May 16–17, 2026 · 10 AM – 4 PM · North Haven
+          </p>
         </div>
         <div className="mt-10 max-w-sm mx-auto sm:max-w-none sm:flex sm:justify-center">
             <a
