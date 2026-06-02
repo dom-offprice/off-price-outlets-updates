@@ -19,7 +19,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
             Brand name clothing. Wholesale prices.
           </h1>
           <p className="mt-6 text-lg sm:text-2xl font-semibold text-white/95">
-            Thank you for coming out! Two June sales planned—clothing and footwear. Follow us for dates.
+            Next sale: Saturday & Sunday, June 13–14, 2026 · 10 AM – 4 PM · North Haven
           </p>
         </div>
         <div className="mt-10 max-w-sm mx-auto sm:max-w-none sm:flex sm:justify-center">
