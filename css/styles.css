@@ -368,12 +368,13 @@ p {
 /* Hero Section */
 .hero {
     position: relative;
-    height: 90vh;
-    min-height: 600px;
+    height: auto;
+    min-height: 520px;
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
+    overflow: visible;
+    padding: 56px 0 64px;
 }
 
 .hero-image {
@@ -405,6 +406,14 @@ p {
     z-index: 2;
     text-align: center;
     color: var(--white);
+    width: 100%;
+}
+
+.hero-content .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .hero-title-box {
@@ -479,7 +488,7 @@ p {
     align-items: center;
     gap: 0;
     padding: 20px 28px 22px;
-    max-width: 92%;
+    max-width: min(640px, 94vw);
     text-align: center;
     color: var(--white);
     border-radius: 14px;
@@ -534,8 +543,8 @@ p {
     margin-top: 14px;
     letter-spacing: 0.02em;
     opacity: 0.96;
-    max-width: 20em;
-    line-height: 1.4;
+    max-width: 100%;
+    line-height: 1.5;
 }
 
 .hero-follow-btn {
@@ -560,6 +569,11 @@ p {
 }
 
 @media (min-width: 769px) {
+    .hero {
+        min-height: 560px;
+        padding: 72px 0 80px;
+    }
+
     .hero-cta .btn {
         padding: 18px 40px;
         font-size: 18px;
@@ -572,8 +586,8 @@ p {
         max-width: 480px;
     }
     .hero-red-box {
-        padding: 24px 44px 26px;
-        max-width: 520px;
+        padding: 28px 48px 32px;
+        max-width: 680px;
     }
 }
 
@@ -1548,33 +1562,22 @@ a.sale-address-cta:hover .sale-address-kicker {
         flex-direction: row;
     }
     
-    /* Mobile: extend hero so more image below Get Directions button */
     .hero {
-        height: 65vh;
-        min-height: 420px;
-        padding-bottom: 56px;
+        height: auto;
+        min-height: 0;
+        padding: 36px 0 52px;
     }
     
     .hero-content .container {
-        padding-top: 16px;
-        padding-bottom: 24px;
-    }
-    
-    .hero-title-box {
-        padding: 12px 16px;
-        margin-bottom: 12px;
-        max-width: 95%;
-    }
-    
-    .hero-title {
-        font-size: 22px;
-        line-height: 1.2;
+        padding-top: 8px;
+        padding-bottom: 8px;
     }
     
     .hero-cta {
         flex-direction: column;
         align-items: center;
-        gap: 10px;
+        gap: 14px;
+        width: 100%;
     }
     
     .hero-address-box {
@@ -1584,13 +1587,13 @@ a.sale-address-cta:hover .sale-address-kicker {
     }
 
     .hero-red-box {
-        padding: 14px 18px 16px;
-        max-width: 95%;
+        padding: 16px 20px 18px;
+        max-width: min(640px, 96vw);
     }
     
     .hero-cta .btn {
         width: auto;
-        max-width: 260px;
+        max-width: 280px;
         min-width: 0;
         padding: 12px 20px;
         font-size: 14px;
@@ -1658,15 +1661,9 @@ a.sale-address-cta:hover .sale-address-kicker {
     }
     
     .hero {
-        height: 62vh;
-        min-height: 380px;
-        padding-bottom: 48px;
-    }
-    
-    .hero-title-box {
-        padding: 10px 14px;
-        margin-bottom: 10px;
-        max-width: 95%;
+        height: auto;
+        min-height: 0;
+        padding: 28px 0 44px;
     }
     
     .hero-address-box {
@@ -1676,23 +1673,14 @@ a.sale-address-cta:hover .sale-address-kicker {
     }
 
     .hero-red-box {
-        padding: 12px 14px 14px;
-        max-width: 95%;
+        padding: 14px 16px 16px;
+        max-width: min(640px, 98vw);
     }
     
     .hero-cta .btn {
         padding: 10px 16px;
         font-size: 13px;
-        max-width: 240px;
-    }
-    
-    .hero-title {
-        font-size: 18px;
-        line-height: 1.2;
-    }
-    
-    .hero-subtitle {
-        font-size: 16px;
+        max-width: 260px;
     }
     
     h2 {
