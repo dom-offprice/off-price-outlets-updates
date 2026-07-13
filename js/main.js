@@ -274,16 +274,6 @@ if (copyrightYear) {
 
     updateDuration();
     window.addEventListener('resize', updateDuration);
-
-    carousel.addEventListener('pointerdown', function () {
-        carousel.classList.add('is-paused');
-    });
-    window.addEventListener('pointerup', function () {
-        carousel.classList.remove('is-paused');
-    });
-    carousel.addEventListener('pointerleave', function () {
-        carousel.classList.remove('is-paused');
-    });
 })();
 
 // Console welcome message

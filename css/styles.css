@@ -1367,12 +1367,6 @@ a.sale-address-cta:hover .sale-address-kicker {
     animation: testimonials-marquee var(--testimonials-duration, 90s) linear infinite;
 }
 
-.testimonials-carousel:hover .testimonials-track,
-.testimonials-carousel:focus-within .testimonials-track,
-.testimonials-carousel.is-paused .testimonials-track {
-    animation-play-state: paused;
-}
-
 @keyframes testimonials-marquee {
     from {
         transform: translate3d(0, 0, 0);
