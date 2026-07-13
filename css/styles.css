@@ -887,10 +887,11 @@ p {
     font-weight: 600;
     color: var(--gray-dark);
     margin: 36px auto 0;
-    max-width: 680px;
+    max-width: 720px;
     line-height: 1.65;
     padding-top: 28px;
     border-top: 1px solid rgba(0, 0, 0, 0.08);
+    text-wrap: pretty;
 }
 
 @media (max-width: 800px) {
