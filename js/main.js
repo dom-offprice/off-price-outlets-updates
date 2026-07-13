@@ -249,6 +249,43 @@ if (copyrightYear) {
     copyrightYear.textContent = `© ${currentYear} Off Price Outlets. All rights reserved.`;
 }
 
+// Infinite auto-scrolling testimonials carousel
+(function initTestimonialsCarousel() {
+    const track = document.getElementById('testimonials-track');
+    const carousel = track && track.closest('.testimonials-carousel');
+    if (!track || !carousel) return;
+
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) return;
+
+    const originals = Array.from(track.children);
+    originals.forEach(function (card) {
+        const clone = card.cloneNode(true);
+        clone.setAttribute('aria-hidden', 'true');
+        track.appendChild(clone);
+    });
+
+    function updateDuration() {
+        const shiftWidth = track.scrollWidth / 2;
+        const pixelsPerSecond = 52;
+        const duration = Math.max(45, shiftWidth / pixelsPerSecond);
+        track.style.setProperty('--testimonials-duration', duration + 's');
+    }
+
+    updateDuration();
+    window.addEventListener('resize', updateDuration);
+
+    carousel.addEventListener('pointerdown', function () {
+        carousel.classList.add('is-paused');
+    });
+    window.addEventListener('pointerup', function () {
+        carousel.classList.remove('is-paused');
+    });
+    carousel.addEventListener('pointerleave', function () {
+        carousel.classList.remove('is-paused');
+    });
+})();
+
 // Console welcome message
 console.log('%cOff Price Outlets', 'font-size: 24px; font-weight: bold; color: #DC143C;');
 console.log('%cWebsite by Off Price Outlets Team', 'font-size: 12px; color: #666;');
