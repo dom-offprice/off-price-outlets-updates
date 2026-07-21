@@ -83,21 +83,6 @@ document.addEventListener('keydown', function (e) {
     }
 });
 
-// Mid-page address: open Maps + copy address with brief feedback
-const saleAddressCta = document.getElementById('sale-address-cta');
-if (saleAddressCta) {
-    saleAddressCta.addEventListener('click', function () {
-        const text = saleAddressCta.getAttribute('data-address');
-        if (!text || !navigator.clipboard || !window.isSecureContext) return;
-        const original = saleAddressCta.textContent;
-        navigator.clipboard.writeText(text).then(function () {
-            saleAddressCta.textContent = 'Address copied';
-            window.setTimeout(function () {
-                saleAddressCta.textContent = original;
-            }, 1600);
-        }).catch(function () {});
-    });
-}
 
 // Mobile Navigation Toggle
 const navToggle = document.querySelector('.nav-toggle');

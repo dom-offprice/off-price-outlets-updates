@@ -231,7 +231,18 @@ p {
         max-width: 260px;
     }
     .nav-menu a {
-        font-size: 18px;
+        font-size: 16px;
+    }
+}
+
+/* Mid desktop: drop icon row so links + Follow fit cleanly */
+@media (min-width: 769px) and (max-width: 1100px) {
+    .nav-menu .social-nav {
+        display: none;
+    }
+
+    .nav-menu {
+        gap: 16px;
     }
 }
 
@@ -787,7 +798,7 @@ p {
 
 .sale-red-bar {
     color: var(--white);
-    padding: 28px 20px 30px;
+    padding: 14px 16px;
     text-align: center;
     background:
         radial-gradient(ellipse 80% 80% at 50% 0%, rgba(255, 255, 255, 0.12), transparent 55%),
@@ -796,28 +807,29 @@ p {
 }
 
 .sale-red-bar-inner {
-    max-width: 720px;
+    max-width: 920px;
     margin: 0 auto;
 }
 
-.sale-red-bar-kicker {
+.sale-red-bar-line {
+    margin: 0;
     font-family: var(--font-body);
-    font-size: 0.72rem;
-    font-weight: 800;
-    letter-spacing: 0.28em;
-    text-transform: uppercase;
-    opacity: 0.9;
-    margin: 0 0 12px;
+    font-size: clamp(0.95rem, 2.8vw, 1.15rem);
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    line-height: 1.35;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 6px 10px;
 }
 
-.sale-red-bar-dates {
+.sale-red-bar-line strong {
     font-family: var(--font-display);
-    font-size: clamp(2.8rem, 10vw, 4.2rem);
-    line-height: 0.9;
-    letter-spacing: 0.04em;
-    margin: 0;
-    white-space: nowrap;
-    text-shadow: 0 2px 24px rgba(0, 0, 0, 0.18);
+    font-size: clamp(1.35rem, 4vw, 1.7rem);
+    font-weight: 400;
+    letter-spacing: 0.06em;
 }
 
 .sale-red-bar-time {
@@ -3242,12 +3254,12 @@ body.has-sticky-sale {
     }
 
     .hero-brand {
-        font-size: clamp(2.05rem, 9.5vw, 2.55rem);
-        margin-bottom: 6px;
+        font-size: clamp(1.95rem, 9vw, 2.4rem);
+        margin-bottom: 4px;
     }
 
     .hero-event-dates {
-        font-size: clamp(5.2rem, 24vw, 6.4rem);
+        font-size: clamp(4.6rem, 22vw, 5.8rem);
     }
 
     .hero-event-time {
@@ -3466,17 +3478,9 @@ body.has-sticky-sale {
         padding-bottom: 14px;
     }
 
-    /* Sale band */
+    /* Sale band — keep as a slim confirmation strip */
     .sale-red-bar {
-        padding: 44px 24px 48px;
-    }
-
-    .sale-red-bar-dates {
-        font-size: clamp(4rem, 6vw, 5.4rem);
-    }
-
-    .sale-red-bar-time {
-        font-size: 1.85rem;
+        padding: 16px 24px;
     }
 
     .visit-panel-map,
