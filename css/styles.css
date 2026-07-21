@@ -2692,14 +2692,31 @@ p {
     border: 0;
     background: #111;
     z-index: 2;
+    /* Let our tap layer own play/pause; keeps video framed to the phone */
+    pointer-events: none;
 }
 
+.reel-tap {
+    position: absolute;
+    inset: 0;
+    z-index: 4;
+    display: none;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+}
+
+.reel.is-playing .reel-tap {
+    display: block;
+}
 
 .reel-play {
     position: absolute;
     top: 50%;
     left: 50%;
-    z-index: 3;
+    z-index: 5;
     width: 54px;
     height: 54px;
     padding: 0;
@@ -2731,6 +2748,16 @@ p {
 
 .reel.is-playing .reel-play {
     opacity: 0;
+    pointer-events: none;
+}
+
+.reel.is-playing.is-paused .reel-play {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.reel.is-playing.is-paused .reel-cover {
+    opacity: 0.35;
     pointer-events: none;
 }
 

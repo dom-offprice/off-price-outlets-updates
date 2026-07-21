@@ -491,15 +491,54 @@ if (copyrightYear) {
 
     processTikTokEmbeds();
 
+    function extractTikTokId(src) {
+        if (!src) return null;
+        var match = String(src).match(/\/(?:embed\/v2|player\/v1|video)\/(\d+)/);
+        return match ? match[1] : null;
+    }
+
+    function tikTokPlayerSrc(videoId) {
+        // Official player: full video in-frame (not the zoomed embed/v2 chrome crop)
+        return (
+            'https://www.tiktok.com/player/v1/' +
+            videoId +
+            '?autoplay=1&loop=1&music_info=0&description=0&controls=0&progress_bar=0' +
+            '&play_button=0&volume_control=0&fullscreen_button=0&timestamp=0&rel=0' +
+            '&native_context_menu=0&closed_caption=0'
+        );
+    }
+
+    function postTikTokPlayer(iframe, type) {
+        if (!iframe || !iframe.contentWindow) return;
+        iframe.contentWindow.postMessage(
+            { type: type, 'x-tiktok-player': true },
+            '*'
+        );
+    }
+
+    function ensureTapLayer(screen) {
+        var tap = screen.querySelector('.reel-tap');
+        if (tap) return tap;
+        tap = document.createElement('button');
+        tap.type = 'button';
+        tap.className = 'reel-tap';
+        tap.setAttribute('aria-label', 'Pause video');
+        screen.appendChild(tap);
+        return tap;
+    }
+
     function loadTikTokEmbed(reel) {
-        if (!reel || reel.classList.contains('is-playing')) return;
         var src = reel.getAttribute('data-embed-src');
         var screen = reel.querySelector('.reel-screen');
-        if (!src || !screen) return;
+        var videoId = extractTikTokId(src);
+        if (!videoId || !screen) return null;
+
+        var existing = screen.querySelector('.reel-frame');
+        if (existing) return existing;
 
         var iframe = document.createElement('iframe');
         iframe.className = 'reel-frame';
-        iframe.src = src;
+        iframe.src = tikTokPlayerSrc(videoId);
         iframe.title = (reel.querySelector('.reel-title') || {}).textContent || 'TikTok video';
         iframe.setAttribute('loading', 'lazy');
         iframe.setAttribute('allowfullscreen', '');
@@ -509,16 +548,56 @@ if (copyrightYear) {
         );
         iframe.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
         screen.appendChild(iframe);
+        ensureTapLayer(screen);
         reel.classList.add('is-playing');
+        reel.classList.remove('is-paused');
+        return iframe;
     }
 
     var reels = document.querySelectorAll('.reel[data-embed-platform="tt"]');
     reels.forEach(function (reel) {
         var playBtn = reel.querySelector('.reel-play');
-        if (!playBtn) return;
+        var screen = reel.querySelector('.reel-screen');
+        if (!playBtn || !screen) return;
+
+        function play() {
+            var iframe = loadTikTokEmbed(reel) || screen.querySelector('.reel-frame');
+            if (!iframe) return;
+            postTikTokPlayer(iframe, 'play');
+            reel.classList.add('is-playing');
+            reel.classList.remove('is-paused');
+            var tap = ensureTapLayer(screen);
+            tap.setAttribute('aria-label', 'Pause video');
+        }
+
+        function pause() {
+            var iframe = screen.querySelector('.reel-frame');
+            if (!iframe) return;
+            postTikTokPlayer(iframe, 'pause');
+            reel.classList.add('is-paused');
+            var tap = screen.querySelector('.reel-tap');
+            if (tap) tap.setAttribute('aria-label', 'Play video');
+        }
+
         playBtn.addEventListener('click', function (e) {
             e.preventDefault();
-            loadTikTokEmbed(reel);
+            e.stopPropagation();
+            if (!reel.classList.contains('is-playing') || reel.classList.contains('is-paused')) {
+                play();
+            } else {
+                pause();
+            }
+        });
+
+        screen.addEventListener('click', function (e) {
+            if (e.target === playBtn || playBtn.contains(e.target)) return;
+            if (!reel.classList.contains('is-playing')) return;
+            e.preventDefault();
+            if (reel.classList.contains('is-paused')) {
+                play();
+            } else {
+                pause();
+            }
         });
     });
 
