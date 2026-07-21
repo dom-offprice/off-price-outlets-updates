@@ -869,10 +869,11 @@ p {
 }
 
 .sale-deals-wrap {
-    padding: 40px 20px 44px;
+    padding: 44px 20px 44px;
     background:
         radial-gradient(ellipse 70% 55% at 50% 0%, rgba(220, 20, 60, 0.07), transparent 70%),
         var(--white);
+    border-top: 4px solid var(--primary-red);
     border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 }
 
@@ -978,7 +979,9 @@ p {
 }
 
 .sale-deals-accessories {
-    margin: 20px 0 0;
+    margin: 18px 0 0;
+    padding-top: 14px;
+    border-top: 1px solid rgba(0, 0, 0, 0.07);
     font-size: 0.98rem;
     font-weight: 600;
     color: var(--gray-medium);
@@ -3228,7 +3231,7 @@ body.has-sticky-sale {
 @media (max-width: 768px) {
     .hero--event {
         min-height: auto;
-        padding: 72px 0 max(22px, env(safe-area-inset-bottom));
+        padding: 64px 0 max(18px, env(safe-area-inset-bottom));
     }
 
     .hero--event .hero-image img {
@@ -3254,76 +3257,98 @@ body.has-sticky-sale {
     }
 
     .hero-brand {
-        font-size: clamp(1.95rem, 9vw, 2.4rem);
-        margin-bottom: 4px;
+        font-size: clamp(1.85rem, 8.5vw, 2.25rem);
+        margin-bottom: 2px;
     }
 
     .hero-event-dates {
-        font-size: clamp(4.6rem, 22vw, 5.8rem);
+        font-size: clamp(4.2rem, 20vw, 5.4rem);
     }
 
     .hero-event-time {
-        margin-top: 12px;
-        font-size: clamp(1.35rem, 6.2vw, 1.7rem);
+        margin-top: 8px;
+        font-size: clamp(1.25rem, 5.6vw, 1.55rem);
         max-width: none;
     }
 
     .hero-event-line {
-        margin-top: 8px;
-        font-size: 1.05rem;
-        max-width: 32ch;
+        margin-top: 6px;
+        font-size: 1rem;
+        max-width: 30ch;
+        line-height: 1.35;
     }
 
     .hero-price-rail {
         max-width: none;
-        margin-top: 16px;
+        margin-top: 12px;
         border-radius: 12px;
     }
 
     .hero-price-rail li {
-        padding: 12px 10px 11px;
+        padding: 10px 8px 9px;
     }
 
     .hero-price-rail span {
-        font-size: 0.72rem;
+        font-size: 0.7rem;
     }
 
     .hero-price-rail strong {
-        font-size: 1.4rem;
+        font-size: 1.3rem;
     }
 
     .hero-actions {
-        flex-direction: column;
-        margin-top: 12px;
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin-top: 10px;
         gap: 8px;
     }
 
-.hero-action-primary,
+    .hero-action-primary,
     .hero-action-secondary {
-        width: 100%;
+        flex: 1 1 calc(50% - 4px);
+        min-width: 140px;
         display: flex;
         align-items: center;
         justify-content: center;
         text-align: center;
-        padding: 14px 16px;
-        font-size: 1rem;
-        min-height: 48px;
+        padding: 12px 14px;
+        font-size: 0.95rem;
+        min-height: 46px;
         max-width: none;
     }
 
     .hero-countdown {
-        margin-top: 10px;
+        margin-top: 8px;
         max-width: none;
-        padding: 10px 10px 9px;
+        padding: 8px 8px 7px;
     }
 
     .hero-countdown-label {
-        font-size: 0.8rem;
-        margin-bottom: 2px;
+        font-size: 0.75rem;
+        margin-bottom: 1px;
     }
 
     .hero-countdown-unit strong {
-        font-size: 1.4rem;
+        font-size: 1.25rem;
+    }
+
+    .hero-countdown-unit em {
+        font-size: 0.62rem;
+    }
+
+    /* Social: shorter mobile path */
+    .social-proof-subtitle--more,
+    .reel-rail--more {
+        display: none;
+    }
+
+    .reel-rail--customers .reel:nth-child(n + 4) {
+        display: none;
+    }
+
+    .giveaway-spotlight {
+        margin-top: 28px;
+        padding: 22px 18px;
     }
 }
 
