@@ -303,7 +303,9 @@ if (copyrightYear) {
     function setCountdownMessage(message) {
         mode = 'message';
         countdownEl.classList.add('is-message');
-        countdownEl.innerHTML = '<span class="hero-countdown-label">' + message + '</span>';
+        countdownEl.innerHTML =
+            '<span class="hero-countdown-label">' + message + '</span>' +
+            '<span class="visually-hidden" id="sale-countdown-live" aria-live="polite"></span>';
     }
 
     function ensureTimerShell() {
@@ -320,7 +322,8 @@ if (copyrightYear) {
             '<span class="hero-countdown-unit" data-unit="mins"><strong>00</strong><em>min</em></span>' +
             '<span class="hero-countdown-sep" aria-hidden="true">:</span>' +
             '<span class="hero-countdown-unit hero-countdown-unit--secs" data-unit="secs"><strong>00</strong><em>sec</em></span>' +
-            '</span>';
+            '</span>' +
+            '<span class="visually-hidden" id="sale-countdown-live" aria-live="polite"></span>';
     }
 
     function announce(text, minuteKey) {

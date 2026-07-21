@@ -3066,6 +3066,14 @@ body.nav-open {
     gap: 0;
 }
 
+.hero-copy {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    min-width: 0;
+}
+
 .hero--event .hero-content .container {
     align-items: flex-start;
 }
@@ -3306,6 +3314,11 @@ body.nav-open {
     .hero-countdown-unit strong.is-tick {
         animation: none;
     }
+
+    .hero--event .hero-image img {
+        animation: none;
+        transform: none;
+    }
 }
 
 .hero-cta.is-ready .hero-brand,
@@ -3318,12 +3331,13 @@ body.nav-open {
     animation: hero-rise 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
-.hero-cta.is-ready .hero-event-dates { animation-delay: 0.06s; }
-.hero-cta.is-ready .hero-event-time { animation-delay: 0.12s; }
-.hero-cta.is-ready .hero-event-line { animation-delay: 0.18s; }
-.hero-cta.is-ready .hero-price-rail { animation-delay: 0.24s; }
-.hero-cta.is-ready .hero-actions { animation-delay: 0.3s; }
-.hero-cta.is-ready .hero-countdown { animation-delay: 0.36s; }
+.hero-cta.is-ready .hero-brand { animation-delay: 0.02s; }
+.hero-cta.is-ready .hero-event-dates { animation-delay: 0.08s; }
+.hero-cta.is-ready .hero-event-time { animation-delay: 0.14s; }
+.hero-cta.is-ready .hero-event-line { animation-delay: 0.2s; }
+.hero-cta.is-ready .hero-price-rail { animation-delay: 0.26s; }
+.hero-cta.is-ready .hero-actions { animation-delay: 0.32s; }
+.hero-cta.is-ready .hero-countdown { animation-delay: 0.18s; }
 
 /* Proof strip */
 .proof-strip {
@@ -3579,83 +3593,98 @@ body.has-sticky-sale {
         letter-spacing: 0.02em;
     }
 
-    /* Hero: left-weighted copy, photo lives on the right */
+    /* Hero: split — copy left, countdown right, photo breathes center-right */
     .hero--event {
-        min-height: min(86vh, 820px);
+        min-height: min(88vh, 860px);
         align-items: center;
-        padding: 108px 0 88px;
+        padding: 108px 0 72px;
     }
 
     .hero--event .hero-image img {
         object-position: 58% 32%;
+        transform: scale(1.04);
+        transform-origin: 60% 35%;
+        animation: hero-ken 18s ease-out both;
     }
 
     .hero--event .hero-overlay {
         background:
             linear-gradient(
                 105deg,
-                rgba(0, 0, 0, 0.9) 0%,
-                rgba(0, 0, 0, 0.78) 34%,
-                rgba(0, 0, 0, 0.35) 58%,
-                rgba(0, 0, 0, 0.18) 78%,
-                rgba(0, 0, 0, 0.28) 100%
+                rgba(0, 0, 0, 0.92) 0%,
+                rgba(0, 0, 0, 0.78) 30%,
+                rgba(0, 0, 0, 0.32) 54%,
+                rgba(0, 0, 0, 0.22) 72%,
+                rgba(0, 0, 0, 0.45) 100%
             ),
-            linear-gradient(180deg, rgba(0, 0, 0, 0.28) 0%, transparent 42%, rgba(0, 0, 0, 0.45) 100%),
-            radial-gradient(ellipse 70% 60% at 18% 70%, rgba(220, 20, 60, 0.34), transparent 62%);
+            linear-gradient(180deg, rgba(0, 0, 0, 0.22) 0%, transparent 40%, rgba(0, 0, 0, 0.5) 100%),
+            radial-gradient(ellipse 55% 55% at 16% 72%, rgba(220, 20, 60, 0.36), transparent 64%);
     }
 
     .hero--event .hero-content .container {
         max-width: 1180px;
+        width: 100%;
     }
 
     .hero--event .hero-cta {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: end;
+        column-gap: 40px;
+        row-gap: 20px;
+        max-width: none;
+        width: 100%;
+    }
+
+    .hero-copy {
         max-width: 560px;
     }
 
     .hero-brand {
-        font-size: 2.85rem;
-        margin-bottom: 8px;
+        font-size: 2.95rem;
+        margin-bottom: 6px;
+        letter-spacing: 0.07em;
     }
 
     .hero-event-dates {
-        font-size: clamp(6.8rem, 8.5vw, 8.4rem);
+        font-size: clamp(6.6rem, 8.2vw, 8.2rem);
     }
 
     .hero-event-time {
-        margin-top: 16px;
-        font-size: 2rem;
+        margin-top: 12px;
+        font-size: 1.85rem;
         max-width: none;
         letter-spacing: 0.1em;
     }
 
     .hero-event-line {
-        margin-top: 12px;
-        font-size: 1.18rem;
+        margin-top: 10px;
+        font-size: 1.12rem;
         max-width: 34ch;
     }
 
     .hero-price-rail {
-        max-width: 460px;
-        margin-top: 22px;
+        max-width: 420px;
+        margin-top: 18px;
         border-radius: 12px;
     }
 
     .hero-price-rail li {
-        padding: 14px 16px 13px;
+        padding: 12px 14px 11px;
     }
 
     .hero-price-rail span {
-        font-size: 0.7rem;
+        font-size: 0.68rem;
     }
 
     .hero-price-rail strong {
-        font-size: 1.85rem;
+        font-size: 1.65rem;
     }
 
     .hero-actions {
         flex-wrap: nowrap;
         width: auto;
-        margin-top: 18px;
+        margin-top: 16px;
         gap: 10px;
     }
 
@@ -3666,38 +3695,83 @@ body.has-sticky-sale {
         justify-content: center;
         min-width: 0;
         width: auto;
-        padding: 12px 20px;
+        padding: 13px 22px;
         font-size: 0.95rem;
-        min-height: 46px;
+        min-height: 48px;
     }
 
     .hero-countdown {
-        margin-top: 14px;
-        width: auto;
-        max-width: 460px;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+        margin: 0;
+        padding: 20px 22px 18px;
+        width: min(340px, 34vw);
+        max-width: none;
+        border-radius: 18px;
+        background: rgba(8, 8, 10, 0.55);
+        border: 1px solid rgba(255, 255, 255, 0.22);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        box-shadow:
+            0 18px 48px rgba(0, 0, 0, 0.45),
+            inset 0 1px 0 rgba(255, 255, 255, 0.12);
     }
 
     .hero-countdown-label {
-        width: auto;
-        margin-right: 4px;
+        width: 100%;
+        margin: 0;
+        font-family: var(--font-display);
+        font-size: 1.05rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.92);
     }
 
     .hero-countdown-units {
-        width: auto;
-    }
-
-    .hero-countdown-unit {
-        flex: 0 0 auto;
-        min-width: 52px;
-        padding: 8px 10px 7px;
-    }
-
-    .hero-countdown-unit strong {
-        font-size: 1.55rem;
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        align-items: stretch;
+        gap: 8px;
+        width: 100%;
     }
 
     .hero-countdown-sep {
-        padding-bottom: 14px;
+        display: none;
+    }
+
+    .hero-countdown-unit {
+        flex: none;
+        min-width: 0;
+        padding: 14px 6px 12px;
+        border-radius: 12px;
+        background: rgba(220, 20, 60, 0.95);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 0 8px 20px rgba(220, 20, 60, 0.28);
+    }
+
+    .hero-countdown-unit strong {
+        font-size: 2.15rem;
+        letter-spacing: 0.03em;
+    }
+
+    .hero-countdown-unit em {
+        font-size: 0.68rem;
+        margin-top: 5px;
+        letter-spacing: 0.12em;
+    }
+
+    .hero-countdown-unit--secs {
+        background: linear-gradient(165deg, #ef274d 0%, var(--primary-red) 55%, var(--primary-red-dark) 100%);
+        box-shadow:
+            0 0 0 1px rgba(255, 255, 255, 0.14),
+            0 10px 24px rgba(220, 20, 60, 0.4);
+    }
+
+    .hero-countdown.is-message {
+        align-items: flex-start;
+        width: min(340px, 34vw);
     }
 
     /* Sale band — keep as a slim confirmation strip */
@@ -3845,6 +3919,11 @@ body.has-sticky-sale {
     }
 }
 
+@keyframes hero-ken {
+    from { transform: scale(1.08); }
+    to { transform: scale(1.04); }
+}
+
 @media (min-width: 1200px) {
     .container {
         max-width: 1220px;
@@ -3852,16 +3931,21 @@ body.has-sticky-sale {
     }
 
     .hero--event {
-        min-height: min(88vh, 880px);
-        padding: 120px 0 96px;
+        min-height: min(90vh, 900px);
+        padding: 120px 0 80px;
     }
 
     .hero--event .hero-cta {
+        column-gap: 56px;
+        max-width: none;
+    }
+
+    .hero-copy {
         max-width: 600px;
     }
 
     .hero-brand {
-        font-size: 3.1rem;
+        font-size: 3.15rem;
     }
 
     .hero-event-dates {
@@ -3869,11 +3953,28 @@ body.has-sticky-sale {
     }
 
     .hero-event-time {
-        font-size: 2.15rem;
+        font-size: 2.05rem;
     }
 
     .hero-price-rail {
-        max-width: 500px;
+        max-width: 440px;
+    }
+
+    .hero-countdown {
+        width: 360px;
+        padding: 22px 24px 20px;
+    }
+
+    .hero-countdown-unit {
+        padding: 16px 8px 14px;
+    }
+
+    .hero-countdown-unit strong {
+        font-size: 2.35rem;
+    }
+
+    .hero-countdown.is-message {
+        width: 360px;
     }
 
     .reel--lg {
