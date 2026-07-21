@@ -38,7 +38,7 @@
     <link rel="icon" href="images/favicon.png?v=30" type="image/png" sizes="64x64">
     <link rel="apple-touch-icon" href="images/apple-touch-icon.png?v=30" sizes="180x180">
     <link rel="icon" href="images/android-chrome-192.png?v=30" type="image/png" sizes="192x192">
-    <link rel="stylesheet" href="css/styles.css?v=37">
+    <link rel="stylesheet" href="css/styles.css?v=40">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Plus+Jakarta+Sans:ital,wght@0,500;0,600;0,700;0,800;1,500&display=swap" rel="stylesheet">
@@ -177,7 +177,7 @@
                     </a>
                 </div>
                 <nav class="nav">
-                    <button class="nav-toggle" aria-label="Toggle navigation">
+                    <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="nav-menu">
                         <span></span>
                         <span></span>
                         <span></span>
@@ -229,7 +229,9 @@
             <div class="container">
                 <div class="hero-cta">
                     <p class="hero-brand">Off Price Outlets</p>
-                    <h1 class="hero-event-dates">Aug 1–2</h1>
+                    <h1 class="hero-event-dates">
+                        <span class="visually-hidden">Off Price Outlets warehouse sale — </span>Aug 1–2
+                    </h1>
                     <p class="hero-event-time">Saturday &amp; Sunday · 10 AM – 4 PM</p>
                     <p class="hero-event-line">Huge restock in North Haven — footwear, clothing &amp; accessories</p>
                     <ul class="hero-price-rail" aria-label="Sale price highlights">
@@ -239,7 +241,7 @@
                     </ul>
                     <div class="hero-actions">
                         <a class="btn btn-primary hero-action-primary" href="https://maps.app.goo.gl/x7Y3u4a7GtQJxj8D8?g_st=ic" target="_blank" rel="noopener noreferrer">Get directions</a>
-                        <a class="btn hero-action-secondary" href="#upcoming-sales">See all deals</a>
+                        <a class="btn hero-action-secondary" href="#upcoming-sales">See the deals</a>
                     </div>
                     <div class="hero-countdown" id="sale-countdown" role="timer">
                         <span class="hero-countdown-label">Doors open in</span>
@@ -268,7 +270,6 @@
                     <p class="sale-red-bar-kicker">Next sale in North Haven</p>
                     <p class="sale-red-bar-dates">Aug 1–2</p>
                     <p class="sale-red-bar-time"><span>Saturday &amp; Sunday</span><span>10 AM – 4 PM</span></p>
-                    <p class="sale-red-bar-note">Huge restock — footwear, clothing &amp; accessories</p>
                 </div>
             </div>
         </div>
@@ -276,11 +277,11 @@
             <div class="container">
                 <div class="sale-deals-panel">
                     <p class="sale-deals-kicker">Warehouse deals</p>
-                    <h3 class="sale-deals-title">Warehouse prices. Brand names.</h3>
+                    <h2 class="sale-deals-title">Warehouse prices. Brand names.</h2>
                     <p class="sale-deals-lead">A massive restock just landed — footwear, clothing, and accessories at true outlet prices.</p>
                     <div class="sale-deals-grid">
                         <div class="sale-deals-group">
-                            <h4 class="sale-deals-group-title">Footwear</h4>
+                            <h3 class="sale-deals-group-title">Footwear</h3>
                             <ul class="sale-deals-list">
                                 <li><span class="sale-deals-label">Closed-toe shoes</span><span class="sale-deals-price">$15</span></li>
                                 <li><span class="sale-deals-label">Open-toe shoes</span><span class="sale-deals-price">$15</span></li>
@@ -290,13 +291,14 @@
                             </ul>
                         </div>
                         <div class="sale-deals-group">
-                            <h4 class="sale-deals-group-title">Clothing</h4>
+                            <h3 class="sale-deals-group-title">Clothing &amp; more</h3>
                             <ul class="sale-deals-list">
                                 <li><span class="sale-deals-label">All clothing</span><span class="sale-deals-price">from $5</span></li>
                                 <li><span class="sale-deals-label">Pants &amp; shorts</span><span class="sale-deals-price">from $10</span></li>
-                                <li><span class="sale-deals-label">Denims</span><span class="sale-deals-price">from $15</span></li>
+                                <li><span class="sale-deals-label">Denim</span><span class="sale-deals-price">from $15</span></li>
+                                <li><span class="sale-deals-label">Tops &amp; tees</span><span class="sale-deals-price">from $5</span></li>
+                                <li><span class="sale-deals-label">Accessories</span><span class="sale-deals-price">throughout</span></li>
                             </ul>
-                            <p class="sale-deals-accessories">Plus accessories throughout the warehouse.</p>
                         </div>
                     </div>
                 </div>
@@ -307,16 +309,15 @@
                 <div class="visit-panel-card">
                     <div class="visit-panel-copy">
                         <p class="visit-panel-kicker">Find us</p>
-                        <h3 class="visit-panel-title">110 Republic Drive</h3>
+                        <h2 class="visit-panel-title">110 Republic Drive</h2>
                         <p class="visit-panel-city">North Haven, CT 06473 · Left end unit</p>
                         <p class="visit-panel-hours"><strong>Aug 1–2</strong> · Saturday &amp; Sunday · 10 AM – 4 PM</p>
                         <div class="visit-panel-rating">
                             <span class="visit-panel-stars" aria-hidden="true">★★★★★</span>
-                            <a href="https://maps.app.goo.gl/x7Y3u4a7GtQJxj8D8?g_st=ic" target="_blank" rel="noopener noreferrer">See us on Google Maps &amp; reviews</a>
+                            <a href="https://maps.app.goo.gl/x7Y3u4a7GtQJxj8D8?g_st=ic" target="_blank" rel="noopener noreferrer">Google Maps &amp; reviews</a>
                         </div>
                         <div class="visit-panel-actions">
                             <a class="btn btn-primary" href="https://maps.app.goo.gl/x7Y3u4a7GtQJxj8D8?g_st=ic" target="_blank" rel="noopener noreferrer" id="sale-address-cta" data-address="110 Republic Drive, North Haven, CT 06473 (Left End Unit)">Get directions</a>
-                            <a class="btn visit-panel-secondary" href="https://maps.app.goo.gl/x7Y3u4a7GtQJxj8D8?g_st=ic" target="_blank" rel="noopener noreferrer">Open in Google Maps</a>
                         </div>
                     </div>
                     <div class="visit-panel-map">
@@ -347,7 +348,7 @@
             <div class="social-proof-intro">
                 <p class="social-proof-kicker">Instagram · TikTok</p>
                 <h2 id="social-proof-title">See the warehouse in action</h2>
-                <p class="social-proof-lead">Tap a phone to open the full video. Previews stay locked so the page keeps scrolling with you.</p>
+                <p class="social-proof-lead">Tap any phone to watch the full video on Instagram or TikTok.</p>
             </div>
 
             <div class="reel-featured" role="list">
@@ -445,9 +446,9 @@
             <div class="giveaway-spotlight">
                 <div class="giveaway-copy">
                     <p class="giveaway-kicker">Community giveaway</p>
-                    <h3 class="giveaway-title">See the last giveaway winner’s haul</h3>
-                    <p class="giveaway-text">She filmed everything she scored. Tap the phone to watch her haul on TikTok — and follow us so you don’t miss the next giveaway.</p>
-                    <a class="btn btn-primary" href="https://www.tiktok.com/@mychiaratok/video/7663249745527229726" target="_blank" rel="noopener noreferrer">See the giveaway winner’s haul on TikTok</a>
+                    <h3 class="giveaway-title">Last winner’s haul</h3>
+                    <p class="giveaway-text">She filmed everything she scored. Watch on TikTok — and follow us so you don’t miss the next giveaway.</p>
+                    <a class="btn btn-primary" href="https://www.tiktok.com/@mychiaratok/video/7663249745527229726" target="_blank" rel="noopener noreferrer">Watch on TikTok</a>
                 </div>
                 <article class="reel reel--spotlight">
                     <a class="reel-link" href="https://www.tiktok.com/@mychiaratok/video/7663249745527229726" target="_blank" rel="noopener noreferrer">
@@ -462,7 +463,7 @@
                         <span class="reel-meta">
                             <span class="reel-platform reel-platform--tt">TikTok</span>
                             <span class="reel-title">Winner’s haul</span>
-                            <span class="reel-cta">See the giveaway winner’s haul</span>
+                            <span class="reel-cta">Watch the haul</span>
                         </span>
                     </a>
                 </article>
@@ -626,7 +627,7 @@
             <div class="about-story">
                 <div class="about-story-copy">
                     <p class="about-kicker">North Haven warehouse</p>
-                    <h2>Brand names. Warehouse prices. Limited weekends.</h2>
+                    <h2>Brand names. Warehouse prices.</h2>
                     <p class="about-lead">We buy direct from brands and trusted suppliers, then open our <strong>7,000+ sq ft North Haven warehouse</strong> for weekend sales—so you get up to 90% off retail without the retail markup.</p>
                     <ul class="about-points">
                         <li><strong>Direct from brands</strong> — no middleman markup</li>
@@ -832,6 +833,6 @@
         </div>
     </div>
 
-    <script src="js/main.js?v=37"></script>
+    <script src="js/main.js?v=40"></script>
 </body>
 </html>

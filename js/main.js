@@ -6,25 +6,47 @@ const openSocialModalBtns = document.querySelectorAll('.open-social-modal-btn');
 const closeSocialModalBtn = document.getElementById('close-social-modal');
 const dismissSocialModalBtn = document.getElementById('social-modal-dismiss');
 const socialModalBackdrop = document.getElementById('social-modal-backdrop');
+let socialModalLastFocus = null;
+
+function getSocialModalFocusable() {
+    if (!socialModal) return [];
+    return Array.from(
+        socialModal.querySelectorAll(
+            'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])'
+        )
+    ).filter(function (el) {
+        return !el.hasAttribute('disabled') && el.getAttribute('aria-hidden') !== 'true';
+    });
+}
 
 function openSocialModal() {
-    if (socialModal) {
-        socialModal.classList.add('is-open');
-        socialModal.setAttribute('aria-hidden', 'false');
-        document.body.style.overflow = 'hidden';
+    if (!socialModal) return;
+    socialModalLastFocus = document.activeElement;
+    socialModal.classList.add('is-open');
+    socialModal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    const focusable = getSocialModalFocusable();
+    const target = dismissSocialModalBtn || focusable[0];
+    if (target) {
+        window.setTimeout(function () {
+            target.focus();
+        }, 10);
     }
 }
 
 function closeSocialModal() {
-    if (socialModal) {
-        socialModal.classList.remove('is-open');
-        socialModal.setAttribute('aria-hidden', 'true');
-        document.body.style.overflow = '';
+    if (!socialModal) return;
+    socialModal.classList.remove('is-open');
+    socialModal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    if (socialModalLastFocus && typeof socialModalLastFocus.focus === 'function') {
+        socialModalLastFocus.focus();
     }
+    socialModalLastFocus = null;
 }
 
 if (openSocialModalBtns.length) {
-    openSocialModalBtns.forEach(function(btn) {
+    openSocialModalBtns.forEach(function (btn) {
         btn.addEventListener('click', function (e) {
             e.preventDefault();
             openSocialModal();
@@ -41,21 +63,39 @@ if (socialModalBackdrop) {
     socialModalBackdrop.addEventListener('click', closeSocialModal);
 }
 
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && socialModal && socialModal.classList.contains('is-open')) {
+document.addEventListener('keydown', function (e) {
+    if (!socialModal || !socialModal.classList.contains('is-open')) return;
+    if (e.key === 'Escape') {
         closeSocialModal();
+        return;
+    }
+    if (e.key !== 'Tab') return;
+    const focusable = getSocialModalFocusable();
+    if (!focusable.length) return;
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
     }
 });
 
-// Mid-page address: open Maps (default link) + copy full address on tap/click
+// Mid-page address: open Maps + copy address with brief feedback
 const saleAddressCta = document.getElementById('sale-address-cta');
 if (saleAddressCta) {
     saleAddressCta.addEventListener('click', function () {
         const text = saleAddressCta.getAttribute('data-address');
-        if (!text) return;
-        if (navigator.clipboard && window.isSecureContext) {
-            navigator.clipboard.writeText(text).catch(function () {});
-        }
+        if (!text || !navigator.clipboard || !window.isSecureContext) return;
+        const original = saleAddressCta.textContent;
+        navigator.clipboard.writeText(text).then(function () {
+            saleAddressCta.textContent = 'Address copied';
+            window.setTimeout(function () {
+                saleAddressCta.textContent = original;
+            }, 1600);
+        }).catch(function () {});
     });
 }
 
@@ -67,6 +107,8 @@ const navScrim = document.getElementById('nav-scrim');
 function setNavOpen(isOpen) {
     if (!navMenu || !navToggle) return;
     navMenu.classList.toggle('active', isOpen);
+    navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    navToggle.setAttribute('aria-label', isOpen ? 'Close navigation' : 'Open navigation');
     if (navScrim) {
         navScrim.hidden = !isOpen;
         navScrim.classList.toggle('is-visible', isOpen);
@@ -85,23 +127,34 @@ function setNavOpen(isOpen) {
 }
 
 if (navToggle) {
-    navToggle.addEventListener('click', () => {
+    navToggle.setAttribute('aria-expanded', 'false');
+    navToggle.setAttribute('aria-controls', 'nav-menu');
+    navToggle.addEventListener('click', function () {
         setNavOpen(!navMenu.classList.contains('active'));
     });
 }
 
 if (navScrim) {
-    navScrim.addEventListener('click', () => setNavOpen(false));
+    navScrim.addEventListener('click', function () {
+        setNavOpen(false);
+    });
 }
 
 // Close mobile menu when clicking on a link / follow CTA
 const navLinks = document.querySelectorAll('.nav-menu a, .nav-menu .open-social-modal-btn');
-navLinks.forEach(link => {
-    link.addEventListener('click', () => {
+navLinks.forEach(function (link) {
+    link.addEventListener('click', function () {
         if (window.innerWidth <= 768) {
             setNavOpen(false);
         }
     });
+});
+
+document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && navMenu && navMenu.classList.contains('active')) {
+        setNavOpen(false);
+        if (navToggle) navToggle.focus();
+    }
 });
 
 // Smooth scroll for anchor links
@@ -144,112 +197,72 @@ window.addEventListener('scroll', () => {
     lastScroll = currentScroll;
 });
 
-// Intersection Observer for fade-in animations
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-        }
+// Below-fold section fade-in (never hide the hero)
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if (!prefersReducedMotion) {
+    const sectionObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-inview');
+                sectionObserver.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.12,
+        rootMargin: '0px 0px -40px 0px'
     });
-}, observerOptions);
 
-// Observe sections for animation
-const sections = document.querySelectorAll('section');
-sections.forEach(section => {
-    section.style.opacity = '0';
-    section.style.transform = 'translateY(20px)';
-    section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    observer.observe(section);
-});
+    document.querySelectorAll('section:not(.hero)').forEach(function (section) {
+        section.classList.add('reveal-section');
+        sectionObserver.observe(section);
+    });
+}
 
-// Gallery image lightbox effect (optional enhancement)
+// Gallery lightbox
 const galleryItems = document.querySelectorAll('.gallery-item img');
-galleryItems.forEach(img => {
+galleryItems.forEach(function (img) {
     img.style.cursor = 'pointer';
-    img.addEventListener('click', () => {
-        // Create lightbox overlay
+    img.addEventListener('click', function () {
         const lightbox = document.createElement('div');
-        lightbox.style.cssText = `
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.9);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 9999;
-            cursor: pointer;
-        `;
-        
+        lightbox.className = 'gallery-lightbox';
+        lightbox.setAttribute('role', 'dialog');
+        lightbox.setAttribute('aria-modal', 'true');
+        lightbox.setAttribute('aria-label', 'Image preview');
+
         const lightboxImg = document.createElement('img');
-        lightboxImg.src = img.src;
-        lightboxImg.style.cssText = `
-            max-width: 90%;
-            max-height: 90%;
-            object-fit: contain;
-        `;
-        
+        lightboxImg.src = img.currentSrc || img.src;
+        lightboxImg.alt = img.alt || '';
+
+        const closeBtn = document.createElement('button');
+        closeBtn.type = 'button';
+        closeBtn.className = 'gallery-lightbox-close';
+        closeBtn.setAttribute('aria-label', 'Close image preview');
+        closeBtn.innerHTML = '&times;';
+
+        function closeLightbox() {
+            document.removeEventListener('keydown', onKey);
+            if (lightbox.parentNode) lightbox.parentNode.removeChild(lightbox);
+            document.body.style.overflow = '';
+        }
+
+        function onKey(e) {
+            if (e.key === 'Escape') closeLightbox();
+        }
+
+        closeBtn.addEventListener('click', function (e) {
+            e.stopPropagation();
+            closeLightbox();
+        });
+        lightbox.addEventListener('click', closeLightbox);
+        document.addEventListener('keydown', onKey);
+
+        lightbox.appendChild(closeBtn);
         lightbox.appendChild(lightboxImg);
         document.body.appendChild(lightbox);
-        
-        // Close lightbox on click
-        lightbox.addEventListener('click', () => {
-            document.body.removeChild(lightbox);
-        });
+        document.body.style.overflow = 'hidden';
+        closeBtn.focus();
     });
 });
-
-// Form validation (if contact form is added later)
-function validateEmail(email) {
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return re.test(email);
-}
-
-// Track CTA clicks for analytics (placeholder)
-const ctaButtons = document.querySelectorAll('.btn-primary, .btn-secondary, .btn-social');
-ctaButtons.forEach(button => {
-    button.addEventListener('click', (e) => {
-        const buttonText = button.textContent.trim();
-        const buttonHref = button.getAttribute('href');
-        
-        // Log to console (replace with actual analytics tracking)
-        console.log('CTA Clicked:', {
-            text: buttonText,
-            href: buttonHref,
-            timestamp: new Date().toISOString()
-        });
-        
-        // Example: Google Analytics tracking (uncomment if GA is set up)
-        // if (typeof gtag !== 'undefined') {
-        //     gtag('event', 'cta_click', {
-        //         'event_category': 'engagement',
-        //         'event_label': buttonText,
-        //         'value': buttonHref
-        //     });
-        // }
-    });
-});
-
-// Lazy loading for images (modern browsers support this natively)
-if ('loading' in HTMLImageElement.prototype) {
-    const images = document.querySelectorAll('img[loading="lazy"]');
-    images.forEach(img => {
-        img.src = img.dataset.src;
-    });
-} else {
-    // Fallback for older browsers
-    const script = document.createElement('script');
-    script.src = 'https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js';
-    document.body.appendChild(script);
-}
 
 // Update copyright year dynamically
 const copyrightYear = document.querySelector('.footer-bottom p');
@@ -416,7 +429,3 @@ if (copyrightYear) {
     window.addEventListener('resize', updateDuration);
 })();
 
-// Console welcome message
-console.log('%cOff Price Outlets', 'font-size: 24px; font-weight: bold; color: #DC143C;');
-console.log('%cWebsite by Off Price Outlets Team', 'font-size: 12px; color: #666;');
-console.log('Follow us: @OffPriceOutletsCT (Instagram) | @OffPriceOutlets (Facebook)');
