@@ -387,30 +387,56 @@ if (copyrightYear) {
     });
 })();
 
-// Infinite auto-scrolling testimonials carousel
-(function initTestimonialsCarousel() {
-    const track = document.getElementById('testimonials-track');
-    const carousel = track && track.closest('.testimonials-carousel');
-    if (!track || !carousel) return;
+// Real Instagram / TikTok embeds inside phone frames
+(function initReelEmbeds() {
+    const reels = document.querySelectorAll('.reel[data-embed-src]');
+    if (!reels.length) return;
 
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (prefersReducedMotion) return;
+    function loadEmbed(reel) {
+        if (!reel || reel.classList.contains('is-playing')) return;
+        const src = reel.getAttribute('data-embed-src');
+        const screen = reel.querySelector('.reel-screen');
+        if (!src || !screen) return;
 
-    const originals = Array.from(track.children);
-    originals.forEach(function (card) {
-        const clone = card.cloneNode(true);
-        clone.setAttribute('aria-hidden', 'true');
-        track.appendChild(clone);
-    });
-
-    function updateDuration() {
-        const shiftWidth = track.scrollWidth / 2;
-        const pixelsPerSecond = 52;
-        const duration = Math.max(45, shiftWidth / pixelsPerSecond);
-        track.style.setProperty('--testimonials-duration', duration + 's');
+        const iframe = document.createElement('iframe');
+        iframe.className = 'reel-frame';
+        iframe.src = src;
+        iframe.title = (reel.querySelector('.reel-title') || {}).textContent || 'Social video';
+        iframe.setAttribute('loading', 'lazy');
+        iframe.setAttribute('allowfullscreen', '');
+        iframe.setAttribute(
+            'allow',
+            'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
+        );
+        iframe.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
+        screen.appendChild(iframe);
+        reel.classList.add('is-playing');
     }
 
-    updateDuration();
-    window.addEventListener('resize', updateDuration);
+    reels.forEach(function (reel) {
+        const playBtn = reel.querySelector('.reel-play');
+        if (playBtn) {
+            playBtn.addEventListener('click', function (e) {
+                e.preventDefault();
+                loadEmbed(reel);
+            });
+        }
+    });
+
+    // Prefetch the two featured phones once they enter view
+    if ('IntersectionObserver' in window) {
+        const featured = document.querySelectorAll('.reel-featured .reel[data-embed-src]');
+        const io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    loadEmbed(entry.target);
+                    io.unobserve(entry.target);
+                }
+            });
+        }, { rootMargin: '120px 0px', threshold: 0.2 });
+        featured.forEach(function (reel) {
+            io.observe(reel);
+        });
+    }
 })();
 
