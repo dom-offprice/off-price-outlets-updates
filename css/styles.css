@@ -161,10 +161,11 @@ p {
 }
 
 .logo img {
-    height: 240px;
+    height: 52px;
     width: auto;
-    max-width: none; /* prevent global img max-width from squashing and distorting */
+    max-width: min(280px, 70vw);
     object-fit: contain;
+    display: block;
 }
 
 .nav-menu {
@@ -213,20 +214,21 @@ p {
     transition: var(--transition);
 }
 
-/* Desktop only: no logo in header, compact nav bar */
+/* Desktop: logo left, nav right */
 @media (min-width: 769px) {
-    .header .logo {
-        display: none;
-    }
     .header .container {
         padding-top: 0;
         padding-bottom: 0;
     }
     .header-content {
-        min-height: 64px;
+        min-height: 72px;
         max-height: none;
         align-items: center;
-        justify-content: flex-end;
+        justify-content: space-between;
+    }
+    .header .logo img {
+        height: 48px;
+        max-width: 260px;
     }
     .nav-menu a {
         font-size: 18px;
@@ -1692,9 +1694,9 @@ a.sale-address-cta:hover .sale-address-kicker {
 }
 
 @media (max-width: 768px) {
-    /* Mobile: big centered logo – 200% bigger, header band stays compact */
+    /* Mobile: compact header with properly sized wide logo */
     .header {
-        overflow: visible;
+        overflow: hidden;
     }
     .header .container {
         padding-top: 0;
@@ -1703,37 +1705,49 @@ a.sale-address-cta:hover .sale-address-kicker {
     
     .header-content {
         position: relative;
-        min-height: 120px;
-        padding: 8px 0;
-        justify-content: flex-end;
-        overflow: visible;
+        min-height: 64px;
+        padding: 10px 0;
+        justify-content: space-between;
+        align-items: center;
+        overflow: hidden;
+        gap: 12px;
     }
     
     .header .logo {
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
+        position: static;
+        left: auto;
+        transform: none;
         display: flex;
         align-items: center;
+        flex: 1 1 auto;
+        min-width: 0;
+        max-width: calc(100% - 52px);
+    }
+
+    .header .logo-link {
+        max-width: 100%;
     }
     
     .header .logo img {
-        height: 312px;
+        height: 42px;
         width: auto;
+        max-width: 100%;
         display: block;
     }
     
     .nav-toggle {
         display: flex;
+        flex-shrink: 0;
+        z-index: 2;
     }
     
     .nav-menu {
         position: fixed;
-        top: 120px;
+        top: 64px;
         right: -100%;
         width: 80%;
         max-width: 300px;
-        height: calc(100vh - 120px);
+        height: calc(100vh - 64px);
         background-color: var(--white);
         flex-direction: column;
         align-items: flex-start;
@@ -1829,18 +1843,19 @@ a.sale-address-cta:hover .sale-address-kicker {
     }
     
     .header-content {
-        padding: 6px 0;
-        min-height: 112px;
+        padding: 8px 0;
+        min-height: 60px;
     }
     
     .header .logo img {
-        height: 300px;
-        max-width: none;
-        object-fit: contain;    }
+        height: 38px;
+        max-width: 100%;
+        object-fit: contain;
+    }
     
     .nav-menu {
-        top: 112px;
-        height: calc(100vh - 112px);
+        top: 60px;
+        height: calc(100vh - 60px);
     }
     
     .btn {
