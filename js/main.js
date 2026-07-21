@@ -499,21 +499,33 @@ if (copyrightYear) {
 
     function tikTokPlayerSrc(videoId) {
         // Official player: full video in-frame (not the zoomed embed/v2 chrome crop)
+        // mute=0 + unMute after click — browsers mute autoplay by default
         return (
             'https://www.tiktok.com/player/v1/' +
             videoId +
-            '?autoplay=1&loop=1&music_info=0&description=0&controls=0&progress_bar=0' +
+            '?autoplay=1&mute=0&loop=1&music_info=0&description=0&controls=0&progress_bar=0' +
             '&play_button=0&volume_control=0&fullscreen_button=0&timestamp=0&rel=0' +
             '&native_context_menu=0&closed_caption=0'
         );
     }
 
-    function postTikTokPlayer(iframe, type) {
+    function postTikTokPlayer(iframe, type, value) {
         if (!iframe || !iframe.contentWindow) return;
-        iframe.contentWindow.postMessage(
-            { type: type, 'x-tiktok-player': true },
-            '*'
-        );
+        var msg = { type: type, 'x-tiktok-player': true };
+        if (typeof value !== 'undefined') msg.value = value;
+        iframe.contentWindow.postMessage(msg, '*');
+    }
+
+    function unmuteAndPlay(iframe) {
+        if (!iframe) return;
+        // Retry briefly — player may not be ready on first tick after load
+        var tries = 0;
+        var timer = window.setInterval(function () {
+            tries += 1;
+            postTikTokPlayer(iframe, 'unMute');
+            postTikTokPlayer(iframe, 'play');
+            if (tries >= 8) window.clearInterval(timer);
+        }, 200);
     }
 
     function ensureTapLayer(screen) {
@@ -547,6 +559,11 @@ if (copyrightYear) {
             'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
         );
         iframe.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
+        iframe.addEventListener('load', function () {
+            if (!reel.classList.contains('is-paused')) {
+                unmuteAndPlay(iframe);
+            }
+        });
         screen.appendChild(iframe);
         ensureTapLayer(screen);
         reel.classList.add('is-playing');
@@ -563,7 +580,7 @@ if (copyrightYear) {
         function play() {
             var iframe = loadTikTokEmbed(reel) || screen.querySelector('.reel-frame');
             if (!iframe) return;
-            postTikTokPlayer(iframe, 'play');
+            unmuteAndPlay(iframe);
             reel.classList.add('is-playing');
             reel.classList.remove('is-paused');
             var tap = ensureTapLayer(screen);
