@@ -1922,17 +1922,19 @@ a.sale-address-cta:hover .sale-address-kicker {
 
 /* ========== Social Proof ========== */
 .social-proof {
-    padding: 72px 0 80px;
+    padding: 72px 0 84px;
     background:
-        radial-gradient(ellipse 90% 50% at 50% 0%, rgba(220, 20, 60, 0.08), transparent 55%),
-        linear-gradient(180deg, #111 0%, #1a1a1a 100%);
+        radial-gradient(ellipse 80% 45% at 20% 10%, rgba(220, 20, 60, 0.16), transparent 50%),
+        radial-gradient(ellipse 70% 40% at 90% 30%, rgba(255, 255, 255, 0.04), transparent 45%),
+        linear-gradient(180deg, #0c0c0c 0%, #161616 55%, #101010 100%);
     color: var(--white);
+    overflow: hidden;
 }
 
 .social-proof-intro {
     text-align: center;
     max-width: 720px;
-    margin: 0 auto 36px;
+    margin: 0 auto 40px;
 }
 
 .social-proof-kicker,
@@ -1942,7 +1944,7 @@ a.sale-address-cta:hover .sale-address-kicker {
     font-weight: 700;
     letter-spacing: 0.32em;
     text-transform: uppercase;
-    color: var(--primary-red);
+    color: #ff6b84;
     margin: 0 0 12px;
 }
 
@@ -1969,7 +1971,7 @@ a.sale-address-cta:hover .sale-address-kicker {
     font-weight: 400;
     letter-spacing: 0.06em;
     color: var(--white);
-    margin: 36px 0 16px;
+    margin: 42px 0 14px;
     text-align: center;
 }
 
@@ -1979,152 +1981,227 @@ a.sale-address-cta:hover .sale-address-kicker {
     font-size: 0.98rem;
 }
 
-.embed-snap {
+/* Phone reel containers */
+.reel-featured {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 22px 28px;
+    flex-wrap: wrap;
+}
+
+.reel-rail {
     display: grid;
     grid-auto-flow: column;
-    grid-auto-columns: minmax(280px, 320px);
+    grid-auto-columns: 168px;
     gap: 16px;
     overflow-x: auto;
-    padding: 6px 4px 18px;
+    padding: 10px 4px 22px;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: thin;
+    mask-image: linear-gradient(90deg, transparent 0, #000 18px, #000 calc(100% - 18px), transparent 100%);
 }
 
-.embed-snap::-webkit-scrollbar {
-    height: 6px;
+.reel-rail::-webkit-scrollbar {
+    height: 5px;
 }
 
-.embed-snap::-webkit-scrollbar-thumb {
-    background: rgba(220, 20, 60, 0.7);
+.reel-rail::-webkit-scrollbar-thumb {
+    background: rgba(220, 20, 60, 0.75);
     border-radius: 999px;
 }
 
-.embed-card {
+.reel {
     margin: 0;
     scroll-snap-align: start;
-    background: #0d0d0d;
-    border-radius: 16px;
-    overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
-    display: flex;
-    flex-direction: column;
-    min-height: 520px;
+    width: 168px;
 }
 
-.embed-frame {
-    position: relative;
-    flex: 1 1 auto;
-    min-height: 480px;
-    background: #000;
-    overflow: hidden;
-    overscroll-behavior: contain;
-    touch-action: pan-y;
+.reel--lg {
+    width: 210px;
 }
 
-.embed-card iframe {
-    width: 100%;
-    height: 100%;
-    min-height: 480px;
-    border: 0;
-    background: #000;
-    display: block;
-    pointer-events: none;
+.reel--spotlight {
+    width: 196px;
+    justify-self: end;
 }
 
-.embed-hit {
-    position: absolute;
-    inset: 0;
-    z-index: 2;
+.reel-link {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     gap: 12px;
-    text-decoration: none;
     color: var(--white);
-    background: linear-gradient(180deg, rgba(0,0,0,0.05) 40%, rgba(0,0,0,0.55) 100%);
+    text-decoration: none;
+    outline: none;
 }
 
-.embed-hit-play {
-    width: 64px;
-    height: 64px;
+.reel-phone {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding: 9px;
+    border-radius: 28px;
+    background:
+        linear-gradient(160deg, #3a3a3a 0%, #151515 42%, #0a0a0a 100%);
+    box-shadow:
+        0 1px 0 rgba(255, 255, 255, 0.18) inset,
+        0 -1px 0 rgba(0, 0, 0, 0.5) inset,
+        0 18px 40px rgba(0, 0, 0, 0.45),
+        0 0 0 1px rgba(255, 255, 255, 0.08);
+    transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.28s ease;
+}
+
+.reel-link:hover .reel-phone,
+.reel-link:focus-visible .reel-phone {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow:
+        0 1px 0 rgba(255, 255, 255, 0.22) inset,
+        0 22px 48px rgba(0, 0, 0, 0.55),
+        0 0 0 1px rgba(220, 20, 60, 0.45);
+}
+
+.reel-notch {
+    position: absolute;
+    top: 14px;
+    left: 50%;
+    z-index: 3;
+    width: 34%;
+    height: 12px;
+    transform: translateX(-50%);
+    border-radius: 999px;
+    background: #050505;
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06);
+}
+
+.reel-screen {
+    position: relative;
+    display: block;
+    aspect-ratio: 9 / 16;
+    overflow: hidden;
+    border-radius: 20px;
+    background: #000;
+}
+
+.reel-cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transform: scale(1.02);
+    transition: transform 0.45s ease;
+}
+
+.reel-link:hover .reel-cover,
+.reel-link:focus-visible .reel-cover {
+    transform: scale(1.07);
+}
+
+.reel-shade {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(180deg, rgba(0, 0, 0, 0.08) 35%, rgba(0, 0, 0, 0.62) 100%),
+        radial-gradient(circle at 50% 42%, transparent 30%, rgba(0, 0, 0, 0.22) 100%);
+    pointer-events: none;
+}
+
+.reel-play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 54px;
+    height: 54px;
+    transform: translate(-50%, -50%);
     border-radius: 50%;
     background: rgba(220, 20, 60, 0.95);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-    position: relative;
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.45);
+    transition: transform 0.25s ease;
 }
 
-.embed-hit-play::before {
+.reel-play::before {
     content: "";
     position: absolute;
     top: 50%;
     left: 54%;
     transform: translate(-50%, -50%);
     border-style: solid;
-    border-width: 12px 0 12px 18px;
+    border-width: 9px 0 9px 14px;
     border-color: transparent transparent transparent #fff;
 }
 
-.embed-hit-label {
-    font-size: 0.92rem;
+.reel-link:hover .reel-play,
+.reel-link:focus-visible .reel-play {
+    transform: translate(-50%, -50%) scale(1.08);
+}
+
+.reel--lg .reel-play {
+    width: 60px;
+    height: 60px;
+}
+
+.reel-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    text-align: center;
+    width: 100%;
+}
+
+.reel-platform {
+    font-size: 0.62rem;
     font-weight: 800;
-    letter-spacing: 0.02em;
-    padding: 8px 14px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    padding: 4px 9px;
     border-radius: 999px;
-    background: rgba(0,0,0,0.55);
-    border: 1px solid rgba(255,255,255,0.2);
-    max-width: 90%;
-    text-align: center;
-}
-
-.embed-hit:hover .embed-hit-play,
-.embed-hit:focus-visible .embed-hit-play {
-    transform: scale(1.06);
-}
-
-.embed-open {
-    display: none;
-}
-
-.embed-card--tiktok {
-    min-height: 580px;
-}
-
-.embed-card--tiktok .embed-frame,
-.embed-card--tiktok iframe {
-    min-height: 540px;
-}
-
-.embed-open {
-    display: block;
-    text-align: center;
-    padding: 12px 10px;
-    font-size: 0.85rem;
-    font-weight: 700;
-    color: var(--white);
+    border: 1px solid rgba(255, 255, 255, 0.18);
     background: rgba(255, 255, 255, 0.06);
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    text-decoration: none;
 }
 
-.embed-open:hover,
-.embed-open:focus-visible {
-    background: var(--primary-red);
-    color: var(--white);
+.reel-platform--ig {
+    color: #ffb4c4;
+    border-color: rgba(220, 20, 60, 0.45);
+}
+
+.reel-platform--tt {
+    color: #f2f2f2;
+    border-color: rgba(255, 255, 255, 0.28);
+}
+
+.reel-title {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    letter-spacing: 0.04em;
+    line-height: 1.1;
+}
+
+.reel-cta {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.reel-link:hover .reel-cta,
+.reel-link:focus-visible .reel-cta {
+    color: #ffb4c4;
 }
 
 .giveaway-spotlight {
     display: grid;
-    grid-template-columns: 1fr 340px;
-    gap: 22px;
+    grid-template-columns: 1fr auto;
+    gap: 28px;
     align-items: center;
-    margin: 40px 0 8px;
-    padding: 28px;
-    border-radius: 20px;
-    background: linear-gradient(135deg, rgba(220, 20, 60, 0.22), rgba(255, 255, 255, 0.04));
+    margin: 44px 0 8px;
+    padding: 28px 28px 28px 32px;
+    border-radius: 24px;
+    background:
+        radial-gradient(ellipse 70% 90% at 100% 50%, rgba(220, 20, 60, 0.28), transparent 55%),
+        linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
     border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.28);
 }
 
 .giveaway-title {
@@ -2150,18 +2227,12 @@ a.sale-address-cta:hover .sale-address-kicker {
     display: inline-flex;
 }
 
-.embed-card--featured {
-    width: 100%;
-    max-width: 340px;
-    justify-self: end;
-}
-
 .social-proof-ctas {
     display: flex;
     flex-wrap: wrap;
     gap: 12px;
     justify-content: center;
-    margin-top: 36px;
+    margin-top: 40px;
 }
 
 .social-proof-tt-btn {
@@ -2173,6 +2244,19 @@ a.sale-address-cta:hover .sale-address-kicker {
 .social-proof-tt-btn:hover {
     background: #000;
     color: var(--white);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .reel-phone,
+    .reel-cover,
+    .reel-play {
+        transition: none;
+    }
+
+    .reel-link:hover .reel-phone,
+    .reel-link:focus-visible .reel-phone {
+        transform: none;
+    }
 }
 
 /* FAQ */
@@ -2259,12 +2343,18 @@ a.sale-address-cta:hover .sale-address-kicker {
 @media (max-width: 900px) {
     .giveaway-spotlight {
         grid-template-columns: 1fr;
-        padding: 22px;
+        justify-items: center;
+        text-align: center;
+        padding: 24px 20px;
     }
 
-    .embed-card--featured {
-        max-width: none;
-        justify-self: stretch;
+    .giveaway-text {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .reel--spotlight {
+        justify-self: center;
     }
 }
 
@@ -2289,23 +2379,49 @@ a.sale-address-cta:hover .sale-address-kicker {
     }
 
     .social-proof {
-        padding: 56px 0 64px;
+        padding: 56px 0 68px;
     }
 
-    .embed-snap {
-        grid-auto-columns: minmax(82vw, 320px);
-        margin-inline: -8px;
-        padding-inline: 8px;
+    .reel-featured {
+        gap: 18px;
     }
 
-    .embed-card,
-    .embed-card--tiktok {
-        min-height: 560px;
+    .reel--lg {
+        width: 168px;
     }
 
-    .embed-card iframe,
-    .embed-card--tiktok iframe {
-        min-height: 520px;
+    .reel {
+        width: 148px;
+    }
+
+    .reel-rail {
+        grid-auto-columns: 148px;
+        margin-inline: -12px;
+        padding-inline: 12px;
+        gap: 12px;
+    }
+
+    .reel--spotlight {
+        width: 168px;
+    }
+
+    .reel-phone {
+        padding: 8px;
+        border-radius: 24px;
+    }
+
+    .reel-screen {
+        border-radius: 17px;
+    }
+
+    .reel-play {
+        width: 46px;
+        height: 46px;
+    }
+
+    .reel--lg .reel-play {
+        width: 50px;
+        height: 50px;
     }
 
     .faq-section {
@@ -2587,32 +2703,6 @@ a.sale-address-cta:hover .sale-address-kicker {
     color: var(--primary-red);
 }
 
-/* Featured embeds */
-.embed-featured {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 18px;
-    margin-bottom: 28px;
-}
-
-.embed-caption {
-    padding: 10px 14px 0;
-    font-size: 0.72rem;
-    font-weight: 800;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: #ffb3c1;
-}
-
-.embed-card--feature {
-    min-height: 620px;
-}
-
-.embed-card--feature .embed-frame,
-.embed-card--feature iframe {
-    min-height: 560px;
-}
-
 /* Sticky sale bar */
 .sticky-sale-bar {
     position: fixed;
@@ -2685,12 +2775,6 @@ body.has-sticky-sale {
 
 .sale-deals-price {
     font-size: 1.85rem;
-}
-
-@media (max-width: 900px) {
-    .embed-featured {
-        grid-template-columns: 1fr;
-    }
 }
 
 @media (max-width: 768px) {
@@ -2785,11 +2869,6 @@ body.has-sticky-sale {
     .hero-countdown-unit {
         flex: 1 1 0;
         min-width: 0;
-    }
-
-    .embed-card--feature,
-    .embed-card--feature iframe {
-        min-height: 540px;
     }
 }
 
