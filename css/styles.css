@@ -926,7 +926,7 @@ p {
 
 .sale-deals-list li {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) 5.75rem;
+    grid-template-columns: minmax(0, 1fr) auto;
     align-items: baseline;
     column-gap: 12px;
     padding: 10px 0;
@@ -956,7 +956,26 @@ p {
     text-align: right;
     font-variant-numeric: tabular-nums;
     justify-self: end;
-    min-width: 5.5rem;
+    min-width: 3.5rem;
+}
+
+/* Align every "from" and every "$" amount in a fixed two-column price lockup */
+.sale-deals-price--from {
+    display: inline-grid;
+    grid-template-columns: max-content 3.75ch;
+    column-gap: 0.28em;
+    align-items: baseline;
+    text-align: left;
+    min-width: 0;
+}
+
+.sale-deals-from {
+    text-align: left;
+}
+
+.sale-deals-amt {
+    text-align: left;
+    font-variant-numeric: tabular-nums;
 }
 
 .sale-deals-accessories {
