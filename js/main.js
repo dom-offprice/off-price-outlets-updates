@@ -313,7 +313,7 @@ if (copyrightYear) {
         mode = 'timer';
         countdownEl.classList.remove('is-message');
         countdownEl.innerHTML =
-            '<span class="hero-countdown-label">Doors open in</span>' +
+            '<span class="hero-countdown-label">Next sale in</span>' +
             '<span class="hero-countdown-units" aria-hidden="true">' +
             '<span class="hero-countdown-unit" data-unit="days"><strong>00</strong><em>days</em></span>' +
             '<span class="hero-countdown-sep" aria-hidden="true">:</span>' +
@@ -380,7 +380,7 @@ if (copyrightYear) {
 
         ensureTimerShell();
         const label = countdownEl.querySelector('.hero-countdown-label');
-        if (label) label.textContent = 'Doors open in';
+        if (label) label.textContent = 'Next sale in';
         const diff = saleStart - now;
         const d = Math.floor(diff / 86400000);
         const h = Math.floor((diff % 86400000) / 3600000);
@@ -390,7 +390,7 @@ if (copyrightYear) {
         setUnit('hours', h, false);
         setUnit('mins', m, false);
         setUnit('secs', s, true);
-        announce('Doors open in ' + d + ' days, ' + h + ' hours, ' + m + ' minutes', m);
+        announce('Next sale in ' + d + ' days, ' + h + ' hours, ' + m + ' minutes', m);
     }
 
     if (countdownEl) {
