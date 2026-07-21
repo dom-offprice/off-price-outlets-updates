@@ -472,10 +472,10 @@ if (copyrightYear) {
         });
     });
 
-    // Auto-load featured + spotlight TikToks when visible so the real player shows
+    // Auto-load official + spotlight TikToks when visible so the real player shows
     if ('IntersectionObserver' in window) {
         var autoTt = document.querySelectorAll(
-            '.reel-featured .reel[data-embed-platform="tt"], .reel--spotlight[data-embed-platform="tt"]'
+            '.reel--featured-tt[data-embed-platform="tt"], .reel--spotlight[data-embed-platform="tt"]'
         );
         var io = new IntersectionObserver(
             function (entries) {
@@ -493,7 +493,7 @@ if (copyrightYear) {
         });
     } else {
         document
-            .querySelectorAll('.reel-featured .reel[data-embed-platform="tt"]')
+            .querySelectorAll('.reel--featured-tt[data-embed-platform="tt"]')
             .forEach(loadTikTokEmbed);
     }
 })();

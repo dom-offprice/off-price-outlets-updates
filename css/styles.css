@@ -2332,7 +2332,7 @@ p {
 
 /* ========== Social Proof ========== */
 .social-proof {
-    padding: 56px 0 68px;
+    padding: 48px 0 56px;
     background:
         radial-gradient(ellipse 80% 45% at 20% 10%, rgba(220, 20, 60, 0.16), transparent 50%),
         radial-gradient(ellipse 70% 40% at 90% 30%, rgba(255, 255, 255, 0.04), transparent 45%),
@@ -2343,11 +2343,12 @@ p {
 
 .social-proof-intro {
     text-align: center;
-    max-width: 720px;
-    margin: 0 auto 28px;
+    max-width: 640px;
+    margin: 0 auto 22px;
 }
 
 .social-proof .social-proof-kicker,
+.social-block-kicker,
 .faq-section .faq-kicker,
 .giveaway-kicker {
     color: #ff6b84;
@@ -2357,10 +2358,10 @@ p {
 .faq-section h2 {
     font-family: var(--font-display);
     font-weight: 400;
-    font-size: clamp(2.6rem, 9vw, 3.6rem);
+    font-size: clamp(2.4rem, 8vw, 3.4rem);
     line-height: 0.95;
     color: var(--white);
-    margin-bottom: 12px;
+    margin-bottom: 10px;
     letter-spacing: 0.04em;
 }
 
@@ -2372,10 +2373,10 @@ p {
 .social-proof-note {
     color: rgba(255, 255, 255, 0.78);
     font-weight: 600;
-    font-size: clamp(1.05rem, 3.2vw, 1.15rem);
-    line-height: 1.5;
+    font-size: clamp(1rem, 3vw, 1.12rem);
+    line-height: 1.45;
     margin: 0 auto;
-    max-width: 560px;
+    max-width: 480px;
     text-wrap: pretty;
 }
 
@@ -2395,21 +2396,101 @@ p {
     font-size: 0.98rem;
 }
 
-/* Phone reel containers + official Instagram cards */
-.reel-featured {
+.social-block {
+    margin: 0 0 28px;
+}
+
+.social-block--tt {
+    margin-top: 8px;
+    padding-top: 26px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.social-block-head {
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 22px 32px;
     flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 10px 18px;
+    margin-bottom: 14px;
+}
+
+.social-block-head--hauls {
+    margin-top: 28px;
+    margin-bottom: 10px;
+}
+
+.social-block-kicker {
+    margin: 0 0 4px;
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.social-block-title {
+    margin: 0 0 6px;
+    font-family: var(--font-display);
+    font-size: clamp(1.7rem, 5vw, 2.35rem);
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    line-height: 1;
+    color: var(--white);
+}
+
+.social-block-text {
+    margin: 0;
+    max-width: 42ch;
+    color: rgba(255, 255, 255, 0.76);
+    font-size: 0.98rem;
+    font-weight: 600;
+    line-height: 1.4;
+    text-wrap: pretty;
+}
+
+.social-block-text strong {
+    color: var(--white);
+}
+
+.social-block-link {
+    font-size: 0.92rem;
+    font-weight: 800;
+    color: #ff6b84;
+    white-space: nowrap;
+}
+
+.social-block-link:hover {
+    color: #ffb4c4;
+}
+
+.ig-swipe {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: min(300px, 82vw);
+    gap: 14px;
+    overflow-x: auto;
+    padding: 4px 2px 10px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    mask-image: linear-gradient(90deg, transparent 0, #000 12px, #000 calc(100% - 16px), transparent 100%);
+}
+
+.ig-swipe::-webkit-scrollbar {
+    height: 5px;
+}
+
+.ig-swipe::-webkit-scrollbar-thumb {
+    background: rgba(220, 20, 60, 0.75);
+    border-radius: 999px;
 }
 
 .ig-card {
-    width: min(326px, 100%);
+    width: 100%;
+    scroll-snap-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 12px;
     color: var(--white);
 }
 
@@ -2417,38 +2498,33 @@ p {
     background: #fff !important;
     border: 0 !important;
     border-radius: 14px !important;
-    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35) !important;
+    box-shadow: 0 14px 32px rgba(0, 0, 0, 0.35) !important;
     margin: 0 auto !important;
-    max-width: 326px !important;
-    min-width: 280px !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
     padding: 0 !important;
     width: 100% !important;
 }
 
-.ig-card-meta {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 4px;
+.ig-swipe-hint {
+    display: none;
+    margin: 2px 0 0;
     text-align: center;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.45);
 }
 
-.ig-card-rail {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 18px;
-    align-items: start;
-    justify-items: center;
-    margin: 0 0 8px;
-}
-
-.ig-card-rail .ig-card {
-    width: 100%;
-    max-width: 326px;
+.tt-official {
+    display: flex;
+    justify-content: center;
+    margin: 4px 0 8px;
 }
 
 .reel--featured-tt {
-    width: 280px;
+    width: 240px;
 }
 
 .reel-rail {
@@ -2667,16 +2743,16 @@ p {
 .giveaway-spotlight {
     display: grid;
     grid-template-columns: 1fr auto;
-    gap: 28px;
+    gap: 22px;
     align-items: center;
-    margin: 44px 0 8px;
-    padding: 28px 28px 28px 32px;
-    border-radius: 24px;
+    margin: 22px 0 4px;
+    padding: 22px 22px 22px 26px;
+    border-radius: 20px;
     background:
         radial-gradient(ellipse 70% 90% at 100% 50%, rgba(220, 20, 60, 0.28), transparent 55%),
         linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
     border: 1px solid rgba(255, 255, 255, 0.12);
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.28);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.28);
 }
 
 .giveaway-title {
@@ -2705,9 +2781,9 @@ p {
 .social-proof-ctas {
     display: flex;
     flex-wrap: wrap;
-    gap: 12px;
+    gap: 10px;
     justify-content: center;
-    margin-top: 40px;
+    margin-top: 28px;
 }
 
 .social-proof-tt-btn {
@@ -2932,29 +3008,50 @@ body.nav-open {
     }
 
     .social-proof {
-        padding: 56px 0 68px;
+        padding: 40px 0 48px;
     }
 
-    .reel-featured {
-        gap: 18px;
+    .social-proof-intro {
+        margin-bottom: 18px;
+    }
+
+    .social-block {
+        margin-bottom: 22px;
+    }
+
+    .social-block--tt {
+        padding-top: 20px;
+    }
+
+    .social-block-head {
         flex-direction: column;
-        align-items: center;
+        align-items: flex-start;
+        gap: 8px;
+        margin-bottom: 12px;
     }
 
-    .ig-card-rail {
-        grid-template-columns: 1fr;
-        gap: 20px;
-        justify-items: center;
+    .social-block-title {
+        font-size: clamp(1.55rem, 7vw, 1.9rem);
     }
 
-    .ig-card .instagram-media {
-        min-width: 0 !important;
-        max-width: min(326px, 100%) !important;
+    .social-block-text {
+        font-size: 0.92rem;
+    }
+
+    .ig-swipe {
+        grid-auto-columns: min(288px, 84vw);
+        margin-inline: -12px;
+        padding-inline: 12px;
+        gap: 12px;
+    }
+
+    .ig-swipe-hint {
+        display: block;
     }
 
     .reel--lg,
     .reel--featured-tt {
-        width: 220px;
+        width: 200px;
     }
 
     .reel {
@@ -2969,7 +3066,21 @@ body.nav-open {
     }
 
     .reel--spotlight {
-        width: 168px;
+        width: 160px;
+    }
+
+    .giveaway-spotlight {
+        margin-top: 18px;
+        padding: 18px;
+        gap: 16px;
+    }
+
+    .social-block-head--hauls {
+        margin-top: 22px;
+    }
+
+    .social-proof-ctas {
+        margin-top: 22px;
     }
 
     .reel-phone {
@@ -3793,13 +3904,13 @@ body.has-sticky-sale {
         font-size: 1.15rem;
     }
 
-    /* Social reels — gallery of phones, not a lonely mobile strip */
+    /* Social: IG swipe + TikTok block below */
     .social-proof {
-        padding: 72px 0 80px;
+        padding: 64px 0 72px;
     }
 
     .social-proof-intro {
-        margin-bottom: 36px;
+        margin-bottom: 28px;
     }
 
     .social-proof h2 {
@@ -3814,18 +3925,17 @@ body.has-sticky-sale {
     }
 
     .reel--featured-tt {
-        width: 300px;
+        width: 260px;
     }
 
-    .ig-card-rail {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 22px;
+    .ig-swipe {
+        grid-auto-columns: 300px;
+        gap: 18px;
+        padding-bottom: 14px;
     }
 
-    .reel-featured {
-        gap: 40px;
-        margin-bottom: 8px;
-        align-items: flex-start;
+    .social-block-head {
+        margin-bottom: 16px;
     }
 
     .reel {
@@ -3847,14 +3957,14 @@ body.has-sticky-sale {
     }
 
     .reel--spotlight {
-        width: 220px;
+        width: 200px;
     }
 
     .giveaway-spotlight {
         max-width: 980px;
-        margin: 56px auto 12px;
-        padding: 36px 40px;
-        gap: 40px;
+        margin: 28px auto 8px;
+        padding: 28px 32px;
+        gap: 32px;
     }
 
     .giveaway-title {
@@ -3971,15 +4081,15 @@ body.has-sticky-sale {
     }
 
     .reel--featured-tt {
-        width: 320px;
+        width: 280px;
     }
 
     .reel {
         width: 188px;
     }
 
-    .reel-featured {
-        gap: 52px;
+    .ig-swipe {
+        grid-auto-columns: 310px;
     }
 
 }
