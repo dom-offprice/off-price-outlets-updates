@@ -441,6 +441,26 @@ if (copyrightYear) {
 
     processInstagramEmbeds();
 
+    function processTikTokEmbeds() {
+        if (window.tiktokEmbed && typeof window.tiktokEmbed.lib && window.tiktokEmbed.lib.render) {
+            try { window.tiktokEmbed.lib.render(); } catch (e) {}
+            return;
+        }
+        // Official embed.js hydrates blockquotes on load; retry if late
+        var tries = 0;
+        var timer = window.setInterval(function () {
+            tries += 1;
+            if (window.tiktokEmbed && window.tiktokEmbed.lib && typeof window.tiktokEmbed.lib.render === 'function') {
+                try { window.tiktokEmbed.lib.render(); } catch (e) {}
+                window.clearInterval(timer);
+            } else if (tries > 40) {
+                window.clearInterval(timer);
+            }
+        }, 250);
+    }
+
+    processTikTokEmbeds();
+
     function loadTikTokEmbed(reel) {
         if (!reel || reel.classList.contains('is-playing')) return;
         var src = reel.getAttribute('data-embed-src');
@@ -472,29 +492,5 @@ if (copyrightYear) {
         });
     });
 
-    // Auto-load official + spotlight TikToks when visible so the real player shows
-    if ('IntersectionObserver' in window) {
-        var autoTt = document.querySelectorAll(
-            '.reel--featured-tt[data-embed-platform="tt"], .reel--spotlight[data-embed-platform="tt"]'
-        );
-        var io = new IntersectionObserver(
-            function (entries) {
-                entries.forEach(function (entry) {
-                    if (entry.isIntersecting) {
-                        loadTikTokEmbed(entry.target);
-                        io.unobserve(entry.target);
-                    }
-                });
-            },
-            { rootMargin: '160px 0px', threshold: 0.15 }
-        );
-        autoTt.forEach(function (reel) {
-            io.observe(reel);
-        });
-    } else {
-        document
-            .querySelectorAll('.reel--featured-tt[data-embed-platform="tt"]')
-            .forEach(loadTikTokEmbed);
-    }
 })();
 
