@@ -1974,11 +1974,11 @@ a.sale-address-cta:hover .sale-address-kicker {
     font-size: 0.98rem;
 }
 
-.social-snap {
+.embed-snap {
     display: grid;
     grid-auto-flow: column;
-    grid-auto-columns: minmax(210px, 240px);
-    gap: 14px;
+    grid-auto-columns: minmax(280px, 320px);
+    gap: 16px;
     overflow-x: auto;
     padding: 6px 4px 18px;
     scroll-snap-type: x mandatory;
@@ -1986,108 +1986,68 @@ a.sale-address-cta:hover .sale-address-kicker {
     scrollbar-width: thin;
 }
 
-.social-snap::-webkit-scrollbar {
+.embed-snap::-webkit-scrollbar {
     height: 6px;
 }
 
-.social-snap::-webkit-scrollbar-thumb {
+.embed-snap::-webkit-scrollbar-thumb {
     background: rgba(220, 20, 60, 0.7);
     border-radius: 999px;
 }
 
-.social-card {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    min-height: 300px;
-    padding: 18px;
-    border-radius: 18px;
+.embed-card {
+    margin: 0;
     scroll-snap-align: start;
+    background: #0d0d0d;
+    border-radius: 16px;
     overflow: hidden;
-    text-decoration: none;
-    color: var(--white);
     border: 1px solid rgba(255, 255, 255, 0.12);
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    display: flex;
+    flex-direction: column;
+    min-height: 520px;
 }
 
-.social-card:hover,
-.social-card:focus-visible {
-    transform: translateY(-4px) scale(1.01);
-    box-shadow: 0 18px 48px rgba(0, 0, 0, 0.45);
+.embed-card iframe {
+    width: 100%;
+    flex: 1 1 auto;
+    min-height: 480px;
+    border: 0;
+    background: #000;
+    display: block;
 }
 
-.social-card--ig {
-    background:
-        linear-gradient(180deg, transparent 20%, rgba(0, 0, 0, 0.78) 100%),
-        radial-gradient(circle at 20% 20%, #f58529, transparent 45%),
-        radial-gradient(circle at 80% 30%, #dd2a7b, transparent 50%),
-        linear-gradient(135deg, #8134af, #515bd4);
+.embed-card--tiktok {
+    min-height: 580px;
 }
 
-.social-card--tt {
-    background:
-        linear-gradient(180deg, transparent 25%, rgba(0, 0, 0, 0.8) 100%),
-        linear-gradient(135deg, #25f4ee 0%, #000 42%, #fe2c55 100%);
+.embed-card--tiktok iframe {
+    min-height: 540px;
 }
 
-.social-card-badge {
-    position: absolute;
-    top: 14px;
-    left: 14px;
-    font-size: 0.68rem;
-    font-weight: 800;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    padding: 6px 10px;
-    border-radius: 999px;
-    background: rgba(0, 0, 0, 0.45);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+.embed-open {
+    display: block;
+    text-align: center;
+    padding: 12px 10px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--white);
+    background: rgba(255, 255, 255, 0.06);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    text-decoration: none;
 }
 
-.social-card-play {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 58px;
-    height: 58px;
-    margin: -29px 0 0 -29px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.92);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
-}
-
-.social-card-play::before {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 54%;
-    transform: translate(-50%, -50%);
-    border-style: solid;
-    border-width: 10px 0 10px 16px;
-    border-color: transparent transparent transparent #111;
-}
-
-.social-card-title {
-    font-family: var(--font-display);
-    font-size: 1.55rem;
-    letter-spacing: 0.04em;
-    line-height: 1.05;
-}
-
-.social-card-meta {
-    font-size: 0.88rem;
-    font-weight: 600;
-    opacity: 0.85;
-    margin-top: 4px;
+.embed-open:hover,
+.embed-open:focus-visible {
+    background: var(--primary-red);
+    color: var(--white);
 }
 
 .giveaway-spotlight {
     display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
+    grid-template-columns: 1fr 340px;
     gap: 22px;
-    align-items: stretch;
+    align-items: center;
     margin: 40px 0 8px;
     padding: 28px;
     border-radius: 20px;
@@ -2109,13 +2069,15 @@ a.sale-address-cta:hover .sale-address-kicker {
     color: rgba(255, 255, 255, 0.82);
     font-weight: 600;
     line-height: 1.55;
-    margin: 0 0 20px;
+    margin: 0;
     max-width: 46ch;
     text-wrap: pretty;
 }
 
-.social-card--featured {
-    min-height: 280px;
+.embed-card--featured {
+    width: 100%;
+    max-width: 340px;
+    justify-self: end;
 }
 
 .social-proof-ctas {
@@ -2223,6 +2185,11 @@ a.sale-address-cta:hover .sale-address-kicker {
         grid-template-columns: 1fr;
         padding: 22px;
     }
+
+    .embed-card--featured {
+        max-width: none;
+        justify-self: stretch;
+    }
 }
 
 @media (max-width: 768px) {
@@ -2249,14 +2216,20 @@ a.sale-address-cta:hover .sale-address-kicker {
         padding: 56px 0 64px;
     }
 
-    .social-card {
-        min-height: 280px;
-    }
-
-    .social-snap {
-        grid-auto-columns: minmax(78vw, 240px);
+    .embed-snap {
+        grid-auto-columns: minmax(82vw, 320px);
         margin-inline: -8px;
         padding-inline: 8px;
+    }
+
+    .embed-card,
+    .embed-card--tiktok {
+        min-height: 560px;
+    }
+
+    .embed-card iframe,
+    .embed-card--tiktok iframe {
+        min-height: 520px;
     }
 
     .faq-section {
@@ -2271,8 +2244,7 @@ a.sale-address-cta:hover .sale-address-kicker {
 
 @media (prefers-reduced-motion: reduce) {
     .hero-cta.is-ready .hero-red-box,
-    .hero-cta.is-ready .hero-follow-btn,
-    .social-card {
+    .hero-cta.is-ready .hero-follow-btn {
         animation: none !important;
         transition: none !important;
     }
