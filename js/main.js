@@ -441,6 +441,36 @@ if (copyrightYear) {
 
     processInstagramEmbeds();
 
+    // Swipe rail owns horizontal gestures — IG carousel slides can't trap mobile scroll
+    (function shieldIgSwipe() {
+        var rail = document.querySelector('.ig-swipe');
+        if (!rail) return;
+        rail.querySelectorAll('.ig-card-hit').forEach(function (hit) {
+            var startX = 0;
+            var startY = 0;
+            var moved = false;
+
+            hit.addEventListener('touchstart', function (e) {
+                moved = false;
+                startX = e.changedTouches[0].clientX;
+                startY = e.changedTouches[0].clientY;
+            }, { passive: true });
+
+            hit.addEventListener('touchmove', function (e) {
+                var dx = Math.abs(e.changedTouches[0].clientX - startX);
+                var dy = Math.abs(e.changedTouches[0].clientY - startY);
+                if (dx > 6 || dy > 6) moved = true;
+            }, { passive: true });
+
+            hit.addEventListener('click', function (e) {
+                if (moved) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                }
+            });
+        });
+    })();
+
     function processTikTokEmbeds() {
         if (window.tiktokEmbed && typeof window.tiktokEmbed.lib && window.tiktokEmbed.lib.render) {
             try { window.tiktokEmbed.lib.render(); } catch (e) {}

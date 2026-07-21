@@ -2472,6 +2472,7 @@ p {
     padding: 4px 2px 10px;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
+    touch-action: pan-x;
     scrollbar-width: thin;
     mask-image: linear-gradient(90deg, transparent 0, #000 12px, #000 calc(100% - 16px), transparent 100%);
 }
@@ -2486,6 +2487,7 @@ p {
 }
 
 .ig-card {
+    position: relative;
     width: 100%;
     scroll-snap-align: center;
     display: flex;
@@ -2504,6 +2506,23 @@ p {
     min-width: 0 !important;
     padding: 0 !important;
     width: 100% !important;
+}
+
+/* Block IG carousel/iframe from stealing horizontal swipes — rail scrolls instead */
+.ig-card .instagram-media,
+.ig-card iframe {
+    pointer-events: none !important;
+}
+
+.ig-card-hit {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    border-radius: 14px;
+    background: transparent;
+    cursor: pointer;
+    touch-action: pan-x;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .ig-swipe-hint {
