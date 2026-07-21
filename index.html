@@ -38,7 +38,7 @@
     <link rel="icon" href="images/favicon.png?v=30" type="image/png" sizes="64x64">
     <link rel="apple-touch-icon" href="images/apple-touch-icon.png?v=30" sizes="180x180">
     <link rel="icon" href="images/android-chrome-192.png?v=30" type="image/png" sizes="192x192">
-    <link rel="stylesheet" href="css/styles.css?v=33">
+    <link rel="stylesheet" href="css/styles.css?v=34">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Plus+Jakarta+Sans:ital,wght@0,500;0,600;0,700;0,800;1,500&display=swap" rel="stylesheet">
@@ -266,7 +266,8 @@
             <div class="container">
                 <div class="sale-red-bar-inner" role="group" aria-label="Warehouse sale update">
                     <p class="sale-red-bar-kicker">This weekend in North Haven</p>
-                    <p class="sale-red-bar-dates">Aug 1–2 · 10 AM – 4 PM</p>
+                    <p class="sale-red-bar-dates">Aug 1–2</p>
+                    <p class="sale-red-bar-time"><span>Saturday &amp; Sunday</span><span>10 AM – 4 PM</span></p>
                     <p class="sale-red-bar-note">Huge restock — footwear, clothing &amp; accessories</p>
                 </div>
             </div>
@@ -275,17 +276,17 @@
             <div class="container">
                 <div class="sale-deals-panel">
                     <p class="sale-deals-kicker">This weekend&apos;s deals</p>
-                    <h3 class="sale-deals-title">Footwear, clothing &amp; accessories</h3>
-                    <p class="sale-deals-lead">Massive shipment just landed. Warehouse prices. Brand names. Don’t miss this restock weekend.</p>
+                    <h3 class="sale-deals-title">Warehouse prices. Brand names.</h3>
+                    <p class="sale-deals-lead">A massive restock just landed — footwear, clothing, and accessories at true outlet prices.</p>
                     <div class="sale-deals-grid">
                         <div class="sale-deals-group">
                             <h4 class="sale-deals-group-title">Footwear</h4>
                             <ul class="sale-deals-list">
                                 <li><span class="sale-deals-label">Closed-toe shoes</span><span class="sale-deals-price">$15</span></li>
                                 <li><span class="sale-deals-label">Open-toe shoes</span><span class="sale-deals-price">$15</span></li>
-                                <li><span class="sale-deals-label">Men&apos;s &amp; women&apos;s dress shoes</span><span class="sale-deals-price">$20</span></li>
-                                <li><span class="sale-deals-label">Men&apos;s &amp; women&apos;s boots</span><span class="sale-deals-price">$20</span></li>
-                                <li><span class="sale-deals-label">Men&apos;s &amp; women&apos;s sneakers</span><span class="sale-deals-price">$25</span></li>
+                                <li><span class="sale-deals-label">Dress shoes</span><span class="sale-deals-price">$20</span></li>
+                                <li><span class="sale-deals-label">Boots</span><span class="sale-deals-price">$20</span></li>
+                                <li><span class="sale-deals-label">Sneakers</span><span class="sale-deals-price">$25</span></li>
                             </ul>
                         </div>
                         <div class="sale-deals-group">
@@ -301,23 +302,33 @@
                 </div>
             </div>
         </div>
-        <div class="sale-white-box-wrap">
+        <div class="visit-panel" id="location">
             <div class="container">
-                <a
-                    href="https://maps.app.goo.gl/x7Y3u4a7GtQJxj8D8?g_st=ic"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="sale-white-box sale-address-cta"
-                    id="sale-address-cta"
-                    data-address="110 Republic Drive, North Haven, CT 06473 (Left End Unit)"
-                    aria-label="Open Google Maps and copy our address"
-                >
-                    <span class="sale-address-kicker">Visit us</span>
-                    <span class="sale-address-line">110 Republic Drive</span>
-                    <span class="sale-address-line">North Haven, CT 06473</span>
-                    <span class="sale-address-note">(Left End Unit)</span>
-                    <span class="sale-address-hint">Tap to open Maps &amp; copy address</span>
-                </a>
+                <div class="visit-panel-card">
+                    <div class="visit-panel-copy">
+                        <p class="visit-panel-kicker">Visit us</p>
+                        <h3 class="visit-panel-title">110 Republic Drive</h3>
+                        <p class="visit-panel-city">North Haven, CT 06473 · Left end unit</p>
+                        <p class="visit-panel-hours"><strong>Aug 1–2</strong> · Saturday &amp; Sunday · 10 AM – 4 PM</p>
+                        <div class="visit-panel-rating">
+                            <span class="visit-panel-stars" aria-hidden="true">★★★★★</span>
+                            <a href="https://maps.app.goo.gl/x7Y3u4a7GtQJxj8D8?g_st=ic" target="_blank" rel="noopener noreferrer">See us on Google Maps &amp; reviews</a>
+                        </div>
+                        <div class="visit-panel-actions">
+                            <a class="btn btn-primary" href="https://maps.app.goo.gl/x7Y3u4a7GtQJxj8D8?g_st=ic" target="_blank" rel="noopener noreferrer" id="sale-address-cta" data-address="110 Republic Drive, North Haven, CT 06473 (Left End Unit)">Get directions</a>
+                            <a class="btn visit-panel-secondary" href="https://maps.app.goo.gl/x7Y3u4a7GtQJxj8D8?g_st=ic" target="_blank" rel="noopener noreferrer">Open in Google Maps</a>
+                        </div>
+                    </div>
+                    <div class="visit-panel-map">
+                        <iframe
+                            title="Interactive Google Map for Off Price Outlets, 110 Republic Drive, North Haven CT"
+                            src="https://www.google.com/maps?q=Off+Price+Outlets,+110+Republic+Drive,+North+Haven,+CT+06473&amp;z=16&amp;output=embed"
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"
+                            allowfullscreen
+                        ></iframe>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -345,7 +356,7 @@
                         <span class="reel-phone">
                             <span class="reel-notch" aria-hidden="true"></span>
                             <span class="reel-screen">
-                                <img class="reel-cover" src="images/social/ig-featured.jpg" alt="" width="720" height="1280" loading="lazy" decoding="async">
+                                <img class="reel-cover" src="images/social/ig-featured.jpg?v=34" alt="Off Price Outlets Instagram reel" width="720" height="1280" loading="eager" fetchpriority="low" decoding="async">
                                 <span class="reel-shade" aria-hidden="true"></span>
                                 <span class="reel-play" aria-hidden="true"></span>
                             </span>
@@ -362,7 +373,7 @@
                         <span class="reel-phone">
                             <span class="reel-notch" aria-hidden="true"></span>
                             <span class="reel-screen">
-                                <img class="reel-cover" src="images/social/brand-tiktok.jpg" alt="" width="720" height="1280" loading="lazy" decoding="async">
+                                <img class="reel-cover" src="images/social/brand-tiktok.jpg?v=34" alt="Off Price Outlets TikTok" width="720" height="1280" loading="eager" fetchpriority="low" decoding="async">
                                 <span class="reel-shade" aria-hidden="true"></span>
                                 <span class="reel-play" aria-hidden="true"></span>
                             </span>
@@ -383,7 +394,7 @@
                         <span class="reel-phone">
                             <span class="reel-notch" aria-hidden="true"></span>
                             <span class="reel-screen">
-                                <img class="reel-cover" src="images/social/ig-highlights.jpg" alt="" width="720" height="1280" loading="lazy" decoding="async">
+                                <img class="reel-cover" src="images/social/ig-highlights.jpg?v=34" alt="" width="720" height="1280" loading="lazy" decoding="async">
                                 <span class="reel-shade" aria-hidden="true"></span>
                                 <span class="reel-play" aria-hidden="true"></span>
                             </span>
@@ -400,7 +411,7 @@
                         <span class="reel-phone">
                             <span class="reel-notch" aria-hidden="true"></span>
                             <span class="reel-screen">
-                                <img class="reel-cover" src="images/social/ig-restock.jpg" alt="" width="720" height="1280" loading="lazy" decoding="async">
+                                <img class="reel-cover" src="images/social/ig-restock.jpg?v=34" alt="" width="720" height="1280" loading="lazy" decoding="async">
                                 <span class="reel-shade" aria-hidden="true"></span>
                                 <span class="reel-play" aria-hidden="true"></span>
                             </span>
@@ -417,7 +428,7 @@
                         <span class="reel-phone">
                             <span class="reel-notch" aria-hidden="true"></span>
                             <span class="reel-screen">
-                                <img class="reel-cover" src="images/social/ig-racks.jpg" alt="" width="720" height="1280" loading="lazy" decoding="async">
+                                <img class="reel-cover" src="images/social/ig-racks.jpg?v=34" alt="" width="720" height="1280" loading="lazy" decoding="async">
                                 <span class="reel-shade" aria-hidden="true"></span>
                                 <span class="reel-play" aria-hidden="true"></span>
                             </span>
@@ -443,7 +454,7 @@
                         <span class="reel-phone">
                             <span class="reel-notch" aria-hidden="true"></span>
                             <span class="reel-screen">
-                                <img class="reel-cover" src="images/social/winner-haul.jpg" alt="Giveaway winner’s haul on TikTok" width="720" height="1280" loading="lazy" decoding="async">
+                                <img class="reel-cover" src="images/social/winner-haul.jpg?v=34" alt="Giveaway winner’s haul on TikTok" width="720" height="1280" loading="lazy" decoding="async">
                                 <span class="reel-shade" aria-hidden="true"></span>
                                 <span class="reel-play" aria-hidden="true"></span>
                             </span>
@@ -465,7 +476,7 @@
                         <span class="reel-phone">
                             <span class="reel-notch" aria-hidden="true"></span>
                             <span class="reel-screen">
-                                <img class="reel-cover" src="images/social/customer-1.jpg" alt="" width="720" height="1280" loading="lazy" decoding="async">
+                                <img class="reel-cover" src="images/social/customer-1.jpg?v=34" alt="" width="720" height="1280" loading="lazy" decoding="async">
                                 <span class="reel-shade" aria-hidden="true"></span>
                                 <span class="reel-play" aria-hidden="true"></span>
                             </span>
@@ -482,7 +493,7 @@
                         <span class="reel-phone">
                             <span class="reel-notch" aria-hidden="true"></span>
                             <span class="reel-screen">
-                                <img class="reel-cover" src="images/social/customer-2.jpg" alt="" width="720" height="1280" loading="lazy" decoding="async">
+                                <img class="reel-cover" src="images/social/customer-2.jpg?v=34" alt="" width="720" height="1280" loading="lazy" decoding="async">
                                 <span class="reel-shade" aria-hidden="true"></span>
                                 <span class="reel-play" aria-hidden="true"></span>
                             </span>
@@ -499,7 +510,7 @@
                         <span class="reel-phone">
                             <span class="reel-notch" aria-hidden="true"></span>
                             <span class="reel-screen">
-                                <img class="reel-cover" src="images/social/customer-3.jpg" alt="" width="720" height="1280" loading="lazy" decoding="async">
+                                <img class="reel-cover" src="images/social/customer-3.jpg?v=34" alt="" width="720" height="1280" loading="lazy" decoding="async">
                                 <span class="reel-shade" aria-hidden="true"></span>
                                 <span class="reel-play" aria-hidden="true"></span>
                             </span>
@@ -516,7 +527,7 @@
                         <span class="reel-phone">
                             <span class="reel-notch" aria-hidden="true"></span>
                             <span class="reel-screen">
-                                <img class="reel-cover" src="images/social/customer-4.jpg" alt="" width="720" height="1280" loading="lazy" decoding="async">
+                                <img class="reel-cover" src="images/social/customer-4.jpg?v=34" alt="" width="720" height="1280" loading="lazy" decoding="async">
                                 <span class="reel-shade" aria-hidden="true"></span>
                                 <span class="reel-play" aria-hidden="true"></span>
                             </span>
@@ -533,7 +544,7 @@
                         <span class="reel-phone">
                             <span class="reel-notch" aria-hidden="true"></span>
                             <span class="reel-screen">
-                                <img class="reel-cover" src="images/social/customer-5.jpg" alt="" width="720" height="1280" loading="lazy" decoding="async">
+                                <img class="reel-cover" src="images/social/customer-5.jpg?v=34" alt="" width="720" height="1280" loading="lazy" decoding="async">
                                 <span class="reel-shade" aria-hidden="true"></span>
                                 <span class="reel-play" aria-hidden="true"></span>
                             </span>
@@ -677,90 +688,70 @@
     <!-- Testimonials Section -->
     <section id="testimonials" class="testimonials">
         <div class="container">
-            <p class="testimonials-kicker">Shopper reviews</p>
-            <h2>What CT shoppers say</h2>
-        </div>
-        <div class="testimonials-carousel" role="region" aria-roledescription="carousel" aria-label="Customer reviews">
-            <div class="testimonials-track" id="testimonials-track">
-                <div class="testimonial-card">
-                    <div class="testimonial-stars" aria-hidden="true">★★★★★</div>
-                    <p class="testimonial-text">Exceptional customer service. Huge selection! Many sizes. Women, men and children. Beyond thrilled to enjoy my newwardrobe!</p>
-                    <p class="testimonial-author">— Tina</p>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-stars" aria-hidden="true">★★★★★</div>
-                    <p class="testimonial-text">My mom recommended this place to me, I came looking for low waisted pants and ended up getting 4 pairs that fit perfectly for $60! Great place, great quality clothes for the low.</p>
-                    <p class="testimonial-author">— Erica</p>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-stars" aria-hidden="true">★★★★★</div>
-                    <p class="testimonial-text">Had an awesome experience here. Quality brands and huge selection at such an affordable price. Dressing rooms available too! Staff was extremely friendly and helpful. Will definitely be going back!</p>
-                    <p class="testimonial-author">— Annie</p>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-stars" aria-hidden="true">★★★★★</div>
-                    <p class="testimonial-text">I love this store!! Great selection of name brand clothing at unbeatable prices. Something for everyone in the family! Clean, organized, and the staff is always helpful.</p>
-                    <p class="testimonial-author">— Karen</p>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-stars" aria-hidden="true">★★★★★</div>
-                    <p class="testimonial-text">Love this place! I have been coming since they opened, and I always find great stuff at a great price!</p>
-                    <p class="testimonial-author">— Katty</p>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-stars" aria-hidden="true">★★★★★</div>
-                    <p class="testimonial-text">We absolutely score something incredible every time we are here. Great prices for top quality items.</p>
-                    <p class="testimonial-author">— Jamie</p>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-stars" aria-hidden="true">★★★★★</div>
-                    <p class="testimonial-text">Really great selection of clothes and nice staff! Would return and recommend!</p>
-                    <p class="testimonial-author">— Ava</p>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-stars" aria-hidden="true">★★★★★</div>
-                    <p class="testimonial-text">Love this store! Such a fun selection and the prices can't be beat!</p>
-                    <p class="testimonial-author">— Maureen</p>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-stars" aria-hidden="true">★★★★★</div>
-                    <p class="testimonial-text">Great selection and very clean and organized. I'll definitely be back!</p>
-                    <p class="testimonial-author">— Justin</p>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-stars" aria-hidden="true">★★★★★</div>
-                    <p class="testimonial-text">Great clothing! Great prices! Great staff! A win for everyone here!</p>
-                    <p class="testimonial-author">— Martha</p>
+            <div class="testimonials-intro">
+                <p class="testimonials-kicker">Shopper reviews</p>
+                <h2>What CT shoppers say</h2>
+                <p class="testimonials-lead">Real feedback from people who shopped the North Haven warehouse.</p>
+            </div>
+            <div class="testimonials-featured">
+                <article class="review-card review-card--feature">
+                    <div class="review-card-stars" aria-hidden="true">★★★★★</div>
+                    <p class="review-card-text">“Had an awesome experience here. Quality brands and huge selection at such an affordable price. Dressing rooms available too! Staff was extremely friendly and helpful.”</p>
+                    <p class="review-card-author">Annie</p>
+                </article>
+                <article class="review-card">
+                    <div class="review-card-stars" aria-hidden="true">★★★★★</div>
+                    <p class="review-card-text">“I came looking for low waisted pants and ended up getting 4 pairs that fit perfectly for $60. Great quality clothes for the low.”</p>
+                    <p class="review-card-author">Erica</p>
+                </article>
+                <article class="review-card">
+                    <div class="review-card-stars" aria-hidden="true">★★★★★</div>
+                    <p class="review-card-text">“Great selection of name brand clothing at unbeatable prices. Something for everyone in the family. Clean, organized, and the staff is always helpful.”</p>
+                    <p class="review-card-author">Karen</p>
+                </article>
+                <article class="review-card">
+                    <div class="review-card-stars" aria-hidden="true">★★★★★</div>
+                    <p class="review-card-text">“Exceptional customer service. Huge selection! Many sizes. Women, men and children. Beyond thrilled.”</p>
+                    <p class="review-card-author">Tina</p>
+                </article>
+                <article class="review-card">
+                    <div class="review-card-stars" aria-hidden="true">★★★★★</div>
+                    <p class="review-card-text">“We absolutely score something incredible every time we are here. Great prices for top quality items.”</p>
+                    <p class="review-card-author">Jamie</p>
+                </article>
+                <article class="review-card">
+                    <div class="review-card-stars" aria-hidden="true">★★★★★</div>
+                    <p class="review-card-text">“Love this place! I’ve been coming since they opened, and I always find great stuff at a great price.”</p>
+                    <p class="review-card-author">Katty</p>
+                </article>
+            </div>
+            <div class="testimonials-carousel" role="region" aria-label="More customer reviews">
+                <div class="testimonials-track" id="testimonials-track">
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars" aria-hidden="true">★★★★★</div>
+                        <p class="testimonial-text">Really great selection of clothes and nice staff! Would return and recommend!</p>
+                        <p class="testimonial-author">— Ava</p>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars" aria-hidden="true">★★★★★</div>
+                        <p class="testimonial-text">Love this store! Such a fun selection and the prices can't be beat!</p>
+                        <p class="testimonial-author">— Maureen</p>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars" aria-hidden="true">★★★★★</div>
+                        <p class="testimonial-text">Great selection and very clean and organized. I'll definitely be back!</p>
+                        <p class="testimonial-author">— Justin</p>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars" aria-hidden="true">★★★★★</div>
+                        <p class="testimonial-text">Great clothing! Great prices! Great staff! A win for everyone here!</p>
+                        <p class="testimonial-author">— Martha</p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Location Section -->
-    <section id="location" class="location">
-        <div class="container">
-            <p class="location-kicker">Find us</p>
-            <h2>Visit the North Haven warehouse</h2>
-            <div class="location-content">
-                <div class="location-info">
-                    <div class="address">
-                        <h3>Address</h3>
-                        <p class="address-line">110 Republic Drive</p>
-                        <p class="address-line">North Haven, CT 06473</p>
-                        <p class="address-note">(Left End Unit)</p>
-                    </div>
-                    <div class="hours">
-                        <h3>This weekend’s hours</h3>
-                        <p><strong>Saturday &amp; Sunday, August 1–2</strong></p>
-                        <p>10 AM – 4 PM both days</p>
-                        <p class="hours-note">Open during announced sale weekends only. Follow us for the next date.</p>
-                    </div>
-                    <a href="https://maps.app.goo.gl/x7Y3u4a7GtQJxj8D8?g_st=ic" target="_blank" rel="noopener" class="btn btn-primary">Get directions</a>
-                </div>
-                <div class="location-map">
-                    <iframe src="https://www.google.com/maps?q=110+Republic+Drive,+North+Haven,+CT+06473&output=embed" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Map to Off Price Outlets at 110 Republic Drive, North Haven CT"></iframe>
-                </div>
-            </div>
+            <p class="testimonials-maps-link">
+                <a href="https://maps.app.goo.gl/x7Y3u4a7GtQJxj8D8?g_st=ic" target="_blank" rel="noopener noreferrer">Read more reviews on Google Maps →</a>
+            </p>
         </div>
     </section>
 
@@ -841,6 +832,6 @@
         </div>
     </div>
 
-    <script src="js/main.js?v=33"></script>
+    <script src="js/main.js?v=34"></script>
 </body>
 </html>
