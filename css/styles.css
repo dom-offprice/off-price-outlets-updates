@@ -782,21 +782,21 @@ p {
     line-height: 1.45;
 }
 
-.whats-next-wrap {
+.sale-deals-wrap {
     padding: 48px 20px 56px;
     background:
-        radial-gradient(ellipse 70% 60% at 50% 0%, rgba(220, 20, 60, 0.06), transparent 70%),
+        radial-gradient(ellipse 70% 55% at 50% 0%, rgba(220, 20, 60, 0.07), transparent 70%),
         var(--white);
     border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 }
 
-.whats-next-panel {
-    max-width: 980px;
+.sale-deals-panel {
+    max-width: 920px;
     margin: 0 auto;
     text-align: center;
 }
 
-.whats-next-kicker {
+.sale-deals-kicker {
     font-family: var(--font-body);
     font-size: 0.72rem;
     font-weight: 700;
@@ -806,142 +806,102 @@ p {
     margin: 0 0 12px;
 }
 
-.whats-next-title {
+.sale-deals-title {
     font-family: var(--font-display);
-    font-size: clamp(2rem, 6vw, 3.25rem);
+    font-size: clamp(2.1rem, 6vw, 3.4rem);
     font-weight: 400;
     letter-spacing: 0.04em;
-    line-height: 1;
+    line-height: 0.98;
     color: var(--black);
-    margin: 0 0 36px;
+    margin: 0 0 14px;
 }
 
-.whats-next-steps {
-    list-style: none;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 0;
-    margin: 0;
-    padding: 0;
-    counter-reset: none;
-    position: relative;
-}
-
-.whats-next-steps::before {
-    content: "";
-    position: absolute;
-    top: 28px;
-    left: 12.5%;
-    right: 12.5%;
-    height: 2px;
-    background: linear-gradient(90deg, rgba(220, 20, 60, 0.15), var(--primary-red), rgba(220, 20, 60, 0.15));
-    pointer-events: none;
-}
-
-.whats-next-step {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    padding: 0 14px 8px;
-    position: relative;
-}
-
-.whats-next-step-num {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 56px;
-    height: 56px;
-    border-radius: 50%;
-    background: var(--white);
-    border: 2px solid var(--primary-red);
-    color: var(--primary-red);
-    font-family: var(--font-display);
-    font-size: 1.15rem;
-    letter-spacing: 0.06em;
-    margin-bottom: 10px;
-    box-shadow: 0 0 0 8px var(--white);
-    position: relative;
-    z-index: 1;
-}
-
-.whats-next-step-value {
-    font-family: var(--font-display);
-    font-size: clamp(1.45rem, 3.2vw, 1.85rem);
-    letter-spacing: 0.05em;
-    color: var(--primary-red);
-    line-height: 1.05;
-}
-
-.whats-next-step-label {
-    font-size: 0.95rem;
+.sale-deals-lead {
+    font-size: clamp(1.02rem, 2.5vw, 1.15rem);
     font-weight: 600;
     color: var(--gray-medium);
-    line-height: 1.4;
-    max-width: 160px;
-}
-
-.whats-next-note {
-    text-align: center;
-    font-size: clamp(1.02rem, 2.6vw, 1.15rem);
-    font-weight: 600;
-    color: var(--gray-dark);
-    margin: 36px auto 0;
-    max-width: 720px;
-    line-height: 1.65;
-    padding-top: 28px;
-    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    line-height: 1.55;
+    max-width: 640px;
+    margin: 0 auto 36px;
     text-wrap: pretty;
 }
 
-@media (max-width: 800px) {
-    .whats-next-steps {
-        grid-template-columns: 1fr 1fr;
-        gap: 28px 16px;
-    }
-
-    .whats-next-steps::before {
-        display: none;
-    }
-
-    .whats-next-step-num {
-        box-shadow: none;
-        margin-bottom: 4px;
-    }
+.sale-deals-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 28px;
+    text-align: left;
 }
 
-@media (max-width: 480px) {
-    .whats-next-steps {
+.sale-deals-group {
+    background: var(--gray-light);
+    border: 1px solid rgba(220, 20, 60, 0.12);
+    border-radius: 14px;
+    padding: 28px 26px 26px;
+}
+
+.sale-deals-group-title {
+    font-family: var(--font-display);
+    font-size: 1.7rem;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    color: var(--primary-red);
+    margin: 0 0 18px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid rgba(220, 20, 60, 0.18);
+}
+
+.sale-deals-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.sale-deals-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+    padding: 10px 0;
+    border-bottom: 1px dashed rgba(0, 0, 0, 0.08);
+}
+
+.sale-deals-list li:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.sale-deals-label {
+    font-weight: 700;
+    color: var(--black);
+    font-size: 1rem;
+    line-height: 1.35;
+}
+
+.sale-deals-price {
+    font-family: var(--font-display);
+    font-size: 1.55rem;
+    letter-spacing: 0.04em;
+    color: var(--primary-red);
+    white-space: nowrap;
+    line-height: 1;
+}
+
+.sale-deals-accessories {
+    margin: 20px 0 0;
+    font-size: 0.98rem;
+    font-weight: 600;
+    color: var(--gray-medium);
+    line-height: 1.45;
+}
+
+@media (max-width: 760px) {
+    .sale-deals-grid {
         grid-template-columns: 1fr;
-        gap: 22px;
-        text-align: left;
-    }
-
-    .whats-next-step {
-        flex-direction: row;
-        align-items: flex-start;
-        gap: 16px;
-        padding: 0;
-        text-align: left;
-    }
-
-    .whats-next-step-num {
-        flex-shrink: 0;
-        width: 48px;
-        height: 48px;
-        margin-bottom: 0;
-    }
-
-    .whats-next-step-value,
-    .whats-next-step-label {
-        display: block;
-        max-width: none;
-        text-align: left;
-    }
-
-    .whats-next-step-value {
-        margin-bottom: 2px;
+        gap: 18px;
     }
 }
 
