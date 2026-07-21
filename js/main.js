@@ -249,6 +249,15 @@ if (copyrightYear) {
     copyrightYear.textContent = `© ${currentYear} Off Price Outlets. All rights reserved.`;
 }
 
+// Hero entrance
+(function initHeroMotion() {
+    const cta = document.querySelector('.hero-cta');
+    if (!cta) return;
+    requestAnimationFrame(function () {
+        cta.classList.add('is-ready');
+    });
+})();
+
 // Infinite auto-scrolling testimonials carousel
 (function initTestimonialsCarousel() {
     const track = document.getElementById('testimonials-track');
