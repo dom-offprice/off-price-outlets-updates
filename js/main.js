@@ -419,122 +419,27 @@ if (copyrightYear) {
     });
 })();
 
-// Social phone players: TikTok in-frame, Instagram via official embed modal
+// TikTok in-phone embeds + Instagram official embed.js cards
 (function initReelEmbeds() {
-    const reels = document.querySelectorAll('.reel[data-embed-src], .reel[data-embed-platform]');
-    if (!reels.length) return;
-
-    var igScriptPromise = null;
-
-    function loadInstagramScript() {
+    function processInstagramEmbeds() {
         if (window.instgrm && window.instgrm.Embeds) {
-            return Promise.resolve();
+            window.instgrm.Embeds.process();
+            return;
         }
-        if (igScriptPromise) return igScriptPromise;
-        igScriptPromise = new Promise(function (resolve, reject) {
-            var existing = document.querySelector('script[data-ig-embed]');
-            if (existing) {
-                existing.addEventListener('load', resolve);
-                existing.addEventListener('error', reject);
-                return;
+        // embed.js may still be loading from the page script tag
+        var tries = 0;
+        var timer = window.setInterval(function () {
+            tries += 1;
+            if (window.instgrm && window.instgrm.Embeds) {
+                window.instgrm.Embeds.process();
+                window.clearInterval(timer);
+            } else if (tries > 40) {
+                window.clearInterval(timer);
             }
-            var script = document.createElement('script');
-            script.src = 'https://www.instagram.com/embed.js';
-            script.async = true;
-            script.setAttribute('data-ig-embed', 'true');
-            script.onload = resolve;
-            script.onerror = reject;
-            document.body.appendChild(script);
-        });
-        return igScriptPromise;
+        }, 250);
     }
 
-    function getPermalink(reel) {
-        var cta = reel.querySelector('.reel-cta');
-        return (cta && cta.getAttribute('href')) || reel.getAttribute('data-permalink') || '';
-    }
-
-    function ensureIgModal() {
-        var modal = document.getElementById('ig-embed-modal');
-        if (modal) return modal;
-
-        modal = document.createElement('div');
-        modal.id = 'ig-embed-modal';
-        modal.className = 'ig-embed-modal';
-        modal.setAttribute('aria-hidden', 'true');
-        modal.innerHTML =
-            '<div class="ig-embed-backdrop" data-ig-close tabindex="-1"></div>' +
-            '<div class="ig-embed-card" role="dialog" aria-modal="true" aria-labelledby="ig-embed-title">' +
-            '<button type="button" class="ig-embed-close" data-ig-close aria-label="Close video">&times;</button>' +
-            '<p id="ig-embed-title" class="ig-embed-title">Instagram</p>' +
-            '<div class="ig-embed-body" id="ig-embed-body"></div>' +
-            '<a class="btn btn-primary ig-embed-open" id="ig-embed-open" target="_blank" rel="noopener noreferrer">Open on Instagram</a>' +
-            '</div>';
-        document.body.appendChild(modal);
-
-        modal.querySelectorAll('[data-ig-close]').forEach(function (el) {
-            el.addEventListener('click', closeIgModal);
-        });
-        document.addEventListener('keydown', function (e) {
-            if (e.key === 'Escape' && modal.classList.contains('is-open')) closeIgModal();
-        });
-        return modal;
-    }
-
-    function closeIgModal() {
-        var modal = document.getElementById('ig-embed-modal');
-        if (!modal) return;
-        modal.classList.remove('is-open');
-        modal.setAttribute('aria-hidden', 'true');
-        document.body.style.overflow = '';
-        var body = document.getElementById('ig-embed-body');
-        if (body) body.innerHTML = '';
-    }
-
-    function openInstagramModal(reel) {
-        var permalink = getPermalink(reel).split('?')[0];
-        if (!permalink) return;
-        if (permalink.slice(-1) !== '/') permalink += '/';
-
-        var modal = ensureIgModal();
-        var body = document.getElementById('ig-embed-body');
-        var openLink = document.getElementById('ig-embed-open');
-        var title = reel.querySelector('.reel-title');
-        var titleEl = document.getElementById('ig-embed-title');
-
-        if (titleEl) titleEl.textContent = (title && title.textContent) || 'Instagram';
-        if (openLink) openLink.href = permalink;
-        if (body) {
-            body.innerHTML =
-                '<blockquote class="instagram-media" data-instgrm-permalink="' +
-                permalink +
-                '" data-instgrm-version="14"></blockquote>' +
-                '<p class="ig-embed-loading">Loading Instagram…</p>';
-        }
-
-        modal.classList.add('is-open');
-        modal.setAttribute('aria-hidden', 'false');
-        document.body.style.overflow = 'hidden';
-
-        loadInstagramScript()
-            .then(function () {
-                if (window.instgrm && window.instgrm.Embeds) {
-                    window.instgrm.Embeds.process();
-                }
-                var loading = body && body.querySelector('.ig-embed-loading');
-                if (loading) {
-                    window.setTimeout(function () {
-                        if (loading.parentNode) loading.parentNode.removeChild(loading);
-                    }, 1200);
-                }
-            })
-            .catch(function () {
-                if (body) {
-                    body.innerHTML =
-                        '<p class="ig-embed-fallback">Instagram couldn’t load here.</p>';
-                }
-            });
-    }
+    processInstagramEmbeds();
 
     function loadTikTokEmbed(reel) {
         if (!reel || reel.classList.contains('is-playing')) return;
@@ -557,34 +462,39 @@ if (copyrightYear) {
         reel.classList.add('is-playing');
     }
 
+    var reels = document.querySelectorAll('.reel[data-embed-platform="tt"]');
     reels.forEach(function (reel) {
         var playBtn = reel.querySelector('.reel-play');
         if (!playBtn) return;
         playBtn.addEventListener('click', function (e) {
             e.preventDefault();
-            var platform = reel.getAttribute('data-embed-platform');
-            if (platform === 'ig') {
-                openInstagramModal(reel);
-            } else {
-                loadTikTokEmbed(reel);
-            }
+            loadTikTokEmbed(reel);
         });
     });
 
-    // Auto-load featured TikTok only (Instagram iframes break in tiny phone frames)
+    // Auto-load featured + spotlight TikToks when visible so the real player shows
     if ('IntersectionObserver' in window) {
-        var featuredTt = document.querySelectorAll('.reel-featured .reel[data-embed-platform="tt"]');
-        var io = new IntersectionObserver(function (entries) {
-            entries.forEach(function (entry) {
-                if (entry.isIntersecting) {
-                    loadTikTokEmbed(entry.target);
-                    io.unobserve(entry.target);
-                }
-            });
-        }, { rootMargin: '120px 0px', threshold: 0.2 });
-        featuredTt.forEach(function (reel) {
+        var autoTt = document.querySelectorAll(
+            '.reel-featured .reel[data-embed-platform="tt"], .reel--spotlight[data-embed-platform="tt"]'
+        );
+        var io = new IntersectionObserver(
+            function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        loadTikTokEmbed(entry.target);
+                        io.unobserve(entry.target);
+                    }
+                });
+            },
+            { rootMargin: '160px 0px', threshold: 0.15 }
+        );
+        autoTt.forEach(function (reel) {
             io.observe(reel);
         });
+    } else {
+        document
+            .querySelectorAll('.reel-featured .reel[data-embed-platform="tt"]')
+            .forEach(loadTikTokEmbed);
     }
 })();
 
