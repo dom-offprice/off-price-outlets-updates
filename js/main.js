@@ -259,58 +259,114 @@ if (copyrightYear) {
 }
 
 
-// Sale countdown + sticky directions bar
+// Live sale countdown + sticky directions bar
 (function initSaleUrgency() {
     const countdownEl = document.getElementById('sale-countdown');
     const sticky = document.getElementById('sticky-sale-bar');
     const saleStart = new Date('2026-08-01T10:00:00-04:00').getTime();
     const saleEnd = new Date('2026-08-02T16:00:00-04:00').getTime();
+    let mode = '';
+    let timerId = null;
+    let lastAnnouncedMinute = -1;
+
+    function pad(n) {
+        return n < 10 ? '0' + n : String(n);
+    }
 
     function setCountdownMessage(message) {
+        mode = 'message';
+        countdownEl.classList.add('is-message');
         countdownEl.innerHTML = '<span class="hero-countdown-label">' + message + '</span>';
+    }
+
+    function ensureTimerShell() {
+        if (mode === 'timer') return;
+        mode = 'timer';
+        countdownEl.classList.remove('is-message');
+        countdownEl.innerHTML =
+            '<span class="hero-countdown-label">Doors open in</span>' +
+            '<span class="hero-countdown-units" aria-hidden="true">' +
+            '<span class="hero-countdown-unit" data-unit="days"><strong>00</strong><em>days</em></span>' +
+            '<span class="hero-countdown-sep" aria-hidden="true">:</span>' +
+            '<span class="hero-countdown-unit" data-unit="hours"><strong>00</strong><em>hrs</em></span>' +
+            '<span class="hero-countdown-sep" aria-hidden="true">:</span>' +
+            '<span class="hero-countdown-unit" data-unit="mins"><strong>00</strong><em>min</em></span>' +
+            '<span class="hero-countdown-sep" aria-hidden="true">:</span>' +
+            '<span class="hero-countdown-unit hero-countdown-unit--secs" data-unit="secs"><strong>00</strong><em>sec</em></span>' +
+            '</span>';
+    }
+
+    function announce(text, minuteKey) {
+        if (minuteKey === lastAnnouncedMinute) return;
+        lastAnnouncedMinute = minuteKey;
+        const live = document.getElementById('sale-countdown-live');
+        if (live) live.textContent = text;
+    }
+
+    function setUnit(name, value, animate) {
+        const unit = countdownEl.querySelector('[data-unit="' + name + '"] strong');
+        if (!unit) return;
+        const next = pad(value);
+        if (unit.textContent === next) return;
+        unit.textContent = next;
+        if (animate) {
+            unit.classList.remove('is-tick');
+            // force reflow so animation can replay
+            void unit.offsetWidth;
+            unit.classList.add('is-tick');
+        }
     }
 
     function tick() {
         if (!countdownEl) return;
         const now = Date.now();
+
         if (now >= saleEnd) {
             setCountdownMessage('This sale weekend has ended — follow us for the next date.');
+            if (timerId) {
+                clearInterval(timerId);
+                timerId = null;
+            }
             return;
         }
+
         if (now >= saleStart) {
-            setCountdownMessage('We’re open now — come through before 4 PM!');
+            // During sale weekend: count down to closing on current day feel — until saleEnd
+            ensureTimerShell();
+            const label = countdownEl.querySelector('.hero-countdown-label');
+            if (label) label.textContent = 'Sale open — closes in';
+            const diffOpen = saleEnd - now;
+            const d = Math.floor(diffOpen / 86400000);
+            const h = Math.floor((diffOpen % 86400000) / 3600000);
+            const m = Math.floor((diffOpen % 3600000) / 60000);
+            const s = Math.floor((diffOpen % 60000) / 1000);
+            setUnit('days', d, false);
+            setUnit('hours', h, false);
+            setUnit('mins', m, false);
+            setUnit('secs', s, true);
+            announce('Sale closes in ' + d + ' days, ' + h + ' hours, ' + m + ' minutes', m + 1000);
             return;
         }
+
+        ensureTimerShell();
+        const label = countdownEl.querySelector('.hero-countdown-label');
+        if (label) label.textContent = 'Doors open in';
         const diff = saleStart - now;
         const d = Math.floor(diff / 86400000);
         const h = Math.floor((diff % 86400000) / 3600000);
         const m = Math.floor((diff % 3600000) / 60000);
-        const units = d > 0
-            ? [
-                { value: d, label: 'days' },
-                { value: h, label: 'hrs' },
-                { value: m, label: 'min' }
-            ]
-            : [
-                { value: h, label: 'hrs' },
-                { value: m, label: 'min' }
-            ];
-        countdownEl.innerHTML =
-            '<span class="hero-countdown-label">Doors open in</span>' +
-            '<span class="hero-countdown-units">' +
-            units.map(function (unit) {
-                return (
-                    '<span class="hero-countdown-unit">' +
-                    '<strong>' + unit.value + '</strong>' +
-                    '<em>' + unit.label + '</em>' +
-                    '</span>'
-                );
-            }).join('') +
-            '</span>';
+        const s = Math.floor((diff % 60000) / 1000);
+        setUnit('days', d, false);
+        setUnit('hours', h, false);
+        setUnit('mins', m, false);
+        setUnit('secs', s, true);
+        announce('Doors open in ' + d + ' days, ' + h + ' hours, ' + m + ' minutes', m);
     }
 
-    tick();
-    setInterval(tick, 30000);
+    if (countdownEl) {
+        tick();
+        timerId = setInterval(tick, 1000);
+    }
 
     if (!sticky) return;
     sticky.hidden = false;
