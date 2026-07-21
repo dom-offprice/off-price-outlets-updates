@@ -203,51 +203,80 @@ if (!prefersReducedMotion) {
     });
 }
 
-// Gallery lightbox
-const galleryItems = document.querySelectorAll('.gallery-item img');
-galleryItems.forEach(function (img) {
-    img.style.cursor = 'pointer';
-    img.addEventListener('click', function () {
-        const lightbox = document.createElement('div');
-        lightbox.className = 'gallery-lightbox';
-        lightbox.setAttribute('role', 'dialog');
-        lightbox.setAttribute('aria-modal', 'true');
-        lightbox.setAttribute('aria-label', 'Image preview');
+// Compact gallery carousel (auto + click)
+(function initGalleryCarousel() {
+    const root = document.querySelector('[data-gallery-carousel]');
+    if (!root) return;
 
-        const lightboxImg = document.createElement('img');
-        lightboxImg.src = img.currentSrc || img.src;
-        lightboxImg.alt = img.alt || '';
+    const slides = Array.from(root.querySelectorAll('.gallery-slide'));
+    const dots = Array.from(root.querySelectorAll('.gallery-dot'));
+    const prevBtn = root.querySelector('[data-gallery-prev]');
+    const nextBtn = root.querySelector('[data-gallery-next]');
+    if (!slides.length) return;
 
-        const closeBtn = document.createElement('button');
-        closeBtn.type = 'button';
-        closeBtn.className = 'gallery-lightbox-close';
-        closeBtn.setAttribute('aria-label', 'Close image preview');
-        closeBtn.innerHTML = '&times;';
+    let index = Math.max(0, slides.findIndex(function (s) { return s.classList.contains('is-active'); }));
+    let timer = null;
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-        function closeLightbox() {
-            document.removeEventListener('keydown', onKey);
-            if (lightbox.parentNode) lightbox.parentNode.removeChild(lightbox);
-            document.body.style.overflow = '';
-        }
-
-        function onKey(e) {
-            if (e.key === 'Escape') closeLightbox();
-        }
-
-        closeBtn.addEventListener('click', function (e) {
-            e.stopPropagation();
-            closeLightbox();
+    function show(i) {
+        index = (i + slides.length) % slides.length;
+        slides.forEach(function (slide, n) {
+            slide.classList.toggle('is-active', n === index);
         });
-        lightbox.addEventListener('click', closeLightbox);
-        document.addEventListener('keydown', onKey);
+        dots.forEach(function (dot, n) {
+            dot.classList.toggle('is-active', n === index);
+        });
+    }
 
-        lightbox.appendChild(closeBtn);
-        lightbox.appendChild(lightboxImg);
-        document.body.appendChild(lightbox);
-        document.body.style.overflow = 'hidden';
-        closeBtn.focus();
+    function next() { show(index + 1); }
+    function prev() { show(index - 1); }
+
+    function stop() {
+        if (timer) {
+            clearInterval(timer);
+            timer = null;
+        }
+    }
+
+    function start() {
+        if (reduceMotion) return;
+        stop();
+        timer = setInterval(next, 4200);
+    }
+
+    if (nextBtn) nextBtn.addEventListener('click', function () { next(); start(); });
+    if (prevBtn) prevBtn.addEventListener('click', function () { prev(); start(); });
+    dots.forEach(function (dot, n) {
+        dot.addEventListener('click', function () { show(n); start(); });
     });
-});
+
+    root.addEventListener('mouseenter', stop);
+    root.addEventListener('mouseleave', start);
+    root.addEventListener('focusin', stop);
+    root.addEventListener('focusout', function (e) {
+        if (!root.contains(e.relatedTarget)) start();
+    });
+
+    // basic swipe
+    var touchX = null;
+    root.addEventListener('touchstart', function (e) {
+        touchX = e.changedTouches[0].clientX;
+        stop();
+    }, { passive: true });
+    root.addEventListener('touchend', function (e) {
+        if (touchX == null) return;
+        var dx = e.changedTouches[0].clientX - touchX;
+        if (Math.abs(dx) > 40) {
+            if (dx < 0) next();
+            else prev();
+        }
+        touchX = null;
+        start();
+    }, { passive: true });
+
+    show(index);
+    start();
+})();
 
 // Update copyright year dynamically
 const copyrightYear = document.querySelector('.footer-bottom p');
