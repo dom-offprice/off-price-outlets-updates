@@ -62,35 +62,44 @@ if (saleAddressCta) {
 // Mobile Navigation Toggle
 const navToggle = document.querySelector('.nav-toggle');
 const navMenu = document.querySelector('.nav-menu');
+const navScrim = document.getElementById('nav-scrim');
+
+function setNavOpen(isOpen) {
+    if (!navMenu || !navToggle) return;
+    navMenu.classList.toggle('active', isOpen);
+    if (navScrim) {
+        navScrim.hidden = !isOpen;
+        navScrim.classList.toggle('is-visible', isOpen);
+    }
+    document.body.classList.toggle('nav-open', isOpen);
+    const spans = navToggle.querySelectorAll('span');
+    if (isOpen) {
+        spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+        spans[1].style.opacity = '0';
+        spans[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
+    } else {
+        spans[0].style.transform = 'none';
+        spans[1].style.opacity = '1';
+        spans[2].style.transform = 'none';
+    }
+}
 
 if (navToggle) {
     navToggle.addEventListener('click', () => {
-        navMenu.classList.toggle('active');
-        
-        // Animate hamburger icon
-        const spans = navToggle.querySelectorAll('span');
-        if (navMenu.classList.contains('active')) {
-            spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
-            spans[1].style.opacity = '0';
-            spans[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
-        } else {
-            spans[0].style.transform = 'none';
-            spans[1].style.opacity = '1';
-            spans[2].style.transform = 'none';
-        }
+        setNavOpen(!navMenu.classList.contains('active'));
     });
 }
 
-// Close mobile menu when clicking on a link
-const navLinks = document.querySelectorAll('.nav-menu a');
+if (navScrim) {
+    navScrim.addEventListener('click', () => setNavOpen(false));
+}
+
+// Close mobile menu when clicking on a link / follow CTA
+const navLinks = document.querySelectorAll('.nav-menu a, .nav-menu .open-social-modal-btn');
 navLinks.forEach(link => {
     link.addEventListener('click', () => {
         if (window.innerWidth <= 768) {
-            navMenu.classList.remove('active');
-            const spans = navToggle.querySelectorAll('span');
-            spans[0].style.transform = 'none';
-            spans[1].style.opacity = '1';
-            spans[2].style.transform = 'none';
+            setNavOpen(false);
         }
     });
 });
