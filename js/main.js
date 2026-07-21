@@ -322,7 +322,7 @@ if (copyrightYear) {
         const now = Date.now();
 
         if (now >= saleEnd) {
-            setCountdownMessage('This sale weekend has ended — follow us for the next date.');
+            setCountdownMessage('This sale has ended — follow us for the next date.');
             if (timerId) {
                 clearInterval(timerId);
                 timerId = null;
