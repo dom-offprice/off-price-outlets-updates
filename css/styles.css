@@ -3728,11 +3728,15 @@ body.has-sticky-sale {
         letter-spacing: 0.02em;
     }
 
-    /* Hero: split — copy left, countdown right, photo breathes center-right */
+    /* Hero: one-screen desktop — copy + prices + countdown all visible */
     .hero--event {
-        min-height: min(88vh, 860px);
+        height: calc(100svh - 76px);
+        min-height: calc(100svh - 76px);
+        max-height: calc(100svh - 76px);
         align-items: center;
-        padding: 108px 0 72px;
+        padding: 28px 0 96px;
+        box-sizing: border-box;
+        overflow: hidden;
     }
 
     .hero--event .hero-image img {
@@ -3764,62 +3768,63 @@ body.has-sticky-sale {
     .hero--event .hero-cta {
         display: grid;
         grid-template-columns: minmax(0, 1fr) auto;
-        align-items: end;
-        column-gap: 40px;
-        row-gap: 20px;
+        align-items: center;
+        column-gap: 36px;
+        row-gap: 16px;
         max-width: none;
         width: 100%;
     }
 
     .hero-copy {
-        max-width: 560px;
+        max-width: 520px;
     }
 
     .hero-brand {
-        font-size: 2.95rem;
-        margin-bottom: 6px;
+        font-size: 2.35rem;
+        margin-bottom: 2px;
         letter-spacing: 0.07em;
     }
 
     .hero-event-dates {
-        font-size: clamp(6.6rem, 8.2vw, 8.2rem);
+        font-size: clamp(4.6rem, 6.2vw, 5.8rem);
+        line-height: 0.9;
     }
 
     .hero-event-time {
-        margin-top: 12px;
-        font-size: 1.85rem;
+        margin-top: 8px;
+        font-size: 1.45rem;
         max-width: none;
         letter-spacing: 0.1em;
     }
 
     .hero-event-line {
-        margin-top: 10px;
-        font-size: 1.12rem;
-        max-width: 34ch;
+        margin-top: 8px;
+        font-size: 1.02rem;
+        max-width: 36ch;
     }
 
     .hero-price-rail {
-        max-width: 420px;
-        margin-top: 18px;
+        max-width: 400px;
+        margin-top: 14px;
         border-radius: 12px;
     }
 
     .hero-price-rail li {
-        padding: 12px 14px 11px;
+        padding: 10px 12px 9px;
     }
 
     .hero-price-rail span {
-        font-size: 0.68rem;
+        font-size: 0.64rem;
     }
 
     .hero-price-rail strong {
-        font-size: 1.65rem;
+        font-size: 1.45rem;
     }
 
     .hero-actions {
         flex-wrap: nowrap;
         width: auto;
-        margin-top: 16px;
+        margin-top: 12px;
         gap: 10px;
     }
 
@@ -3830,21 +3835,21 @@ body.has-sticky-sale {
         justify-content: center;
         min-width: 0;
         width: auto;
-        padding: 13px 22px;
-        font-size: 0.95rem;
-        min-height: 48px;
+        padding: 12px 20px;
+        font-size: 0.92rem;
+        min-height: 44px;
     }
 
     .hero-countdown {
         display: flex;
         flex-direction: column;
         align-items: stretch;
-        gap: 12px;
+        gap: 10px;
         margin: 0;
-        padding: 20px 22px 18px;
-        width: min(340px, 34vw);
+        padding: 16px 18px 14px;
+        width: min(300px, 32vw);
         max-width: none;
-        border-radius: 18px;
+        border-radius: 16px;
         background: rgba(8, 8, 10, 0.55);
         border: 1px solid rgba(255, 255, 255, 0.22);
         backdrop-filter: blur(14px);
@@ -3858,7 +3863,7 @@ body.has-sticky-sale {
         width: 100%;
         margin: 0;
         font-family: var(--font-display);
-        font-size: 1.05rem;
+        font-size: 0.95rem;
         letter-spacing: 0.08em;
         text-transform: uppercase;
         color: rgba(255, 255, 255, 0.92);
@@ -3868,7 +3873,7 @@ body.has-sticky-sale {
         display: grid;
         grid-template-columns: repeat(4, minmax(0, 1fr));
         align-items: stretch;
-        gap: 8px;
+        gap: 7px;
         width: 100%;
     }
 
@@ -3879,21 +3884,21 @@ body.has-sticky-sale {
     .hero-countdown-unit {
         flex: none;
         min-width: 0;
-        padding: 14px 6px 12px;
-        border-radius: 12px;
+        padding: 11px 5px 10px;
+        border-radius: 11px;
         background: rgba(220, 20, 60, 0.95);
         border: 1px solid rgba(255, 255, 255, 0.2);
         box-shadow: 0 8px 20px rgba(220, 20, 60, 0.28);
     }
 
     .hero-countdown-unit strong {
-        font-size: 2.15rem;
+        font-size: 1.85rem;
         letter-spacing: 0.03em;
     }
 
     .hero-countdown-unit em {
-        font-size: 0.68rem;
-        margin-top: 5px;
+        font-size: 0.62rem;
+        margin-top: 4px;
         letter-spacing: 0.12em;
     }
 
@@ -3906,7 +3911,7 @@ body.has-sticky-sale {
 
     .hero-countdown.is-message {
         align-items: flex-start;
-        width: min(340px, 34vw);
+        width: min(300px, 32vw);
     }
 
     /* Sale band — keep as a slim confirmation strip */
@@ -4075,50 +4080,52 @@ body.has-sticky-sale {
     }
 
     .hero--event {
-        min-height: min(90vh, 900px);
-        padding: 120px 0 80px;
+        height: calc(100svh - 76px);
+        min-height: calc(100svh - 76px);
+        max-height: calc(100svh - 76px);
+        padding: 32px 0 100px;
     }
 
     .hero--event .hero-cta {
-        column-gap: 56px;
+        column-gap: 48px;
         max-width: none;
     }
 
     .hero-copy {
-        max-width: 600px;
+        max-width: 560px;
     }
 
     .hero-brand {
-        font-size: 3.15rem;
+        font-size: 2.55rem;
     }
 
     .hero-event-dates {
-        font-size: 8.6rem;
+        font-size: clamp(5.2rem, 6.4vw, 6.4rem);
     }
 
     .hero-event-time {
-        font-size: 2.05rem;
+        font-size: 1.55rem;
     }
 
     .hero-price-rail {
-        max-width: 440px;
+        max-width: 420px;
     }
 
     .hero-countdown {
-        width: 360px;
-        padding: 22px 24px 20px;
+        width: 320px;
+        padding: 18px 20px 16px;
     }
 
     .hero-countdown-unit {
-        padding: 16px 8px 14px;
+        padding: 12px 6px 11px;
     }
 
     .hero-countdown-unit strong {
-        font-size: 2.35rem;
+        font-size: 2rem;
     }
 
     .hero-countdown.is-message {
-        width: 360px;
+        width: 320px;
     }
 
     .reel--lg {
@@ -4162,9 +4169,13 @@ body.has-sticky-sale {
 /* Tablet: start cinematic hero earlier */
 @media (min-width: 769px) and (max-width: 899px) {
     .hero--event {
-        min-height: min(88vh, 760px);
+        height: calc(100svh - 72px);
+        min-height: calc(100svh - 72px);
+        max-height: calc(100svh - 72px);
         align-items: center;
-        padding: 96px 0 72px;
+        padding: 28px 0 92px;
+        box-sizing: border-box;
+        overflow: hidden;
     }
 
     .hero--event .hero-overlay {
