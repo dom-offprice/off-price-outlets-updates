@@ -35,7 +35,7 @@
     <link rel="icon" href="images/favicon-32.png?v=22" type="image/png" sizes="32x32">
     <link rel="icon" href="images/favicon.png?v=22" type="image/png">
     <link rel="apple-touch-icon" href="images/apple-touch-icon.png?v=22" sizes="180x180">
-    <link rel="stylesheet" href="css/styles.css?v=24">
+    <link rel="stylesheet" href="css/styles.css?v=25">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Plus+Jakarta+Sans:ital,wght@0,500;0,600;0,700;0,800;1,500&display=swap" rel="stylesheet">
@@ -210,7 +210,7 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero hero--event" aria-label="August warehouse sale">
         <div class="hero-image">
             <picture>
                 <source srcset="images/homepage.webp" type="image/webp">
@@ -221,71 +221,26 @@
         <div class="hero-content">
             <div class="container">
                 <div class="hero-cta">
-                    <div class="hero-red-box">
-                        <span class="hero-sale-kicker">Next warehouse sale</span>
-                        <span class="hero-sale-line">Saturday &amp; Sunday, August 1–2</span>
-                        <span class="hero-sale-time">10 AM – 4 PM</span>
-                        <span class="hero-sale-tagline">Huge restock just in—footwear, clothing &amp; accessories. Closed-toe &amp; open-toe shoes $15, dress shoes &amp; boots $20, sneakers $25, clothing from $5. Same place—110 Republic Drive, North Haven, CT 06473 (left end unit). Follow us on Instagram, Facebook &amp; TikTok!</span>
+                    <p class="hero-brand">Off Price Outlets</p>
+                    <p class="hero-event-kicker">North Haven warehouse sale</p>
+                    <h1 class="hero-event-dates">Aug 1–2</h1>
+                    <p class="hero-event-time">Saturday &amp; Sunday · 10 AM – 4 PM</p>
+                    <p class="hero-event-line">Huge restock — footwear, clothing &amp; accessories</p>
+                    <ul class="hero-price-chips" aria-label="Sale price highlights">
+                        <li><span>Shoes</span><strong>from $15</strong></li>
+                        <li><span>Sneakers</span><strong>$25</strong></li>
+                        <li><span>Clothing</span><strong>from $5</strong></li>
+                    </ul>
+                    <div class="hero-actions">
+                        <a class="btn btn-primary hero-action-primary" href="https://maps.app.goo.gl/x7Y3u4a7GtQJxj8D8?g_st=ic" target="_blank" rel="noopener noreferrer">Get directions</a>
+                        <a class="btn btn-secondary hero-action-secondary" href="#upcoming-sales">See all deals</a>
                     </div>
-                    <button type="button" class="btn btn-secondary hero-follow-btn open-social-modal-btn" aria-haspopup="dialog" aria-controls="social-modal">
-                        Follow us
-                    </button>
+                    <p class="hero-countdown" id="sale-countdown" aria-live="polite">Counting down to doors open…</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- About / How It Works Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <div class="about-content">
-                <div class="about-text">
-                    <h2>How We Bring You Unbeatable Deals</h2>
-                    <p>We are wholesale buyers with direct partnerships with major clothing brands and trusted suppliers. By purchasing large quantities directly from manufacturers, we eliminate the retail markup and pass massive savings directly to you.</p>
-                    <p>Our <strong>over 7,000 sq ft North Haven, Connecticut warehouse</strong> hosts exclusive weekend <strong>outlet clothing sales</strong> for the New Haven area—fresh men's and women's brand-name clothing, footwear, and accessories at unbeatable prices—up to 90% off retail.</p>
-                </div>
-                <div class="about-image">
-                    <picture>
-                        <source srcset="images/secondimage.webp" type="image/webp">
-                        <img src="images/secondimage.jpg" alt="Shoppers browsing brand-name clothing at Off Price Outlets warehouse sale in Connecticut" width="1400" height="1000" loading="lazy" decoding="async">
-                    </picture>
-                </div>
-            </div>
-            <div class="value-props">
-                <div class="value-prop">
-                    <div class="value-icon">
-                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M20 7h-9M14 17H5M20 17h-3M9 7H4M9 7a3 3 0 11-6 0 3 3 0 016 0zM20 17a3 3 0 11-6 0 3 3 0 016 0z"/>
-                        </svg>
-                    </div>
-                    <h3>Direct From Brands</h3>
-                    <p>We buy directly from the brands, trusted partners and manufacturers</p>
-                </div>
-                <div class="value-prop">
-                    <div class="value-icon">
-                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                        </svg>
-                    </div>
-                    <h3>Warehouse Pricing</h3>
-                    <p>Unbeatable prices on names you love - up to 90% off retail</p>
-                </div>
-                <div class="value-prop">
-                    <div class="value-icon">
-                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
-                        </svg>
-                    </div>
-                    <h3>Fresh Inventory</h3>
-                    <p>New arrivals every sale event</p>
-                </div>
-            </div>
-            <div class="about-focus">
-                <h3>Growing Together</h3>
-                <p>We used to run retail stores and pop-up events across the region—today we’re focused on what works best: <strong>warehouse sales</strong> at our North Haven location and <strong>event pop-up sales</strong> at colleges and other venues. Whether you’re a first-time shopper or a loyal regular, we’re here to make sure you leave with incredible deals and a great experience.</p>
-            </div>
-        </div>
-    </section>
 
     <!-- Sale updates: Red bar + White box -->
     <section id="upcoming-sales" class="upcoming-sales">
@@ -304,7 +259,7 @@
                 <div class="sale-deals-panel">
                     <p class="sale-deals-kicker">This weekend&apos;s deals</p>
                     <h3 class="sale-deals-title">Footwear, clothing &amp; accessories</h3>
-                    <p class="sale-deals-lead">We just got a massive shipment in—come shop a huge restock of clothing, footwear, and some accessories.</p>
+                    <p class="sale-deals-lead">Massive shipment just landed. Warehouse prices. Brand names. Don’t miss this restock weekend.</p>
                     <div class="sale-deals-grid">
                         <div class="sale-deals-group">
                             <h4 class="sale-deals-group-title">Footwear</h4>
@@ -350,6 +305,13 @@
         </div>
     </section>
 
+    <aside class="proof-strip" aria-label="Customer love">
+        <div class="container proof-strip-inner">
+            <p class="proof-strip-stars" aria-hidden="true">★★★★★</p>
+            <p class="proof-strip-quote">“Huge selection. Brand names. Unbeatable prices.”</p>
+            <a class="proof-strip-link" href="#testimonials">See what CT shoppers say →</a>
+        </div>
+    </aside>
 
     <!-- Social Proof / Watch -->
     <section id="social-proof" class="social-proof" aria-labelledby="social-proof-title">
@@ -357,12 +319,12 @@
             <div class="social-proof-intro">
                 <p class="social-proof-kicker">Instagram · TikTok</p>
                 <h2 id="social-proof-title">See the warehouse in action</h2>
-                <p class="social-proof-lead">Watch our reels and real shopper hauls right here — swipe to browse.</p>
+                <p class="social-proof-lead">Restocks, giveaways, and real CT hauls — watch without leaving the page.</p>
             </div>
 
-            <h3 class="social-proof-subtitle">From our cameras</h3>
-            <div class="embed-snap" role="list">
-                <figure class="embed-card" role="listitem">
+            <div class="embed-featured">
+                <figure class="embed-card embed-card--feature">
+                    <figcaption class="embed-caption">Featured reel</figcaption>
                     <iframe
                         title="Off Price Outlets Instagram reel"
                         src="https://www.instagram.com/reel/DaTlZPHBFTz/embed"
@@ -372,7 +334,23 @@
                         referrerpolicy="strict-origin-when-cross-origin"></iframe>
                     <a class="embed-open" href="https://www.instagram.com/reel/DaTlZPHBFTz/" target="_blank" rel="noopener noreferrer">Open on Instagram</a>
                 </figure>
+                <figure class="embed-card embed-card--tiktok embed-card--feature">
+                    <figcaption class="embed-caption">Official TikTok</figcaption>
+                    <iframe
+                        title="Off Price Outlets TikTok"
+                        src="https://www.tiktok.com/embed/v2/7655340894484172046"
+                        loading="lazy"
+                        allowfullscreen
+                        allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                    <a class="embed-open" href="https://www.tiktok.com/@offpriceoutlets/video/7655340894484172046" target="_blank" rel="noopener noreferrer">Open on TikTok</a>
+                </figure>
+            </div>
+
+            <h3 class="social-proof-subtitle">More from our cameras</h3>
+            <div class="embed-snap" role="list">
                 <figure class="embed-card" role="listitem">
+                    <figcaption class="embed-caption">Sale highlights</figcaption>
                     <iframe
                         title="Off Price Outlets Instagram post"
                         src="https://www.instagram.com/p/DatHzinFUjI/embed"
@@ -383,6 +361,7 @@
                     <a class="embed-open" href="https://www.instagram.com/p/DatHzinFUjI/" target="_blank" rel="noopener noreferrer">Open on Instagram</a>
                 </figure>
                 <figure class="embed-card" role="listitem">
+                    <figcaption class="embed-caption">Fresh restock</figcaption>
                     <iframe
                         title="Off Price Outlets Instagram reel restock"
                         src="https://www.instagram.com/reel/DaltvXLBbDG/embed"
@@ -393,6 +372,7 @@
                     <a class="embed-open" href="https://www.instagram.com/reel/DaltvXLBbDG/" target="_blank" rel="noopener noreferrer">Open on Instagram</a>
                 </figure>
                 <figure class="embed-card" role="listitem">
+                    <figcaption class="embed-caption">Behind the racks</figcaption>
                     <iframe
                         title="Off Price Outlets Instagram post"
                         src="https://www.instagram.com/p/DajZfBaBcVh/embed"
@@ -401,16 +381,6 @@
                         allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
                         referrerpolicy="strict-origin-when-cross-origin"></iframe>
                     <a class="embed-open" href="https://www.instagram.com/p/DajZfBaBcVh/" target="_blank" rel="noopener noreferrer">Open on Instagram</a>
-                </figure>
-                <figure class="embed-card embed-card--tiktok" role="listitem">
-                    <iframe
-                        title="Off Price Outlets TikTok"
-                        src="https://www.tiktok.com/embed/v2/7655340894484172046"
-                        loading="lazy"
-                        allowfullscreen
-                        allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-                        referrerpolicy="strict-origin-when-cross-origin"></iframe>
-                    <a class="embed-open" href="https://www.tiktok.com/@offpriceoutlets/video/7655340894484172046" target="_blank" rel="noopener noreferrer">Open on TikTok</a>
                 </figure>
             </div>
 
@@ -517,6 +487,58 @@
             </div>
         </div>
     </div>
+
+    <!-- About / How It Works Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>How We Bring You Unbeatable Deals</h2>
+                    <p>We are wholesale buyers with direct partnerships with major clothing brands and trusted suppliers. By purchasing large quantities directly from manufacturers, we eliminate the retail markup and pass massive savings directly to you.</p>
+                    <p>Our <strong>over 7,000 sq ft North Haven, Connecticut warehouse</strong> hosts exclusive weekend <strong>outlet clothing sales</strong> for the New Haven area—fresh men's and women's brand-name clothing, footwear, and accessories at unbeatable prices—up to 90% off retail.</p>
+                </div>
+                <div class="about-image">
+                    <picture>
+                        <source srcset="images/secondimage.webp" type="image/webp">
+                        <img src="images/secondimage.jpg" alt="Shoppers browsing brand-name clothing at Off Price Outlets warehouse sale in Connecticut" width="1400" height="1000" loading="lazy" decoding="async">
+                    </picture>
+                </div>
+            </div>
+            <div class="value-props">
+                <div class="value-prop">
+                    <div class="value-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20 7h-9M14 17H5M20 17h-3M9 7H4M9 7a3 3 0 11-6 0 3 3 0 016 0zM20 17a3 3 0 11-6 0 3 3 0 016 0z"/>
+                        </svg>
+                    </div>
+                    <h3>Direct From Brands</h3>
+                    <p>We buy directly from the brands, trusted partners and manufacturers</p>
+                </div>
+                <div class="value-prop">
+                    <div class="value-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <h3>Warehouse Pricing</h3>
+                    <p>Unbeatable prices on names you love - up to 90% off retail</p>
+                </div>
+                <div class="value-prop">
+                    <div class="value-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+                        </svg>
+                    </div>
+                    <h3>Fresh Inventory</h3>
+                    <p>New arrivals every sale event</p>
+                </div>
+            </div>
+            <div class="about-focus">
+                <h3>Growing Together</h3>
+                <p>We used to run retail stores and pop-up events across the region—today we’re focused on what works best: <strong>warehouse sales</strong> at our North Haven location and <strong>event pop-up sales</strong> at colleges and other venues. Whether you’re a first-time shopper or a loyal regular, we’re here to make sure you leave with incredible deals and a great experience.</p>
+            </div>
+        </div>
+    </section>
 
     <!-- Gallery Section -->
     <section id="gallery" class="gallery">
@@ -810,6 +832,17 @@
         </div>
     </footer>
 
-    <script src="js/main.js?v=24"></script>
+
+    <div class="sticky-sale-bar" id="sticky-sale-bar" hidden>
+        <div class="sticky-sale-bar-inner">
+            <div class="sticky-sale-copy">
+                <strong>Aug 1–2</strong>
+                <span>10 AM–4 PM · North Haven</span>
+            </div>
+            <a class="btn btn-primary sticky-sale-btn" href="https://maps.app.goo.gl/x7Y3u4a7GtQJxj8D8?g_st=ic" target="_blank" rel="noopener noreferrer">Directions</a>
+        </div>
+    </div>
+
+    <script src="js/main.js?v=25"></script>
 </body>
 </html>

@@ -249,6 +249,49 @@ if (copyrightYear) {
     copyrightYear.textContent = `© ${currentYear} Off Price Outlets. All rights reserved.`;
 }
 
+
+// Sale countdown + sticky directions bar
+(function initSaleUrgency() {
+    const countdownEl = document.getElementById('sale-countdown');
+    const sticky = document.getElementById('sticky-sale-bar');
+    const saleStart = new Date('2026-08-01T10:00:00-04:00').getTime();
+    const saleEnd = new Date('2026-08-02T16:00:00-04:00').getTime();
+
+    function tick() {
+        if (!countdownEl) return;
+        const now = Date.now();
+        if (now >= saleEnd) {
+            countdownEl.textContent = 'This sale weekend has ended — follow us for the next date.';
+            return;
+        }
+        if (now >= saleStart) {
+            countdownEl.textContent = 'We’re open now — come through before 4 PM!';
+            return;
+        }
+        const diff = saleStart - now;
+        const d = Math.floor(diff / 86400000);
+        const h = Math.floor((diff % 86400000) / 3600000);
+        const m = Math.floor((diff % 3600000) / 60000);
+        countdownEl.textContent = d > 0
+            ? `Doors open in ${d}d ${h}h ${m}m`
+            : `Doors open in ${h}h ${m}m`;
+    }
+
+    tick();
+    setInterval(tick, 30000);
+
+    if (!sticky) return;
+    sticky.hidden = false;
+    const hero = document.querySelector('.hero');
+    function onScroll() {
+        const show = window.scrollY > (hero ? hero.offsetHeight * 0.65 : 420);
+        sticky.classList.toggle('is-visible', show);
+        document.body.classList.toggle('has-sticky-sale', show);
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+})();
+
 // Hero entrance
 (function initHeroMotion() {
     const cta = document.querySelector('.hero-cta');
