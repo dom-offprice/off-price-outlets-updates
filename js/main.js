@@ -257,24 +257,47 @@ if (copyrightYear) {
     const saleStart = new Date('2026-08-01T10:00:00-04:00').getTime();
     const saleEnd = new Date('2026-08-02T16:00:00-04:00').getTime();
 
+    function setCountdownMessage(message) {
+        countdownEl.innerHTML = '<span class="hero-countdown-label">' + message + '</span>';
+    }
+
     function tick() {
         if (!countdownEl) return;
         const now = Date.now();
         if (now >= saleEnd) {
-            countdownEl.textContent = 'This sale weekend has ended — follow us for the next date.';
+            setCountdownMessage('This sale weekend has ended — follow us for the next date.');
             return;
         }
         if (now >= saleStart) {
-            countdownEl.textContent = 'We’re open now — come through before 4 PM!';
+            setCountdownMessage('We’re open now — come through before 4 PM!');
             return;
         }
         const diff = saleStart - now;
         const d = Math.floor(diff / 86400000);
         const h = Math.floor((diff % 86400000) / 3600000);
         const m = Math.floor((diff % 3600000) / 60000);
-        countdownEl.textContent = d > 0
-            ? `Doors open in ${d}d ${h}h ${m}m`
-            : `Doors open in ${h}h ${m}m`;
+        const units = d > 0
+            ? [
+                { value: d, label: 'days' },
+                { value: h, label: 'hrs' },
+                { value: m, label: 'min' }
+            ]
+            : [
+                { value: h, label: 'hrs' },
+                { value: m, label: 'min' }
+            ];
+        countdownEl.innerHTML =
+            '<span class="hero-countdown-label">Doors open in</span>' +
+            '<span class="hero-countdown-units">' +
+            units.map(function (unit) {
+                return (
+                    '<span class="hero-countdown-unit">' +
+                    '<strong>' + unit.value + '</strong>' +
+                    '<em>' + unit.label + '</em>' +
+                    '</span>'
+                );
+            }).join('') +
+            '</span>';
     }
 
     tick();
