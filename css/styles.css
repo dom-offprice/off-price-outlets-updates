@@ -2520,6 +2520,89 @@ p {
     z-index: 2;
 }
 
+/* Instagram official embed modal — tiny phone iframes fail, this works */
+.ig-embed-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 2400;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 18px;
+}
+
+.ig-embed-modal.is-open {
+    display: flex;
+}
+
+.ig-embed-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.72);
+}
+
+.ig-embed-card {
+    position: relative;
+    z-index: 1;
+    width: min(420px, 100%);
+    max-height: min(88vh, 860px);
+    overflow: auto;
+    background: #111;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 18px 14px 16px;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+}
+
+.ig-embed-close {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    width: 36px;
+    height: 36px;
+    border: 0;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-size: 1.5rem;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.ig-embed-title {
+    margin: 0 36px 10px 4px;
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    letter-spacing: 0.04em;
+    color: #fff;
+}
+
+.ig-embed-body {
+    min-height: 220px;
+}
+
+.ig-embed-body .instagram-media {
+    margin: 0 auto !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    background: #fff !important;
+}
+
+.ig-embed-loading,
+.ig-embed-fallback {
+    margin: 24px 8px;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.75);
+    font-weight: 600;
+}
+
+.ig-embed-open {
+    display: flex;
+    width: 100%;
+    margin-top: 12px;
+    justify-content: center;
+}
+
 .reel-play {
     position: absolute;
     top: 50%;
