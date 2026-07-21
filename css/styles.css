@@ -3521,10 +3521,6 @@ body.has-sticky-sale {
         font-size: 0.62rem;
     }
 
-    .reel-rail--customers .reel:nth-child(n + 4) {
-        display: none;
-    }
-
     .giveaway-spotlight {
         margin-top: 28px;
         padding: 22px 18px;
