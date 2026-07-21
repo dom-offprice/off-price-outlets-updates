@@ -2013,19 +2013,86 @@ a.sale-address-cta:hover .sale-address-kicker {
     min-height: 520px;
 }
 
+.embed-frame {
+    position: relative;
+    flex: 1 1 auto;
+    min-height: 480px;
+    background: #000;
+    overflow: hidden;
+    overscroll-behavior: contain;
+    touch-action: pan-y;
+}
+
 .embed-card iframe {
     width: 100%;
-    flex: 1 1 auto;
+    height: 100%;
     min-height: 480px;
     border: 0;
     background: #000;
     display: block;
+    pointer-events: none;
+}
+
+.embed-hit {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    text-decoration: none;
+    color: var(--white);
+    background: linear-gradient(180deg, rgba(0,0,0,0.05) 40%, rgba(0,0,0,0.55) 100%);
+}
+
+.embed-hit-play {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: rgba(220, 20, 60, 0.95);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    position: relative;
+}
+
+.embed-hit-play::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 54%;
+    transform: translate(-50%, -50%);
+    border-style: solid;
+    border-width: 12px 0 12px 18px;
+    border-color: transparent transparent transparent #fff;
+}
+
+.embed-hit-label {
+    font-size: 0.92rem;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: rgba(0,0,0,0.55);
+    border: 1px solid rgba(255,255,255,0.2);
+    max-width: 90%;
+    text-align: center;
+}
+
+.embed-hit:hover .embed-hit-play,
+.embed-hit:focus-visible .embed-hit-play {
+    transform: scale(1.06);
+}
+
+.embed-open {
+    display: none;
 }
 
 .embed-card--tiktok {
     min-height: 580px;
 }
 
+.embed-card--tiktok .embed-frame,
 .embed-card--tiktok iframe {
     min-height: 540px;
 }
@@ -2074,9 +2141,13 @@ a.sale-address-cta:hover .sale-address-kicker {
     color: rgba(255, 255, 255, 0.82);
     font-weight: 600;
     line-height: 1.55;
-    margin: 0;
+    margin: 0 0 18px;
     max-width: 46ch;
     text-wrap: pretty;
+}
+
+.giveaway-copy .btn {
+    display: inline-flex;
 }
 
 .embed-card--featured {
@@ -2471,6 +2542,7 @@ a.sale-address-cta:hover .sale-address-kicker {
     min-height: 620px;
 }
 
+.embed-card--feature .embed-frame,
 .embed-card--feature iframe {
     min-height: 560px;
 }
