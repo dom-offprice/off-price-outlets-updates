@@ -247,7 +247,7 @@ p {
     }
 
     .about {
-        padding: 96px 0;
+        padding: 72px 0;
     }
 
     .about-story {
@@ -255,11 +255,11 @@ p {
     }
 
     .gallery {
-        padding: 96px 0;
+        padding: 72px 0;
     }
 
     .gallery-intro {
-        margin-bottom: 48px;
+        margin-bottom: 36px;
     }
 
     .gallery h2,
@@ -272,7 +272,7 @@ p {
     }
 
     .gallery h2 {
-        font-size: clamp(2.6rem, 4vw, 3.4rem);
+        font-size: clamp(2.8rem, 4vw, 3.6rem);
         margin-bottom: 14px;
     }
 
@@ -293,12 +293,12 @@ p {
     }
 
     .testimonials {
-        padding: 96px 0;
+        padding: 72px 0;
     }
 
     .testimonials h2 {
-        font-size: clamp(2.6rem, 4vw, 3.4rem);
-        margin-bottom: 40px;
+        font-size: clamp(2.8rem, 4vw, 3.6rem);
+        margin-bottom: 12px;
     }
 
     .testimonial-card {
@@ -596,7 +596,7 @@ p {
 
 /* About Section */
 .about {
-    padding: 80px 0;
+    padding: 56px 0 64px;
     background-color: var(--white);
 }
 
@@ -616,13 +616,18 @@ p {
 .about-kicker,
 .gallery-kicker,
 .testimonials-kicker,
-.location-kicker {
-    font-size: 0.72rem;
+.location-kicker,
+.social-proof-kicker,
+.faq-kicker,
+.giveaway-kicker,
+.sale-deals-kicker,
+.visit-panel-kicker {
+    font-size: clamp(0.95rem, 3.2vw, 1.05rem);
     font-weight: 800;
-    letter-spacing: 0.28em;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--primary-red);
-    margin: 0 0 12px;
+    margin: 0 0 10px;
 }
 
 .about-story-copy h2 {
@@ -851,7 +856,7 @@ p {
 }
 
 .sale-deals-wrap {
-    padding: 48px 20px 56px;
+    padding: 40px 20px 44px;
     background:
         radial-gradient(ellipse 70% 55% at 50% 0%, rgba(220, 20, 60, 0.07), transparent 70%),
         var(--white);
@@ -864,33 +869,23 @@ p {
     text-align: center;
 }
 
-.sale-deals-kicker {
-    font-family: var(--font-body);
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.32em;
-    text-transform: uppercase;
-    color: var(--primary-red);
-    margin: 0 0 12px;
-}
-
 .sale-deals-title {
     font-family: var(--font-display);
-    font-size: clamp(2.1rem, 6vw, 3.4rem);
+    font-size: clamp(2.4rem, 7vw, 3.5rem);
     font-weight: 400;
     letter-spacing: 0.04em;
     line-height: 0.98;
     color: var(--black);
-    margin: 0 0 14px;
+    margin: 0 0 12px;
 }
 
 .sale-deals-lead {
-    font-size: clamp(1.02rem, 2.5vw, 1.15rem);
+    font-size: clamp(1.05rem, 3vw, 1.18rem);
     font-weight: 600;
     color: var(--gray-medium);
-    line-height: 1.55;
-    max-width: 640px;
-    margin: 0 auto 36px;
+    line-height: 1.5;
+    max-width: 40ch;
+    margin: 0 auto 28px;
     text-wrap: pretty;
 }
 
@@ -910,7 +905,7 @@ p {
 
 .sale-deals-group-title {
     font-family: var(--font-display);
-    font-size: 1.7rem;
+    font-size: clamp(1.7rem, 5vw, 1.9rem);
     font-weight: 400;
     letter-spacing: 0.08em;
     color: var(--primary-red);
@@ -945,14 +940,14 @@ p {
 .sale-deals-label {
     font-weight: 700;
     color: var(--black);
-    font-size: 1rem;
+    font-size: clamp(1.05rem, 3.2vw, 1.12rem);
     line-height: 1.35;
     text-align: left;
 }
 
 .sale-deals-price {
     font-family: var(--font-display);
-    font-size: 1.55rem;
+    font-size: clamp(1.55rem, 5vw, 1.7rem);
     letter-spacing: 0.03em;
     color: var(--primary-red);
     white-space: nowrap;
@@ -979,7 +974,7 @@ p {
 }
 
 .visit-panel {
-    padding: 28px 16px 72px;
+    padding: 20px 16px 48px;
     background:
         radial-gradient(ellipse 70% 50% at 50% 0%, rgba(220, 20, 60, 0.06), transparent 60%),
         var(--gray-light);
@@ -987,7 +982,7 @@ p {
 
 .visit-panel-card {
     display: grid;
-    grid-template-columns: minmax(260px, 360px) 1fr;
+    grid-template-columns: minmax(280px, 400px) 1fr;
     gap: 0;
     max-width: 1100px;
     margin: 0 auto;
@@ -999,26 +994,21 @@ p {
 }
 
 .visit-panel-copy {
-    padding: 32px 28px 28px;
+    padding: 36px 30px 32px;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
 .visit-panel-kicker {
-    margin: 0 0 10px;
-    font-size: 0.72rem;
-    font-weight: 800;
-    letter-spacing: 0.28em;
-    text-transform: uppercase;
-    color: var(--primary-red);
+    font-size: clamp(1rem, 3.4vw, 1.1rem);
 }
 
 .visit-panel-title {
     margin: 0;
     font-family: var(--font-display);
     font-weight: 400;
-    font-size: clamp(2rem, 4vw, 2.7rem);
+    font-size: clamp(2.75rem, 9vw, 3.4rem);
     letter-spacing: 0.04em;
     line-height: 0.95;
     color: var(--black);
@@ -1026,14 +1016,16 @@ p {
 
 .visit-panel-city,
 .visit-panel-hours {
-    margin: 10px 0 0;
+    margin: 12px 0 0;
     font-weight: 600;
+    font-size: clamp(1.05rem, 3.2vw, 1.15rem);
     color: var(--gray-dark);
     line-height: 1.45;
 }
 
 .visit-panel-hours {
     color: var(--black);
+    font-size: clamp(1.08rem, 3.4vw, 1.2rem);
 }
 
 .visit-panel-rating {
@@ -1041,18 +1033,19 @@ p {
     flex-wrap: wrap;
     align-items: center;
     gap: 8px 12px;
-    margin-top: 16px;
+    margin-top: 18px;
 }
 
 .visit-panel-stars {
     color: var(--primary-red);
     letter-spacing: 0.08em;
+    font-size: 1.15rem;
 }
 
 .visit-panel-rating a {
     font-weight: 800;
     color: var(--primary-red);
-    font-size: 0.95rem;
+    font-size: clamp(1rem, 3vw, 1.08rem);
 }
 
 .visit-panel-rating a:hover {
@@ -1328,21 +1321,26 @@ p {
 
 /* Gallery Section */
 .gallery {
-    padding: 80px 0;
+    padding: 56px 0 64px;
     background-color: var(--white);
 }
 
 .gallery-intro {
     text-align: center;
     max-width: 720px;
-    margin: 0 auto 48px;
+    margin: 0 auto 28px;
 }
 
 .gallery h2 {
+    font-family: var(--font-display);
+    font-weight: 400;
     text-align: center;
-    letter-spacing: -0.03em;
+    letter-spacing: 0.04em;
+    font-size: clamp(2.6rem, 10vw, 3.8rem);
+    line-height: 0.95;
     max-width: none;
-    margin: 0 auto 18px;
+    margin: 0 auto 12px;
+    color: var(--black);
 }
 
 .gallery-intro .gallery-kicker {
@@ -1350,12 +1348,12 @@ p {
 }
 
 .gallery-note {
-    font-size: clamp(1.02rem, 2.4vw, 1.12rem);
+    font-size: clamp(1.08rem, 3.4vw, 1.2rem);
     font-weight: 600;
     color: var(--gray-medium);
-    line-height: 1.6;
+    line-height: 1.5;
     margin: 0 auto;
-    max-width: 42ch;
+    max-width: 38ch;
     text-wrap: pretty;
 }
 
@@ -1400,7 +1398,7 @@ p {
 
 /* Testimonials Section */
 .testimonials {
-    padding: 80px 0;
+    padding: 56px 0 64px;
     background-color: var(--gray-light);
     overflow: hidden;
 }
@@ -1412,7 +1410,7 @@ p {
 .testimonials-intro {
     text-align: center;
     max-width: 560px;
-    margin: 0 auto 36px;
+    margin: 0 auto 28px;
 }
 
 .testimonials-kicker {
@@ -1425,12 +1423,17 @@ p {
     font-family: var(--font-display);
     font-weight: 400;
     letter-spacing: 0.04em;
+    font-size: clamp(2.6rem, 10vw, 3.8rem);
+    line-height: 0.95;
+    color: var(--black);
 }
 
 .testimonials-lead {
     margin: 0;
     font-weight: 600;
+    font-size: clamp(1.08rem, 3.4vw, 1.2rem);
     color: var(--gray-medium);
+    line-height: 1.45;
 }
 
 .testimonials-featured {
@@ -1469,8 +1472,8 @@ p {
 
 .review-card-text {
     margin: 0;
-    font-size: 1.05rem;
-    line-height: 1.65;
+    font-size: clamp(1.12rem, 3.6vw, 1.22rem);
+    line-height: 1.55;
     font-weight: 600;
     color: #333;
     text-wrap: pretty;
@@ -1478,13 +1481,14 @@ p {
 }
 
 .review-card--feature .review-card-text {
-    font-size: 1.2rem;
+    font-size: clamp(1.22rem, 4vw, 1.4rem);
     max-width: 52ch;
 }
 
 .review-card-author {
     margin: 16px 0 0;
     font-weight: 800;
+    font-size: 1.05rem;
     color: var(--primary-red);
 }
 
@@ -1495,6 +1499,7 @@ p {
 
 .testimonials-maps-link a {
     font-weight: 800;
+    font-size: clamp(1.05rem, 3.2vw, 1.15rem);
     color: var(--primary-red);
 }
 
@@ -1591,8 +1596,9 @@ p {
 
 .testimonial-text {
     flex: 1 1 auto;
-    font-size: 1.0625rem;
-    line-height: 1.78;
+    font-size: clamp(1.1rem, 3.2vw, 1.18rem);
+    line-height: 1.65;
+    font-weight: 600;
     color: #3d3d3d;
     margin-bottom: 0;
     position: relative;
@@ -1602,8 +1608,8 @@ p {
 
 .testimonial-author {
     flex-shrink: 0;
-    font-weight: 700;
-    font-size: 15px;
+    font-weight: 800;
+    font-size: 1rem;
     color: var(--primary-red);
     text-align: right;
     margin-bottom: 0;
@@ -2074,11 +2080,16 @@ p {
     }
     
     section {
-        padding: 60px 0 100px;
+        padding: 48px 0 56px;
     }
-    
-    .about {
-        padding-top: 72px;
+
+    .about,
+    .gallery,
+    .testimonials,
+    .faq-section,
+    .social-proof {
+        padding-top: 48px;
+        padding-bottom: 56px;
     }
     
     body {
@@ -2135,10 +2146,6 @@ p {
         max-width: 260px;
     }
     
-    h2 {
-        font-size: 28px;
-    }
-    
     .value-prop,
     .sale-info,
     .social-cta {
@@ -2149,6 +2156,15 @@ p {
         padding: 24px;
         width: min(300px, 82vw);
     }
+
+    .visit-panel-copy {
+        padding: 28px 22px 26px;
+    }
+
+    .visit-panel-actions .btn {
+        font-size: 0.95rem;
+        padding: 12px 18px;
+    }
     
     .about-focus {
         margin-top: 32px;
@@ -2156,7 +2172,11 @@ p {
     }
     
     section {
-        padding-bottom: 120px;
+        padding-bottom: 56px;
+    }
+
+    h2 {
+        font-size: clamp(2.4rem, 11vw, 3rem);
     }
     
     body {
@@ -2166,7 +2186,7 @@ p {
 
 /* ========== Social Proof ========== */
 .social-proof {
-    padding: 72px 0 84px;
+    padding: 56px 0 68px;
     background:
         radial-gradient(ellipse 80% 45% at 20% 10%, rgba(220, 20, 60, 0.16), transparent 50%),
         radial-gradient(ellipse 70% 40% at 90% 30%, rgba(255, 255, 255, 0.04), transparent 45%),
@@ -2178,32 +2198,36 @@ p {
 .social-proof-intro {
     text-align: center;
     max-width: 720px;
-    margin: 0 auto 40px;
+    margin: 0 auto 28px;
 }
 
-.social-proof-kicker,
-.faq-kicker,
+.social-proof .social-proof-kicker,
+.faq-section .faq-kicker,
 .giveaway-kicker {
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.32em;
-    text-transform: uppercase;
     color: #ff6b84;
-    margin: 0 0 12px;
 }
 
 .social-proof h2,
 .faq-section h2 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: clamp(2.6rem, 9vw, 3.6rem);
+    line-height: 0.95;
     color: var(--white);
     margin-bottom: 12px;
-    letter-spacing: -0.02em;
+    letter-spacing: 0.04em;
+}
+
+.faq-section h2 {
+    color: var(--black);
 }
 
 .social-proof-lead,
 .social-proof-note {
     color: rgba(255, 255, 255, 0.78);
     font-weight: 600;
-    line-height: 1.55;
+    font-size: clamp(1.05rem, 3.2vw, 1.15rem);
+    line-height: 1.5;
     margin: 0 auto;
     max-width: 560px;
     text-wrap: pretty;
@@ -2510,7 +2534,7 @@ p {
 
 /* FAQ */
 .faq-section {
-    padding: 72px 0;
+    padding: 56px 0 64px;
     background: var(--gray-light);
 }
 
@@ -2606,7 +2630,7 @@ body.nav-open {
 .faq-item summary {
     cursor: pointer;
     font-weight: 800;
-    font-size: 1.05rem;
+    font-size: clamp(1.08rem, 3.2vw, 1.18rem);
     padding: 16px 0;
     list-style: none;
     color: var(--black);
@@ -2633,7 +2657,8 @@ body.nav-open {
     margin: 0 0 16px;
     color: var(--gray-medium);
     font-weight: 600;
-    line-height: 1.6;
+    font-size: clamp(1.02rem, 3vw, 1.1rem);
+    line-height: 1.55;
     text-wrap: pretty;
 }
 
@@ -3048,7 +3073,7 @@ body.nav-open {
     background: var(--white);
     border-top: 1px solid rgba(0,0,0,0.06);
     border-bottom: 1px solid rgba(0,0,0,0.06);
-    padding: 22px 16px;
+    padding: 24px 16px;
 }
 
 .proof-strip-inner {
@@ -3064,18 +3089,21 @@ body.nav-open {
     margin: 0;
     color: var(--primary-red);
     letter-spacing: 0.12em;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
 }
 
 .proof-strip-quote {
     margin: 0;
     font-weight: 700;
     color: var(--black);
-    font-size: 1.05rem;
+    font-size: clamp(1.08rem, 3.4vw, 1.2rem);
+    max-width: 42ch;
+    text-wrap: pretty;
 }
 
 .proof-strip-link {
     font-weight: 800;
+    font-size: clamp(1rem, 3vw, 1.08rem);
     color: var(--primary-red);
 }
 
@@ -3457,11 +3485,11 @@ body.has-sticky-sale {
 
     /* Social reels — gallery of phones, not a lonely mobile strip */
     .social-proof {
-        padding: 88px 0 100px;
+        padding: 72px 0 80px;
     }
 
     .social-proof-intro {
-        margin-bottom: 48px;
+        margin-bottom: 36px;
     }
 
     .social-proof h2 {
