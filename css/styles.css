@@ -4343,9 +4343,30 @@ body.has-sticky-sale {
     font-weight: 600;
     color: #3a3a3a;
     line-height: 1.55;
-    max-width: 48ch;
+    max-width: 54ch;
     margin: 0 auto 32px;
     text-wrap: pretty;
+}
+
+/* Desktop: first sentence / second sentence (no weak widow). Mobile: three balanced lines. */
+.whats-next-lead-br {
+    display: block;
+}
+
+.whats-next-lead-br--mobile {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .whats-next-lead {
+        max-width: 62ch;
+    }
+}
+
+@media (max-width: 767px) {
+    .whats-next-lead-br--mobile {
+        display: block;
+    }
 }
 
 .whats-next-steps {
