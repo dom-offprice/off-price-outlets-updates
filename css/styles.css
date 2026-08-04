@@ -4317,6 +4317,25 @@ body.has-sticky-sale {
     line-height: 0.98;
     color: var(--black);
     margin: 0 0 16px;
+    text-wrap: balance;
+}
+
+/* Desktop: one line. Mobile: break before “August sale” (never orphan “sale”). */
+.whats-next-title-br {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .whats-next-title {
+        white-space: nowrap;
+        font-size: clamp(2.4rem, 4.2vw, 3.4rem);
+    }
+}
+
+@media (max-width: 767px) {
+    .whats-next-title-br {
+        display: block;
+    }
 }
 
 .whats-next-lead {
