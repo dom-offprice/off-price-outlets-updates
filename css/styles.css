@@ -1534,9 +1534,10 @@ p {
     }
 }
 
+/* Desktop: featured review + balanced 2×2. Mobile: horizontal snap scroll. */
 .testimonials-featured {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 16px;
     margin-bottom: 28px;
 }
@@ -1550,6 +1551,7 @@ p {
     display: flex;
     flex-direction: column;
     min-height: 100%;
+    min-width: 0;
 }
 
 .review-card--feature {
@@ -1605,19 +1607,39 @@ p {
     text-decoration: underline;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 767px) {
     .testimonials-featured {
-        grid-template-columns: 1fr 1fr;
+        display: flex;
+        gap: 12px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-snap-type: x mandatory;
+        scroll-padding-inline: 16px;
+        padding: 4px 16px 14px;
+        margin-inline: -16px;
+        margin-bottom: 20px;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+
+    .testimonials-featured::-webkit-scrollbar {
+        display: none;
+    }
+
+    .review-card {
+        flex: 0 0 min(82vw, 300px);
+        scroll-snap-align: start;
+        min-height: 0;
     }
 
     .review-card--feature {
-        grid-column: 1 / -1;
+        grid-column: auto;
+        padding: 22px 22px 20px;
     }
-}
 
-@media (max-width: 640px) {
-    .testimonials-featured {
-        grid-template-columns: 1fr;
+    .review-card--feature .review-card-text {
+        font-size: clamp(1.12rem, 3.6vw, 1.22rem);
+        max-width: none;
     }
 }
 
