@@ -301,6 +301,43 @@ if (copyrightYear) {
     onScroll();
 })();
 
+// Auto-scrolling five-star reviews rail
+(function initTestimonialsCarousel() {
+    const track = document.getElementById('testimonials-track');
+    const carousel = track && track.closest('.testimonials-carousel');
+    if (!track || !carousel) return;
+
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) return;
+
+    Array.from(track.children).forEach(function (card) {
+        const clone = card.cloneNode(true);
+        clone.setAttribute('aria-hidden', 'true');
+        track.appendChild(clone);
+    });
+
+    function updateDuration() {
+        const shiftWidth = track.scrollWidth / 2;
+        // Comfortable reading pace for ~26 cards (~one card every ~6s on desktop)
+        const pixelsPerSecond = 48;
+        const duration = Math.max(70, shiftWidth / pixelsPerSecond);
+        track.style.setProperty('--testimonials-duration', duration + 's');
+    }
+
+    updateDuration();
+    window.addEventListener('resize', updateDuration);
+
+    carousel.addEventListener('pointerdown', function () {
+        carousel.classList.add('is-paused');
+    });
+    window.addEventListener('pointerup', function () {
+        carousel.classList.remove('is-paused');
+    });
+    carousel.addEventListener('pointerleave', function () {
+        carousel.classList.remove('is-paused');
+    });
+})();
+
 // Hero entrance
 (function initHeroMotion() {
     const cta = document.querySelector('.hero-cta');
