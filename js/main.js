@@ -286,19 +286,9 @@ if (copyrightYear) {
 }
 
 
-// Post-sale status message + sticky follow bar
+// Sticky follow bar (post-sale)
 (function initSaleUrgency() {
-    const countdownEl = document.getElementById('sale-countdown');
     const sticky = document.getElementById('sticky-sale-bar');
-
-    if (countdownEl) {
-        countdownEl.classList.add('is-message');
-        countdownEl.setAttribute('role', 'status');
-        countdownEl.innerHTML =
-            '<span class="hero-countdown-label">Next August sale coming soon — stay tuned.</span>' +
-            '<span class="visually-hidden" id="sale-countdown-live" aria-live="polite">Next August sale coming soon. Follow us for the date.</span>';
-    }
-
     if (!sticky) return;
     sticky.hidden = false;
     const hero = document.querySelector('.hero');
