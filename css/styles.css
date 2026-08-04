@@ -1518,6 +1518,22 @@ p {
     line-height: 1.45;
 }
 
+.testimonials-lead-br {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .testimonials-lead {
+        white-space: nowrap;
+    }
+}
+
+@media (max-width: 767px) {
+    .testimonials-lead-br {
+        display: block;
+    }
+}
+
 .testimonials-featured {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
