@@ -16,10 +16,10 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
       <div className="relative max-w-7xl mx-auto py-24 px-4 sm:py-32 sm:px-6 lg:px-8 text-center">
         <div className="bg-black/40 backdrop-blur-sm rounded-2xl p-4 sm:p-8 max-w-5xl mx-auto">
           <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold tracking-tight text-white" style={{ WebkitFontSmoothing: 'antialiased', MozOsxFontSmoothing: 'grayscale', textRendering: 'optimizeLegibility' }}>
-            Brand name clothing. Wholesale prices.
+            Thank you
           </h1>
           <p className="mt-6 text-lg sm:text-2xl font-semibold text-white/95">
-            Next sale: Saturday & Sunday, June 13–14, 2026 · 10 AM – 4 PM · North Haven
+            Aug 22–23 sale complete — restocking now. Next sale dates coming soon.
           </p>
         </div>
         <div className="mt-10 max-w-sm mx-auto sm:max-w-none sm:flex sm:justify-center">
@@ -29,7 +29,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
               rel="noopener noreferrer"
               className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 border border-transparent text-base font-semibold rounded-md shadow-sm text-brand-dark bg-white hover:bg-gray-100 transition-transform transform hover:scale-105"
             >
-              Get Directions
+              Save our address
             </a>
         </div>
       </div>

@@ -13,7 +13,7 @@ const UpcomingSale: React.FC = () => {
       <div className="bg-brand-red text-white py-4 sm:py-5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-xl sm:text-2xl font-bold">
-            Next warehouse sale: Saturday &amp; Sunday, June 13–14, 2026 · 10 AM – 4 PM · 110 Republic Drive, North Haven (left end unit)
+            Thank you to everyone who came out! Our Aug 22–23 sale is complete — we&apos;re restocking and will announce our next sale soon. Follow us on social and check this website for dates.
           </p>
         </div>
       </div>
@@ -27,7 +27,7 @@ const UpcomingSale: React.FC = () => {
             className="w-full bg-white rounded-lg shadow-lg p-6 sm:p-8 border border-gray-200 text-center hover:shadow-xl hover:border-gray-300 transition-all cursor-pointer focus:outline-none focus:ring-2 focus:ring-brand-red focus:ring-offset-2"
           >
             <p className="text-gray-900 text-lg sm:text-xl font-semibold">
-              Follow us for reminders &amp; behind-the-scenes
+              Follow for the next sale announcement
             </p>
           </button>
         </div>
