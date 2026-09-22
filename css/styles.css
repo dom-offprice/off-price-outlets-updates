@@ -1825,7 +1825,7 @@ p {
 
 .footer-content {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 36px;
     margin-bottom: 16px;
 }
@@ -2929,6 +2929,128 @@ p {
     margin-top: 2px;
     padding: 11px 18px;
     font-size: 0.88rem;
+}
+
+.footer-follow-band {
+    padding: 28px 0 8px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 8px;
+}
+
+.footer-follow-band-title {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--white);
+    margin: 0 0 6px;
+    text-align: center;
+}
+
+.footer-follow-band-note {
+    text-align: center;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.55);
+    margin: 0 0 22px;
+}
+
+.footer-follow-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+@media (min-width: 640px) {
+    .footer-follow-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 28px;
+    }
+}
+
+.footer-follow-block {
+    padding: 18px 16px 14px;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footer-follow-region {
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #ff6b84;
+    margin: 0 0 12px;
+}
+
+.social-modal-region {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--primary-red);
+    margin: 18px 0 10px;
+    padding: 0 4px;
+}
+
+.social-modal-region:first-of-type {
+    margin-top: 4px;
+}
+
+.social-modal-list--compact {
+    margin-bottom: 4px;
+}
+
+.store-card-social {
+    margin-bottom: 20px;
+    padding-top: 4px;
+}
+
+.store-card-social-label {
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #888;
+    margin: 0 0 10px;
+}
+
+.store-card-social-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.store-card-social-links a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--black);
+}
+
+.store-card-social-links a:hover {
+    color: var(--primary-red);
+}
+
+.store-card-social-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    background: rgba(220, 20, 60, 0.08);
+    color: var(--primary-red);
+    flex-shrink: 0;
 }
 
 .nav-follow-btn {
