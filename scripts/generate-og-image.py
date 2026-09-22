@@ -67,10 +67,11 @@ def main() -> None:
     blocks: list[tuple[str, object, int, int]] = []
     blocks.append(("Brand names.", f_hero, 4, hero_size + 6))
     blocks.append(("Warehouse prices.", f_hero, 4, hero_size + 24))
-    blocks.append(("Connecticut & Florida", f_loc, 3, th(f_loc) + 14))
-    blocks.append(("North Haven, CT  ·  Jacksonville, FL", f_cities, 2, th(f_cities) + 12))
-    blocks.append(("Footwear  ·  Clothing  ·  Accessories", f_cat, 2, th(f_cat) + 18))
-    blocks.append((cta, f_cta, 3, th(f_cta) + 28))
+    GAP_AFTER_LOC = 40
+    blocks.append(("Connecticut & Florida", f_loc, 3, th(f_loc) + GAP_AFTER_LOC))
+    blocks.append(("North Haven, CT  ·  Jacksonville, FL", f_cities, 2, th(f_cities) + 16))
+    blocks.append(("Footwear  ·  Clothing  ·  Accessories", f_cat, 2, th(f_cat) + 22))
+    blocks.append((cta, f_cta, 3, th(f_cta) + 36))
 
     max_text_x = x + logo_w
     for text, font, _shadow, advance in blocks:
