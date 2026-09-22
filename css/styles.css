@@ -4435,7 +4435,7 @@ body.has-sticky-sale {
 }
 
 .store-locations-wrap {
-    padding: 56px 20px 40px;
+    padding: 56px 20px 64px;
     background:
         radial-gradient(ellipse 70% 50% at 50% 0%, rgba(220, 20, 60, 0.08), transparent 68%),
         linear-gradient(180deg, #fff 0%, #faf7f8 100%);
@@ -4497,11 +4497,12 @@ body.has-sticky-sale {
     display: flex;
     flex-direction: column;
     text-align: left;
-    padding: 28px 24px 26px;
+    padding: 28px 24px 0;
     border-radius: 18px;
     background: var(--white);
     border: 1px solid rgba(0, 0, 0, 0.08);
     box-shadow: 0 12px 36px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
 }
 
 .store-card--featured {
@@ -4569,6 +4570,20 @@ body.has-sticky-sale {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
+    margin-bottom: 22px;
+}
+
+.store-card-map {
+    margin: 0 -24px;
+    height: 200px;
+    background: #e9ecef;
+}
+
+.store-card-map iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0;
 }
 
 .store-card-secondary {
