@@ -286,7 +286,7 @@ if (copyrightYear) {
 }
 
 
-// Sticky follow bar (post-sale)
+// Sticky FL grand-opening bar (directions)
 (function initSaleUrgency() {
     const sticky = document.getElementById('sticky-sale-bar');
     if (!sticky) return;
