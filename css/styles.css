@@ -2456,6 +2456,131 @@ p {
     color: #ffb4c4;
 }
 
+.social-block-title--dual {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 6px 10px;
+    line-height: 1.1;
+}
+
+.social-block-handle {
+    color: var(--white);
+}
+
+.social-block-handle:hover {
+    color: #ffb4c4;
+}
+
+.social-block-title-sep {
+    color: rgba(255, 255, 255, 0.35);
+    font-family: var(--font-body);
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.social-block-ig-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+}
+
+.social-block-ig-btn {
+    padding: 10px 16px;
+    font-size: 0.82rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.social-block-ig-btn--secondary {
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--white);
+    border: 2px solid rgba(255, 255, 255, 0.45);
+}
+
+.social-block-ig-btn--secondary:hover {
+    background: rgba(255, 255, 255, 0.14);
+    border-color: var(--white);
+    color: var(--white);
+}
+
+.ig-region-label {
+    margin: 18px 0 8px;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.45);
+}
+
+.ig-region-label:first-of-type {
+    margin-top: 4px;
+}
+
+.ig-fl-strip {
+    margin-top: 8px;
+    padding-top: 4px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.ig-fl-card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 18px;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 107, 132, 0.35);
+    color: var(--white);
+    transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.ig-fl-card:hover {
+    background: rgba(255, 107, 132, 0.12);
+    border-color: rgba(255, 107, 132, 0.55);
+}
+
+.ig-fl-card-icon {
+    display: inline-flex;
+    flex-shrink: 0;
+    color: #ff6b84;
+}
+
+.ig-fl-card-copy {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 1;
+    min-width: 0;
+}
+
+.ig-fl-card-title {
+    font-weight: 800;
+    font-size: 0.98rem;
+}
+
+.ig-fl-card-meta {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.72);
+    line-height: 1.35;
+}
+
+.ig-fl-card-cta {
+    flex-shrink: 0;
+    font-size: 0.88rem;
+    font-weight: 800;
+    color: #ff6b84;
+    white-space: nowrap;
+}
+
+.ig-fl-card:hover .ig-fl-card-cta {
+    color: #ffb4c4;
+}
+
 .ig-swipe {
     display: grid;
     grid-auto-flow: column;
