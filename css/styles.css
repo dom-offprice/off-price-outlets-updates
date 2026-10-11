@@ -4687,9 +4687,55 @@ body.has-sticky-sale {
     color: var(--white);
 }
 
+.hero--brand .hero-status-rail {
+    max-width: 480px;
+}
+
 .hero--brand .hero-status-rail strong {
     font-size: clamp(0.95rem, 3.2vw, 1.2rem);
     letter-spacing: 0.02em;
+}
+
+.next-sale-banner {
+    max-width: 960px;
+    margin: 0 auto 22px;
+    padding: 22px 22px 20px;
+    border-radius: 18px;
+    text-align: center;
+    color: var(--white);
+    background: linear-gradient(165deg, #ef274d 0%, var(--primary-red) 48%, var(--primary-red-dark) 100%);
+    box-shadow: 0 16px 40px rgba(220, 20, 60, 0.18);
+}
+
+.next-sale-banner-thanks {
+    margin: 0 0 12px;
+    font-size: clamp(0.98rem, 2.4vw, 1.08rem);
+    font-weight: 700;
+    line-height: 1.45;
+}
+
+.next-sale-banner-kicker {
+    margin: 0 0 4px;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+}
+
+.next-sale-banner-date {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: clamp(2.6rem, 8vw, 4rem);
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    line-height: 0.95;
+}
+
+.next-sale-banner-detail {
+    margin: 10px 0 0;
+    font-size: clamp(1rem, 2.6vw, 1.12rem);
+    font-weight: 700;
+    line-height: 1.45;
 }
 
 .store-locations-wrap {
@@ -4798,6 +4844,7 @@ body.has-sticky-sale {
     font-size: 0.88rem;
     font-weight: 800;
     letter-spacing: 0.02em;
+    line-height: 1.35;
     color: var(--white);
     background: var(--primary-red);
 }
