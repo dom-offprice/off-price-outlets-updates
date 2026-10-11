@@ -2526,6 +2526,10 @@ p {
     border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
+.ig-fl-strip .ig-fl-card {
+    margin-top: 12px;
+}
+
 .ig-fl-card {
     display: flex;
     align-items: center;
