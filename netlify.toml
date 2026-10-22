@@ -2,3 +2,16 @@
 [build]
   publish = "."
   command = "npm run build"
+
+# Owner dashboard (Netlify project "offprice-admin") served at offpriceoutlets.com/admin
+[[redirects]]
+  from = "/admin"
+  to = "https://offprice-admin.netlify.app/admin"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/admin/*"
+  to = "https://offprice-admin.netlify.app/admin/:splat"
+  status = 200
+  force = true
