@@ -3499,7 +3499,7 @@ body.nav-open {
     font-size: clamp(1.02rem, 3.4vw, 1.22rem);
     font-weight: 700;
     color: rgba(255, 255, 255, 0.94);
-    max-width: 32ch;
+    max-width: 46ch;
     line-height: 1.35;
     text-shadow: 0 2px 14px rgba(0, 0, 0, 0.55);
 }
